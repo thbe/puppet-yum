@@ -1,0 +1,8 @@
+[custom]
+name=Custom Packages for Enterprise Linux $releasever - $basearch
+baseurl=http://mrepo.int.cimt.de/linux/sl5-$basearch/RPMS.custom/
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cimt file:///etc/pki/rpm-gpg/RPM-GPG-KEY-thbe
+priority=11

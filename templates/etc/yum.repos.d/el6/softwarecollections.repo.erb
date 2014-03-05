@@ -1,0 +1,19 @@
+### softwarecollections.repo
+#
+# softwarecollections repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
+[softwarecollections]
+Name=Scientific Linux Software Collections - $basearch
+<%= @el6Softwarecollections %>
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6
+
+[softwarecollections-source]
+Name=Scientific Linux Software Collections - source
+<%= @el6SoftwarecollectionsSource %>
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6

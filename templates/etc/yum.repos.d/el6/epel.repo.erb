@@ -1,0 +1,32 @@
+### epel.repo
+#
+# EPEL repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
+[epel]
+name=Extra Packages for Enterprise Linux $releasever - $basearch
+<%= @el6Epel %>
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+priority=15
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
+<%= @el6EpelDebuginfo %>
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+gpgcheck=1
+priority=15
+
+[epel-source]
+name=Extra Packages for Enterprise Linux $releasever - $basearch - Source
+<%= @el6EpelSource %>
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+gpgcheck=1
+priority=15

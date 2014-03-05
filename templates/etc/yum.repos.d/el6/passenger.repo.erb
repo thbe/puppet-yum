@@ -1,0 +1,19 @@
+### passenger.repo
+#
+# Passenger repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
+[passenger]
+name = Red Hat Enterprise $releasever - Phusion Passenger
+<%= @el6Passenger %>
+enabled = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-passenger
+gpgcheck = 1
+
+[passenger-testing]
+name = Red Hat Enterprise $releasever - Phusion Passenger - TEST
+<%= @el6PassengerTesting %>
+enabled = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-passenger
+gpgcheck = 0

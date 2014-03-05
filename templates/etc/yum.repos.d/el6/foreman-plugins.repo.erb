@@ -1,0 +1,19 @@
+### foreman-plugins.repo
+#
+# Foreman plugins repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
+[foreman-plugins]
+name=Foreman plugins 1.4
+<%= @el6ForemanPlugins %>
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+
+[foreman-plugins-source]
+name=Foreman plugins 1.4 - source
+<%= @el6ForemanPluginsSource %>
+enabled=0
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman

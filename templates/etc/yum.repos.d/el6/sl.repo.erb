@@ -1,0 +1,27 @@
+### sl6.repo
+#
+# SL6 repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
+[sl]
+name=Scientific Linux $releasever - $basearch
+<%= @el6Sl %>
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
+
+[sl-security]
+name=Scientific Linux $releasever - $basearch - security updates
+<%= @el6SlSecurity %>
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
+
+
+[sl-source]
+name=Scientific Linux $releasever - Source
+<%= @el6SlSource %>
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
