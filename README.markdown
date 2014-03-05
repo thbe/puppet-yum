@@ -16,15 +16,11 @@
 
 ##Overview
 
-The yum module provides the installation procedure for SSMTP including the setup of
-the alternate system if not overwritten by class parameter.
+The yum module provides several repositories available for RPM based systems.
 
 ##Module Description
 
-The SSMTP module prelace the standard mail server configuration with a light
-wight sending only server. The behavior is the same as sendmail but without
-the possibility to recieve mails from external systems.
-
+The yum module provides several repositories available for RPM based systems.
 
 ##Setup
 
@@ -32,17 +28,18 @@ the possibility to recieve mails from external systems.
 
 * yum package.
 * yum configuration file.
-* yum alternative service configuration.
+* yum repository configuration.
 
 ###Beginning with yum
 
 include '::yum' is enough to get you up and running if the parameters point to
-proper values.  If you wish to pass in parameters like which servers to use then you
-can use:
+proper values.  If you wish to pass in parameters like which repositories to use
+then you can use:
 
 ```puppet
 class { '::yum':
-  mailHub => 'mail.example.local',
+  repoSl   => true,
+  repoEpel => true,
 }
 ```
 
@@ -52,18 +49,18 @@ All interaction with the yum module can do be done through the main yum class.
 This means you can simply toggle the options in the yum class to get at the full
 functionality.
 
-###I just want SSMTP, what's the minimum I need?
+###I just want yum, what's the minimum I need?
 
 ```puppet
 include '::yum'
 ```
 
-###I just want to route all mails to central mail gateway, nothing else.
+###I just want to add SL, SLx and EPEL
 
 ```puppet
 class { '::yum':
-  mailHub => 'mail.example.local',
-  rootEmail => 'john.doe@example.local',
+  repoSl   => true,
+  repoEpel => true,
 }
 ```
 
@@ -75,28 +72,71 @@ class { '::yum':
 * yum: Main class, includes all the rest.
 * yum::install: Handles the packages.
 * yum::config: Handles the configuration file.
-* yum::service: Handles the alternative service link.
 
 ###Parameters
 
 The following parameters are available in the yum module
 
-####`defaultMta`
+####`repoSL`
 
-Replace the default MTA with yum if set to yum.
+Enable SL and SLx repository.
 
-####`rootEmail`
+####`repoSoftwarecollections`
 
-Specify which Email address should recieve all mails from root.
+Enable Software Collections repository.
 
-####`mailHub`
+####`repoEpel`
 
-Define the mail server which should deliver all mails.
+Enable EPEL repository.
 
-####`revaliases`
+####`repoPuppetlabs`
 
-Array to define the reverse aliases.
+Enable Puppetlabs repository.
 
+####`repoForeman`
+
+Enable Foreman repository.
+
+####`repoPassenger`
+
+Enable Passenger repository.
+
+####`repoCustom`
+
+Enable custom repository.
+
+####`Additional parameters`
+```puppet
+$el5Sl                        = $yum::params::el5Sl,
+$el5Custom                    = $yum::params::el5Custom,
+$el6Sl                        = $yum::params::el6Sl,
+$el6SlSecurity                = $yum::params::el6SlSecurity,
+$el6SlSource                  = $yum::params::el6SlSource,
+$el6xSl                       = $yum::params::el6xSl,
+$el6xSlSecurity               = $yum::params::el6xSlSecurity,
+$el6xSlFastbugs               = $yum::params::el6xSlFastbugs,
+$el6Softwarecollections       = $yum::params::el6Softwarecollections,
+$el6SoftwarecollectionsSource = $yum::params::el6SoftwarecollectionsSource,
+$el6Epel                      = $yum::params::el6Epel,
+$el6EpelDebuginfo             = $yum::params::el6EpelDebuginfo,
+$el6EpelSource                = $yum::params::el6EpelSource,
+$el6EpelTesting               = $yum::params::el6EpelTesting,
+$el6EpelTestingDebuginfo      = $yum::params::el6EpelTestingDebuginfo,
+$el6EpelTestingSource         = $yum::params::el6EpelTestingSource,
+$el6PuppetlabsProducts        = $yum::params::el6PuppetlabsProducts,
+$el6PuppetlabsProductsSource  = $yum::params::el6PuppetlabsProductsSource,
+$el6PuppetlabsDeps            = $yum::params::el6PuppetlabsDeps,
+$el6PuppetlabsDepsSource      = $yum::params::el6PuppetlabsDepsSource,
+$el6PuppetlabsDevel           = $yum::params::el6PuppetlabsDevel,
+$el6PuppetlabsDevelSource     = $yum::params::el6PuppetlabsDevelSource,
+$el6Foreman                   = $yum::params::el6Foreman,
+$el6ForemanSource             = $yum::params::el6ForemanSource,
+$el6ForemanPlugins            = $yum::params::el6ForemanPlugins,
+$el6ForemanPluginsSource      = $yum::params::el6ForemanPluginsSource,
+$el6Passenger                 = $yum::params::el6Passenger,
+$el6PassengerTesting          = $yum::params::el6PassengerTesting,
+$el6Custom                    = $yum::params::el6Custom
+```
 
 ##Limitations
 
@@ -107,8 +147,14 @@ The module has been tested on:
 * RedHat Enterprise Linux 5/6
 * Scientific Linux 5/6
 
-Testing on other platforms has been light and cannot be guaranteed. 
+Testing on other platforms has been light and cannot be guaranteed.
 
+This module does currently only support a limited set of distributions and need to be
+reworked for other distributions as well. I use static files instead of the yum provider
+to stay in sync with the files that the repository creators deliver. Some more parameters
+can be implemented, i.e., activating or disabling repositories and features is currently
+only possible inside the template. That should be implemented as parameters in the
+future.
 
 ##Development
 
