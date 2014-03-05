@@ -13,12 +13,13 @@
 class yum::config::custom {
   if $yum::repoCustom {
     file {
-      $yum::el6Custom:
+      $yum::params::el6CustomFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::el6Custom,
+        path    => $yum::params::el6CustomFile,
+        notify  => Exec['yum-cache'],
         content => template($yum::params::el6CustomTemplate);
     }
   }

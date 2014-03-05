@@ -22,4 +22,13 @@ class yum::config {
       path    => $yum::params::configYumConf,
       content => template($yum::params::configYumConfTemplate);
   }
+
+  # yum repository configuration
+  include yum::config::sl
+  include yum::config::softwarecollections
+  include yum::config::epel
+  include yum::config::puppetlabs
+  include yum::config::foreman
+  include yum::config::passenger
+  include yum::config::custom
 }

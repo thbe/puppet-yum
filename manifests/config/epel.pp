@@ -19,6 +19,7 @@ class yum::config::epel {
         owner   => root,
         group   => root,
         path    => $yum::params::el6EpelFile,
+        notify  => Exec['yum-cache'],
         content => template($yum::params::el6EpelTemplate);
 
       $yum::params::el6EpelTestingFile:
@@ -27,6 +28,7 @@ class yum::config::epel {
         owner   => root,
         group   => root,
         path    => $yum::params::el6EpelTestingFile,
+        notify  => Exec['yum-cache'],
         content => template($yum::params::el6EpelTestingTemplate);
     }
   }
