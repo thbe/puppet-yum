@@ -14,7 +14,4 @@ class { '::yum':
   repoSoftwarecollections => true,
   repoEpel                => true,
   repoPuppetlabs          => true,
-  repoForeman             => true,
-  repoPassenger           => true,
-  repoCustom              => true,
 }
