@@ -13,23 +13,23 @@
 class yum::config::foreman {
   if $yum::repoForeman == 'yes' {
     file {
-      $yum::params::el6ForemanFile:
+      $yum::params::elForemanFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::params::el6ForemanFile,
+        path    => $yum::params::elForemanFile,
         notify  => Exec['yum-cache'],
-        content => template($yum::params::el6ForemanTemplate);
+        content => template($yum::params::elForemanTemplate);
 
-      $yum::params::el6ForemanPluginsFile:
+      $yum::params::elForemanPluginsFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::params::el6ForemanPluginsFile,
+        path    => $yum::params::elForemanPluginsFile,
         notify  => Exec['yum-cache'],
-        content => template($yum::params::el6ForemanPluginTemplate);
+        content => template($yum::params::elForemanPluginTemplate);
     }
   }
 }

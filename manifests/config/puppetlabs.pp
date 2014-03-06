@@ -13,14 +13,14 @@
 class yum::config::puppetlabs {
   if $yum::repoPuppetlabs == 'yes' {
     file {
-      $yum::params::el6PuppetlabsFile:
+      $yum::params::elPuppetlabsFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::params::el6PuppetlabsFile,
+        path    => $yum::params::elPuppetlabsFile,
         notify  => Exec['yum-cache'],
-        content => template($yum::params::el6PuppetlabsTemplate);
+        content => template($yum::params::elPuppetlabsTemplate);
     }
   }
 }

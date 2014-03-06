@@ -6,7 +6,7 @@
 #
 [epel-testing]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch
-<%= @el6EpelTesting %>
+<%= @elEpelTesting %>
 failovermethod=priority
 enabled=0
 gpgcheck=1
@@ -14,7 +14,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
 
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Debug
-<%= @el6EpelTestingDebuginfo %>
+<%= @elEpelTestingDebuginfo %>
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
@@ -22,7 +22,7 @@ gpgcheck=1
 
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Source
-<%= @el6EpelTestingSource %>
+<%= @elEpelTestingSource %>
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6

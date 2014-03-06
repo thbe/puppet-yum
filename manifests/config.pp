@@ -36,7 +36,7 @@ class yum::config {
 
   # yum repository configuration
   if $::operatingsystem == 'Scientific' { include yum::config::sl }
-  if $::operatingsystem == 'Scientific' { include yum::config::centos }
+  if $::operatingsystem == 'CentOS' { include yum::config::centos }
   include yum::config::softwarecollections
   include yum::config::epel
   include yum::config::puppetlabs

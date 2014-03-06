@@ -13,23 +13,23 @@
 class yum::config::epel {
   if $yum::repoEpel == 'yes' {
     file {
-      $yum::params::el6EpelFile:
+      $yum::params::elEpelFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::params::el6EpelFile,
+        path    => $yum::params::elEpelFile,
         notify  => Exec['yum-cache'],
-        content => template($yum::params::el6EpelTemplate);
+        content => template($yum::params::elEpelTemplate);
 
-      $yum::params::el6EpelTestingFile:
+      $yum::params::elEpelTestingFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::params::el6EpelTestingFile,
+        path    => $yum::params::elEpelTestingFile,
         notify  => Exec['yum-cache'],
-        content => template($yum::params::el6EpelTestingTemplate);
+        content => template($yum::params::elEpelTestingTemplate);
     }
   }
 }

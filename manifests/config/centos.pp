@@ -1,6 +1,6 @@
-# Class: yum::config::passenger
+# Class: yum::config::centos
 #
-# This module contain the configuration for yum Passenger repository
+# This module contain the configuration for yum CentOS repository
 #
 # Parameters:   This module has no parameters
 #
@@ -10,17 +10,17 @@
 #
 # Sample Usage:
 #
-class yum::config::passenger {
-  if $yum::repoPassenger == 'yes' {
+class yum::config::centos {
+  if $yum::repoCentos == 'yes' {
     file {
-      $yum::params::elPassengerFile:
+      $yum::params::elCentosFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::params::elPassengerFile,
+        path    => $yum::params::elCentosFile,
         notify  => Exec['yum-cache'],
-        content => template($yum::params::elPassengerTemplate);
+        content => template($yum::params::elCentosTemplate);
     }
   }
 }
