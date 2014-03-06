@@ -77,6 +77,11 @@ class yum (
   # Include Puppetlabs standard library
   include stdlib
 
+  # Class definitions
+  class { 'yum::package': }
+  class { 'yum::config': }
+  class { 'yum::service': }
+
   # Containment
   anchor { 'yum::begin': }
   anchor { 'yum::end': }

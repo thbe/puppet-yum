@@ -1,4 +1,4 @@
-name 'thbe-ssmtp'
+name 'thbe-yum'
 version '0.1.0'
 
 author 'Thomas Bendler <project@bendler-net.de>'
