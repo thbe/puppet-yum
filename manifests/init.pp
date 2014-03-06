@@ -74,12 +74,17 @@ class yum (
   $el6Custom                    = $yum::params::el6Custom
 ) inherits yum::params {
 
+  # Include Puppetlabs standard library
+  include stdlib
+
   # Containment
   anchor { 'yum::begin': }
   anchor { 'yum::end': }
 
+  # Start workflow
   Anchor['yum::begin']  ->
-  Class['yum::install'] ->
+  Class['yum::package'] ->
   Class['yum::config']  ->
+  Class['yum::service']  ->
   Anchor['yum::end']
 }
