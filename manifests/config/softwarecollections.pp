@@ -13,14 +13,14 @@
 class yum::config::softwarecollections {
   if $yum::repoSoftwarecollections == 'yes' {
     file {
-      $yum::params::el6SoftwarecollectionsFile:
+      $yum::params::elSoftwarecollectionsFile:
         ensure  => present,
         mode    => '0644',
         owner   => root,
         group   => root,
-        path    => $yum::params::el6SoftwarecollectionsFile,
+        path    => $yum::params::elSoftwarecollectionsFile,
         notify  => Exec['yum-cache'],
-        content => template($yum::params::el6SoftwarecollectionsTemplate);
+        content => template($yum::params::elSoftwarecollectionsTemplate);
     }
   }
 }
