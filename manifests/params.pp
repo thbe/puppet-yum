@@ -74,6 +74,7 @@ class yum::params {
     $elSlxFile                 = '/etc/yum.repos.d/sl6x.repo'
   }
   $elSlFile                  = '/etc/yum.repos.d/sl.repo'
+  $elCentosFile              = '/etc/yum.repos.d/CentOS-Base.repo'
   $elSoftwarecollectionsFile = '/etc/yum.repos.d/softwarecollections.repo'
   $elEpelFile                = '/etc/yum.repos.d/epel.repo'
   $elEpelTestingFile         = '/etc/yum.repos.d/epel-testing.repo'
@@ -85,8 +86,9 @@ class yum::params {
 
   # Template definitions
   if $::operatingsystemmajrelease == '6' {
-    $elSlTemplate                  = 'yum/etc/yum.repos.d/el6/sl.repo.erb'
     $elSlxTemplate                 = 'yum/etc/yum.repos.d/el6/sl6x.repo.erb'
+    $elSlTemplate                  = 'yum/etc/yum.repos.d/el6/sl.repo.erb'
+    $elCentosTemplate              = 'yum/etc/yum.repos.d/el6/CentOS-Base.repo.erb'
     $elSoftwarecollectionsTemplate = 'yum/etc/yum.repos.d/el6/softwarecollections.repo.erb'
     $elEpelTemplate                = 'yum/etc/yum.repos.d/el6/epel.repo.erb'
     $elEpelTestingTemplate         = 'yum/etc/yum.repos.d/el6/epel-testing.repo.erb'

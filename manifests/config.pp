@@ -23,6 +23,7 @@ class yum::config {
       content => template($yum::params::configYumConfTemplate);
   }
 
+  # manage /etc/yum.repos.d if defined
   if $yum::manage == 'yes' {
     file {
       $yum::params::configYumConfDirectory:
@@ -32,6 +33,16 @@ class yum::config {
         group  => root,
         purge  => true;
     }
+  }
+
+  # Add rpm gpg keys to local pki
+  file {
+    '/etc/pki/rpm-gpg':
+      ensure  => directory,
+      mode    => '0755',
+      owner   => root,
+      group   => root,
+      source  => 'puppet:///modules/yum/pki';
   }
 
   # yum repository configuration
