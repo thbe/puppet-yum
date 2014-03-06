@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class yum::config::puppetlabs {
-  if $yum::repoPuppetlabs {
+  if $yum::repoPuppetlabs == 'yes' {
     file {
       $yum::params::el6PuppetlabsFile:
         ensure  => present,

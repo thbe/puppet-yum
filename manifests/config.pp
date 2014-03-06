@@ -23,6 +23,17 @@ class yum::config {
       content => template($yum::params::configYumConfTemplate);
   }
 
+  if $yum::manage == 'yes' {
+    file {
+      $yum::params::configYumConfDirectory:
+        ensure => directory,
+        mode   => '0755',
+        owner  => root,
+        group  => root,
+        purge  => true;
+    }
+  }
+
   # yum repository configuration
   include yum::config::sl
   include yum::config::softwarecollections

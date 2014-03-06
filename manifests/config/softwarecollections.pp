@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class yum::config::softwarecollections {
-  if $yum::repoSoftwarecollections {
+  if $yum::repoSoftwarecollections == 'yes' {
     file {
       $yum::params::el6SoftwarecollectionsFile:
         ensure  => present,

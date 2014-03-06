@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class yum::config::custom {
-  if $yum::repoCustom {
+  if $yum::repoCustom == 'yes' {
     file {
       $yum::params::el6CustomFile:
         ensure  => present,

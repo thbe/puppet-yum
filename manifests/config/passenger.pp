@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class yum::config::passenger {
-  if $yum::repoPassenger {
+  if $yum::repoPassenger == 'yes' {
     file {
       $yum::params::el6PassengerFile:
         ensure  => present,

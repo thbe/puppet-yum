@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class yum::config::foreman {
-  if $yum::repoForeman {
+  if $yum::repoForeman == 'yes' {
     file {
       $yum::params::el6ForemanFile:
         ensure  => present,

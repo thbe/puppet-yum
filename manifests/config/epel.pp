@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class yum::config::epel {
-  if $yum::repoEpel {
+  if $yum::repoEpel == 'yes' {
     file {
       $yum::params::el6EpelFile:
         ensure  => present,

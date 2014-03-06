@@ -36,13 +36,14 @@
 # Copyright 2014 Thomas Bendler, unless otherwise noted.
 #
 class yum (
-  $repoSl                       = false,
-  $repoSoftwarecollections      = false,
-  $repoEpel                     = false,
-  $repoPuppetlabs               = false,
-  $repoForeman                  = false,
-  $repoPassenger                = false,
-  $repoCustom                   = false,
+  $manage                       = 'yes',
+  $repoSl                       = 'no',
+  $repoSoftwarecollections      = 'no',
+  $repoEpel                     = 'no',
+  $repoPuppetlabs               = 'no',
+  $repoForeman                  = 'no',
+  $repoPassenger                = 'no',
+  $repoCustom                   = 'no',
   $el5Sl                        = $yum::params::el5Sl,
   $el5Custom                    = $yum::params::el5Custom,
   $el6Sl                        = $yum::params::el6Sl,

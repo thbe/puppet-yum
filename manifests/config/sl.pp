@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 class yum::config::sl {
-  if $yum::repoSl {
+  if $yum::repoSl == 'yes' {
     file {
       $yum::params::el6SlFile:
         ensure  => present,

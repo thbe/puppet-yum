@@ -21,8 +21,9 @@ class yum::params {
       $packageCommon = 'yum'
 
       # Config definition
-      $configYumConf         = '/etc/yum.conf'
-      $configYumConfTemplate = 'yum/etc/yum.conf.erb'
+      $configYumConf          = '/etc/yum.conf'
+      $configYumConfDirectory = '/etc/yum.conf.d'
+      $configYumConfTemplate  = 'yum/etc/yum.conf.erb'
     }
     default  : {
       $linux = false
