@@ -38,11 +38,11 @@ class yum::config {
   # Add rpm gpg keys to local pki
   file {
     '/etc/pki/rpm-gpg':
-      ensure  => directory,
-      mode    => '0755',
-      owner   => root,
-      group   => root,
-      source  => 'puppet:///modules/yum/pki';
+      ensure => directory,
+      mode   => '0755',
+      owner  => root,
+      group  => root,
+      source => 'puppet:///modules/yum/pki';
   }
 
   # yum repository configuration
