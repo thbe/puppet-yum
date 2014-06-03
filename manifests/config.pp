@@ -37,7 +37,6 @@ class yum::config {
     ensure  => directory,
     recurse => true,
     force   => true,
-    mode    => '0755',
     owner   => root,
     group   => root,
     source  => 'puppet:///modules/yum/pki';
