@@ -73,25 +73,15 @@ class yum (
   $elPassengerTesting          = $yum::params::elPassengerTesting,
   $elCustom                    = $yum::params::elCustom
 ) inherits yum::params {
-
-  # Include Puppetlabs standard library
-  include stdlib
-
+  # Start workflow
   if $yum::params::linux {
-    # Class definitions
-    class { 'yum::package': }
-    class { 'yum::config': }
-    class { 'yum::service': }
-
     # Containment
-    anchor { 'yum::begin': }
-    anchor { 'yum::end': }
+    contain yum::package
+    contain yum::config
+    contain yum::service
 
-    # Start workflow
-    Anchor['yum::begin']  ->
     Class['yum::package'] ->
-    Class['yum::config']  ->
-    Class['yum::service']  ->
-    Anchor['yum::end']
+    Class['yum::config'] ->
+    Class['yum::service']
   }
 }
