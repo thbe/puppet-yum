@@ -11,16 +11,13 @@
 # Sample Usage:
 #
 class yum::config::centos {
-  if $yum::repoCentos == 'yes' {
-    file {
-      $yum::params::elCentosFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elCentosFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elCentosTemplate);
-    }
+  file { $yum::params::elCentosFile:
+    ensure  => present,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
+    path    => $yum::params::elCentosFile,
+    notify  => Exec['yum-cache'],
+    content => template($yum::params::elCentosTemplate);
   }
 }

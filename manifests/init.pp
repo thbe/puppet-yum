@@ -1,30 +1,21 @@
 # == Class: yum
 #
-# Full description of class yum here.
+# The class yum will take care of basis repositories plus additional
+# repositories.
 #
 # === Parameters
 #
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# The yum class has several parameters to control the repositories
+# that will be installed. The default configuration install the
+# software collections, EPEL and the Puppetlabs repository. Additional
+# repositories could be added and activated.
 #
 # === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
 #
 # === Examples
 #
 #  class { yum:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    repoForeman => 'yes',
 #  }
 #
 # === Authors
@@ -36,43 +27,40 @@
 # Copyright 2014 Thomas Bendler, unless otherwise noted.
 #
 class yum (
-  $manage                       = 'yes',
-  $repoSl                       = 'no',
-  $repoCentos                   = 'no',
-  $repoSoftwarecollections      = 'no',
-  $repoEpel                     = 'no',
-  $repoPuppetlabs               = 'no',
-  $repoForeman                  = 'no',
-  $repoPassenger                = 'no',
-  $repoCustom                   = 'no',
-  $elSl                        = $yum::params::elSl,
-  $elSlSecurity                = $yum::params::elSlSecurity,
-  $elSlSource                  = $yum::params::elSlSource,
-  $elxSl                       = $yum::params::elSlx,
-  $elxSlSecurity               = $yum::params::elSlxSecurity,
-  $elxSlFastbugs               = $yum::params::elSlxFastbugs,
+  $manage              = 'yes',
+  $repoSoftwarecollections     = 'yes',
+  $repoEpel            = 'yes',
+  $repoPuppetlabs      = 'yes',
+  $repoForeman         = 'no',
+  $repoPassenger       = 'no',
+  $repoCustom          = 'no',
+  $elSl                = $yum::params::elSl,
+  $elSlSecurity        = $yum::params::elSlSecurity,
+  $elSlSource          = $yum::params::elSlSource,
+  $elxSl               = $yum::params::elSlx,
+  $elxSlSecurity       = $yum::params::elSlxSecurity,
+  $elxSlFastbugs       = $yum::params::elSlxFastbugs,
   $elSoftwarecollections       = $yum::params::elSoftwarecollections,
   $elSoftwarecollectionsSource = $yum::params::elSoftwarecollectionsSource,
-  $elEpel                      = $yum::params::elEpel,
-  $elEpelDebuginfo             = $yum::params::elEpelDebuginfo,
-  $elEpelSource                = $yum::params::elEpelSource,
-  $elEpelTesting               = $yum::params::elEpelTesting,
+  $elEpel              = $yum::params::elEpel,
+  $elEpelDebuginfo     = $yum::params::elEpelDebuginfo,
+  $elEpelSource        = $yum::params::elEpelSource,
+  $elEpelTesting       = $yum::params::elEpelTesting,
   $elEpelTestingDebuginfo      = $yum::params::elEpelTestingDebuginfo,
-  $elEpelTestingSource         = $yum::params::elEpelTestingSource,
+  $elEpelTestingSource = $yum::params::elEpelTestingSource,
   $elPuppetlabsProducts        = $yum::params::elPuppetlabsProducts,
   $elPuppetlabsProductsSource  = $yum::params::elPuppetlabsProductsSource,
-  $elPuppetlabsDeps            = $yum::params::elPuppetlabsDeps,
+  $elPuppetlabsDeps    = $yum::params::elPuppetlabsDeps,
   $elPuppetlabsDepsSource      = $yum::params::elPuppetlabsDepsSource,
-  $elPuppetlabsDevel           = $yum::params::elPuppetlabsDevel,
+  $elPuppetlabsDevel   = $yum::params::elPuppetlabsDevel,
   $elPuppetlabsDevelSource     = $yum::params::elPuppetlabsDevelSource,
-  $elForeman                   = $yum::params::elForeman,
-  $elForemanSource             = $yum::params::elForemanSource,
-  $elForemanPlugins            = $yum::params::elForemanPlugins,
+  $elForeman           = $yum::params::elForeman,
+  $elForemanSource     = $yum::params::elForemanSource,
+  $elForemanPlugins    = $yum::params::elForemanPlugins,
   $elForemanPluginsSource      = $yum::params::elForemanPluginsSource,
-  $elPassenger                 = $yum::params::elPassenger,
-  $elPassengerTesting          = $yum::params::elPassengerTesting,
-  $elCustom                    = $yum::params::elCustom
-) inherits yum::params {
+  $elPassenger         = $yum::params::elPassenger,
+  $elPassengerTesting  = $yum::params::elPassengerTesting,
+  $elCustom            = $yum::params::elCustom) inherits yum::params {
   # Start workflow
   if $yum::params::linux {
     # Containment

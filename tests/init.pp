@@ -10,7 +10,6 @@
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
 class { '::yum':
-  repoSl                  => 'yes',
   repoSoftwarecollections => 'yes',
   repoEpel                => 'yes',
   repoPuppetlabs          => 'yes',

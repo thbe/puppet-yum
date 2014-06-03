@@ -11,25 +11,23 @@
 # Sample Usage:
 #
 class yum::config::sl {
-  if $yum::repoSl == 'yes' {
-    file {
-      $yum::params::elSlFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elSlFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elSlTemplate);
+  file {
+    $yum::params::elSlFile:
+      ensure  => present,
+      mode    => '0644',
+      owner   => root,
+      group   => root,
+      path    => $yum::params::elSlFile,
+      notify  => Exec['yum-cache'],
+      content => template($yum::params::elSlTemplate);
 
-      $yum::params::elSlxFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elSlxFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elSlxTemplate);
-    }
+    $yum::params::elSlxFile:
+      ensure  => present,
+      mode    => '0644',
+      owner   => root,
+      group   => root,
+      path    => $yum::params::elSlxFile,
+      notify  => Exec['yum-cache'],
+      content => template($yum::params::elSlxTemplate);
   }
 }
