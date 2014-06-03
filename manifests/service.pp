@@ -19,7 +19,7 @@ class yum::service {
   }
 
   exec { 'yum-rpm-key-import':
-    command     => 'cd /etc/pki/rpm-gpg && rpm --import RPM-GPG-KEY-*',
+    command     => 'rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-*',
     path        => '/bin:/sbin:/usr/bin:/usr/sbin',
     refreshonly => true,
   }
