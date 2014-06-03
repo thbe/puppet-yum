@@ -39,6 +39,7 @@ class yum::config {
     force   => true,
     owner   => root,
     group   => root,
+    notify  => Exec['yum-rpm-key-import'],
     source  => 'puppet:///modules/yum/pki';
   }
 

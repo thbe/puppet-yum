@@ -11,10 +11,15 @@
 # Sample Usage:
 #
 class yum::service {
-
   # yum service configuration
   exec { 'yum-cache':
     command     => 'yum clean all && yum makecache',
+    path        => '/bin:/sbin:/usr/bin:/usr/sbin',
+    refreshonly => true,
+  }
+
+  exec { 'yum-rpm-key-import':
+    command     => 'cd /etc/pki/rpm-gpg && rpm --import RPM-GPG-KEY-*',
     path        => '/bin:/sbin:/usr/bin:/usr/sbin',
     refreshonly => true,
   }
