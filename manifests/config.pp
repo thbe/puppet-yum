@@ -11,43 +11,46 @@
 # Sample Usage:
 #
 class yum::config {
-
   # yum configuration
-  file {
-    $yum::params::configYumConf:
-      ensure  => present,
-      mode    => '0644',
-      owner   => root,
-      group   => root,
-      path    => $yum::params::configYumConf,
-      content => template($yum::params::configYumConfTemplate);
+  file { $yum::params::configYumConf:
+    ensure  => present,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
+    path    => $yum::params::configYumConf,
+    content => template($yum::params::configYumConfTemplate);
   }
 
   # manage /etc/yum.repos.d if defined
   if $yum::manage == 'yes' {
-    file {
-      $yum::params::configYumConfDirectory:
-        ensure => directory,
-        mode   => '0755',
-        owner  => root,
-        group  => root,
-        purge  => true;
-    }
-  }
-
-  # Add rpm gpg keys to local pki
-  file {
-    '/etc/pki/rpm-gpg':
+    file { $yum::params::configYumConfDirectory:
       ensure => directory,
       mode   => '0755',
       owner  => root,
       group  => root,
-      source => 'puppet:///modules/yum/pki';
+      purge  => true;
+    }
+  }
+
+  # Add rpm gpg keys to local pki
+  file { '/etc/pki/rpm-gpg':
+    ensure  => directory,
+    recurse => true,
+    force   => true,
+    mode    => '0755',
+    owner   => root,
+    group   => root,
+    source  => 'puppet:///modules/yum/pki';
   }
 
   # yum repository configuration
-  if $::operatingsystem == 'Scientific' { include yum::config::sl }
-  if $::operatingsystem == 'CentOS' { include yum::config::centos }
+  if $::operatingsystem == 'Scientific' {
+    include yum::config::sl
+  }
+
+  if $::operatingsystem == 'CentOS' {
+    include yum::config::centos
+  }
   include yum::config::softwarecollections
   include yum::config::epel
   include yum::config::puppetlabs
