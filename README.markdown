@@ -16,11 +16,11 @@
 
 ##Overview
 
-The yum module provides several repositories available for RPM based systems.
+The yum module provides several repositories available for RPM based RHEL 6 clones.
 
 ##Module Description
 
-The yum module provides several repositories available for RPM based systems.
+The yum module provides several repositories available for RPM based RHEL 6 clones.
 
 ##Setup
 
@@ -38,8 +38,7 @@ then you can use:
 
 ```puppet
 class { '::yum':
-  repoSl   => true,
-  repoEpel => true,
+  repoForeman => true,
 }
 ```
 
@@ -55,12 +54,11 @@ functionality.
 include '::yum'
 ```
 
-###I just want to add SL, SLx and EPEL
+###I just want to add CoreOS, EPEL, SC and Puppet plus Foreman
 
 ```puppet
 class { '::yum':
-  repoSl   => true,
-  repoEpel => true,
+  repoForeman => true,
 }
 ```
 
@@ -142,7 +140,7 @@ $elCustom                    = $yum::params::elCustom
 
 ##Limitations
 
-This module has been built on and tested against Puppet 3.2 and higher.
+This module has been built on and tested against Puppet 3.6 and higher.
 
 The module has been tested on:
 
