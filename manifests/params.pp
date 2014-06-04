@@ -82,6 +82,7 @@ class yum::params {
   $elForemanFile             = '/etc/yum.repos.d/foreman.repo'
   $elForemanPluginsFile      = '/etc/yum.repos.d/foreman-plugins.repo'
   $elPassengerFile           = '/etc/yum.repos.d/passenger.repo'
+  $elOvirtFile               = '/etc/yum.repos.d/ovirt.repo'
   $elCustomFile              = '/etc/yum.repos.d/custom.repo'
 
   # Template definitions
@@ -96,6 +97,7 @@ class yum::params {
     $elForemanTemplate             = 'yum/etc/yum.repos.d/el6/foreman.repo.erb'
     $elForemanPluginTemplate       = 'yum/etc/yum.repos.d/el6/foreman-plugins.repo.erb'
     $elPassengerTemplate           = 'yum/etc/yum.repos.d/el6/passenger.repo.erb'
+    $elOvirtTemplate               = 'yum/etc/yum.repos.d/el6/ovirt.repo.erb'
     $elCustomTemplate              = 'yum/etc/yum.repos.d/el6/custom.repo.erb'
   }
 }
