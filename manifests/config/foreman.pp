@@ -11,25 +11,23 @@
 # Sample Usage:
 #
 class yum::config::foreman {
-  if $yum::repoForeman == 'yes' {
-    file {
-      $yum::params::elForemanFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elForemanFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elForemanTemplate);
+  file {
+    $yum::params::elForemanFile:
+      ensure  => present,
+      mode    => '0644',
+      owner   => root,
+      group   => root,
+      path    => $yum::params::elForemanFile,
+      notify  => Exec['yum-cache'],
+      content => template($yum::params::elForemanTemplate);
 
-      $yum::params::elForemanPluginsFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elForemanPluginsFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elForemanPluginTemplate);
-    }
+    $yum::params::elForemanPluginsFile:
+      ensure  => present,
+      mode    => '0644',
+      owner   => root,
+      group   => root,
+      path    => $yum::params::elForemanPluginsFile,
+      notify  => Exec['yum-cache'],
+      content => template($yum::params::elForemanPluginTemplate);
   }
 }

@@ -11,16 +11,13 @@
 # Sample Usage:
 #
 class yum::config::passenger {
-  if $yum::repoPassenger == 'yes' {
-    file {
-      $yum::params::elPassengerFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elPassengerFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elPassengerTemplate);
-    }
+  file { $yum::params::elPassengerFile:
+    ensure  => present,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
+    path    => $yum::params::elPassengerFile,
+    notify  => Exec['yum-cache'],
+    content => template($yum::params::elPassengerTemplate);
   }
 }

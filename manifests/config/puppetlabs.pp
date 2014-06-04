@@ -11,16 +11,13 @@
 # Sample Usage:
 #
 class yum::config::puppetlabs {
-  if $yum::repoPuppetlabs == 'yes' {
-    file {
-      $yum::params::elPuppetlabsFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elPuppetlabsFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elPuppetlabsTemplate);
-    }
+  file { $yum::params::elPuppetlabsFile:
+    ensure  => present,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
+    path    => $yum::params::elPuppetlabsFile,
+    notify  => Exec['yum-cache'],
+    content => template($yum::params::elPuppetlabsTemplate);
   }
 }

@@ -18,6 +18,11 @@
 #    repoForeman => 'yes',
 #  }
 #
+#  or
+#
+#  include yum
+#  include yum::config::foreman
+#
 # === Authors
 #
 # Thomas Bendler <project@bendler-net.de>
@@ -33,6 +38,7 @@ class yum (
   $repoPuppetlabs      = 'yes',
   $repoForeman         = 'no',
   $repoPassenger       = 'no',
+  $repoOvirt           = 'no',
   $repoCustom          = 'no',
   $elSl                = $yum::params::elSl,
   $elSlSecurity        = $yum::params::elSlSecurity,

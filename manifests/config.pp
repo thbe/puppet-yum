@@ -51,10 +51,32 @@ class yum::config {
   if $::operatingsystem == 'CentOS' {
     include yum::config::centos
   }
-  include yum::config::softwarecollections
-  include yum::config::epel
-  include yum::config::puppetlabs
-  include yum::config::foreman
-  include yum::config::passenger
-  include yum::config::custom
+
+  if $yum::repoSoftwarecollections == 'yes' {
+    include yum::config::softwarecollections
+  }
+
+  if $yum::repoEpel == 'yes' {
+    include yum::config::epel
+  }
+
+  if $yum::repoPuppetlabs == 'yes' {
+    include yum::config::puppetlabs
+  }
+
+  if $yum::repoForeman == 'yes' {
+    include yum::config::foreman
+  }
+
+  if $yum::repoPassenger == 'yes' {
+    include yum::config::passenger
+  }
+
+  if $yum::repoOvirt == 'yes' {
+    include yum::config::ovirt
+  }
+
+  if $yum::repoCustom == 'yes' {
+    include yum::config::custom
+  }
 }

@@ -11,16 +11,13 @@
 # Sample Usage:
 #
 class yum::config::softwarecollections {
-  if $yum::repoSoftwarecollections == 'yes' {
-    file {
-      $yum::params::elSoftwarecollectionsFile:
-        ensure  => present,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        path    => $yum::params::elSoftwarecollectionsFile,
-        notify  => Exec['yum-cache'],
-        content => template($yum::params::elSoftwarecollectionsTemplate);
-    }
+  file { $yum::params::elSoftwarecollectionsFile:
+    ensure  => present,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
+    path    => $yum::params::elSoftwarecollectionsFile,
+    notify  => Exec['yum-cache'],
+    content => template($yum::params::elSoftwarecollectionsTemplate);
   }
 }

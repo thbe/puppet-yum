@@ -16,11 +16,13 @@
 
 ##Overview
 
-The yum module provides several repositories available for RPM based RHEL 6 clones.
+The yum module provides several repositories available for RPM based RHEL 6 clones like
+CentOS or Scientific Linux.
 
 ##Module Description
 
-The yum module provides several repositories available for RPM based RHEL 6 clones.
+The yum module provides several repositories available for RPM based RHEL 6 clones like
+CentOS or Scientific Linux.
 
 ##Setup
 
@@ -42,11 +44,19 @@ class { '::yum':
 }
 ```
 
+or you can use it like this:
+
+```puppet
+include yum
+include yum::config::foreman
+```
+
 ##Usage
 
 All interaction with the yum module can do be done through the main yum class.
 This means you can simply toggle the options in the yum class to get at the full
-functionality.
+functionality. You also have the possibility to include classes in the order you
+need.
 
 ###I just want yum, what's the minimum I need?
 
@@ -102,6 +112,10 @@ Enable Foreman repository.
 ####`repoPassenger`
 
 Enable Passenger repository.
+
+####`repoOvirt`
+
+Enable Ovirt repository.
 
 ####`repoCustom`
 
