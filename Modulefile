@@ -1,5 +1,5 @@
 name 'thbe-yum'
-version '0.3.2'
+version '0.4.0'
 
 author 'Thomas Bendler <project@bendler-net.de>'
 license 'GPLv3'

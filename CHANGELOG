@@ -22,3 +22,6 @@
 
 0.3.2 2014-07-14 thbe <project@bendler-net.de>
  * Changed foreman key
+
+0.4.0 2014-07-15 thbe <project@bendler-net.de>
+ * Add EL7 support

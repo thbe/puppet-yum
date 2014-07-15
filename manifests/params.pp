@@ -100,4 +100,16 @@ class yum::params {
     $elOvirtTemplate               = 'yum/etc/yum.repos.d/el6/ovirt.repo.erb'
     $elCustomTemplate              = 'yum/etc/yum.repos.d/el6/custom.repo.erb'
   }
+  if $::operatingsystemmajrelease == '7' {
+    $elCentosTemplate              = 'yum/etc/yum.repos.d/el7/CentOS-Base.repo.erb'
+    $elSoftwarecollectionsTemplate = 'yum/etc/yum.repos.d/el7/softwarecollections.repo.erb'
+    $elEpelTemplate                = 'yum/etc/yum.repos.d/el7/epel.repo.erb'
+    $elEpelTestingTemplate         = 'yum/etc/yum.repos.d/el7/epel-testing.repo.erb'
+    $elPuppetlabsTemplate          = 'yum/etc/yum.repos.d/el7/puppetlabs.repo.erb'
+    $elForemanTemplate             = 'yum/etc/yum.repos.d/el7/foreman.repo.erb'
+    $elForemanPluginTemplate       = 'yum/etc/yum.repos.d/el7/foreman-plugins.repo.erb'
+    $elPassengerTemplate           = 'yum/etc/yum.repos.d/el7/passenger.repo.erb'
+    $elOvirtTemplate               = 'yum/etc/yum.repos.d/el7/ovirt.repo.erb'
+    $elCustomTemplate              = 'yum/etc/yum.repos.d/el7/custom.repo.erb'
+  }
 }
