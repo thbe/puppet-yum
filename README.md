@@ -44,13 +44,6 @@ class { '::yum':
 }
 ```
 
-or you can use it like this:
-
-```puppet
-include yum
-include yum::config::foreman
-```
-
 ##Usage
 
 All interaction with the yum module can do be done through the main yum class.
@@ -117,6 +110,10 @@ Enable Passenger repository.
 
 Enable Ovirt repository.
 
+####`repoIcinga`
+
+Enable Icinga repository.
+
 ####`repoCustom`
 
 Enable custom repository.
@@ -149,6 +146,7 @@ $elForemanPlugins            = $yum::params::elForemanPlugins
 $elForemanPluginsSource      = $yum::params::elForemanPluginsSource
 $elPassenger                 = $yum::params::elPassenger
 $elPassengerTesting          = $yum::params::elPassengerTesting
+$elIcinga                    = $yum::params::elIcinga
 $elCustom                    = $yum::params::elCustom
 ```
 

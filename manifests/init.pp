@@ -18,11 +18,6 @@
 #    repoForeman => 'yes',
 #  }
 #
-#  or
-#
-#  include yum
-#  include yum::config::foreman
-#
 # === Authors
 #
 # Thomas Bendler <project@bendler-net.de>
@@ -67,6 +62,7 @@ class yum (
   $elForemanPluginsSource      = $yum::params::elForemanPluginsSource,
   $elPassenger         = $yum::params::elPassenger,
   $elPassengerTesting  = $yum::params::elPassengerTesting,
+  $elIcinga            = $yum::params::elIcinga,
   $elCustom            = $yum::params::elCustom) inherits yum::params {
   # Start workflow
   if $yum::params::linux {

@@ -16,7 +16,7 @@
  * Fixed smaller bugs
  * Add RPM GPG key import
  * Support for RHEL 6 or clones only
- 
+
 0.3.1 2014-06-04 thbe <project@bendler-net.de>
  * Add ovirt repository
 
@@ -28,3 +28,6 @@
 
 0.4.2 2014-08-23 thbe <project@bendler-net.de>
  * Add Icinga support
+
+0.4.3 2014-08-23 thbe <project@bendler-net.de>
+ * Bugfix release
