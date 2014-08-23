@@ -17,7 +17,7 @@ class yum::config::ovirt {
     owner   => root,
     group   => root,
     path    => $yum::params::elOvirtFile,
-    notify  => Exec['yum-cache'],
+    notify  => Exec['yum-cache', 'yum-rpm-key-import'],
     content => template($yum::params::elOvirtTemplate);
   }
 }

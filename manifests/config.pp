@@ -32,6 +32,13 @@ class yum::config {
     }
   }
 
+  # Remove RPM-GPG-KEY-CentOS-Debug-7 placeholder, otherwise rpm import fail
+  if $::operatingsystem == 'CentOS' {
+    file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-Debug-7':
+      ensure => absent;
+    }
+  }
+
   # Add rpm gpg keys to local pki
   file { '/etc/pki/rpm-gpg':
     ensure  => directory,

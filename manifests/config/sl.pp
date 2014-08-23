@@ -18,7 +18,7 @@ class yum::config::sl {
       owner   => root,
       group   => root,
       path    => $yum::params::elSlFile,
-      notify  => Exec['yum-cache'],
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::elSlTemplate);
 
     $yum::params::elSlxFile:
@@ -27,7 +27,7 @@ class yum::config::sl {
       owner   => root,
       group   => root,
       path    => $yum::params::elSlxFile,
-      notify  => Exec['yum-cache'],
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::elSlxTemplate);
   }
 }

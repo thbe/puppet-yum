@@ -17,7 +17,7 @@ class yum::config::centos {
     owner   => root,
     group   => root,
     path    => $yum::params::elCentosFile,
-    notify  => Exec['yum-cache'],
+    notify  => Exec['yum-cache', 'yum-rpm-key-import'],
     content => template($yum::params::elCentosTemplate);
   }
 }

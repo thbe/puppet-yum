@@ -17,7 +17,7 @@ class yum::config::passenger {
     owner   => root,
     group   => root,
     path    => $yum::params::elPassengerFile,
-    notify  => Exec['yum-cache'],
+    notify  => Exec['yum-cache', 'yum-rpm-key-import'],
     content => template($yum::params::elPassengerTemplate);
   }
 }

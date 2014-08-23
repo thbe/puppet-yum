@@ -18,7 +18,7 @@ class yum::config::icinga {
       owner   => root,
       group   => root,
       path    => $yum::params::elIcingaFile,
-      notify  => Exec['yum-cache'],
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::elIcingaTemplate);
   }
 }

@@ -18,7 +18,7 @@ class yum::config::foreman {
       owner   => root,
       group   => root,
       path    => $yum::params::elForemanFile,
-      notify  => Exec['yum-cache'],
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::elForemanTemplate);
 
     $yum::params::elForemanPluginsFile:
@@ -27,7 +27,7 @@ class yum::config::foreman {
       owner   => root,
       group   => root,
       path    => $yum::params::elForemanPluginsFile,
-      notify  => Exec['yum-cache'],
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::elForemanPluginTemplate);
   }
 }

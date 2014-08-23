@@ -18,7 +18,7 @@ class yum::config::epel {
       owner   => root,
       group   => root,
       path    => $yum::params::elEpelFile,
-      notify  => Exec['yum-cache'],
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::elEpelTemplate);
 
     $yum::params::elEpelTestingFile:
@@ -27,7 +27,7 @@ class yum::config::epel {
       owner   => root,
       group   => root,
       path    => $yum::params::elEpelTestingFile,
-      notify  => Exec['yum-cache'],
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::elEpelTestingTemplate);
   }
 }

@@ -17,7 +17,7 @@ class yum::config::custom {
     owner   => root,
     group   => root,
     path    => $yum::params::elCustomFile,
-    notify  => Exec['yum-cache'],
+    notify  => Exec['yum-cache', 'yum-rpm-key-import'],
     content => template($yum::params::elCustomTemplate);
   }
 }
