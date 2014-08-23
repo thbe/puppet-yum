@@ -25,3 +25,6 @@
 
 0.4.0 2014-07-15 thbe <project@bendler-net.de>
  * Add EL7 support
+
+0.4.2 2014-08-23 thbe <project@bendler-net.de>
+ * Add Icinga support
