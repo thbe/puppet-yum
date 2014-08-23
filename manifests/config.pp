@@ -76,6 +76,10 @@ class yum::config {
     include yum::config::ovirt
   }
 
+  if $yum::repoIcinga == 'yes' {
+    include yum::config::icinga
+  }
+
   if $yum::repoCustom == 'yes' {
     include yum::config::custom
   }

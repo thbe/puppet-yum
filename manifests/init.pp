@@ -39,6 +39,7 @@ class yum (
   $repoForeman         = 'no',
   $repoPassenger       = 'no',
   $repoOvirt           = 'no',
+  $repoIcinga          = 'no',
   $repoCustom          = 'no',
   $elSl                = $yum::params::elSl,
   $elSlSecurity        = $yum::params::elSlSecurity,
