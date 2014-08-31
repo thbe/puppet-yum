@@ -1,6 +1,5 @@
 # Puppet
 pkg/
-metadata.json
 
 # Node.js with Express and Stlyus
 public/css/*.css

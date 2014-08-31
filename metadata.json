@@ -1,0 +1,15 @@
+{
+  "name": "thbe-yum",
+  "version": "0.4.3",
+  "author": "thbe",
+  "summary": "Yum management module",
+  "license": "GPLv3",
+  "source": "https://github.com/thbe/puppet-yum.git",
+  "project_page": "https://github.com/thbe/puppet-yum",
+  "issues_url": "https://github.com/thbe/puppet-yum/issues",
+  "operatingsystem_support": [
+    { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6.0", "7.0" ] },
+    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] }
+  ],
+  "dependencies": [ ]
+}
