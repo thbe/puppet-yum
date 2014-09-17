@@ -15,7 +15,10 @@ class yum::params {
   # Operating system specific definitions
   case $::osfamily {
     'RedHat' : {
-      $linux = true
+      case $::operatingsystemmajrelease {
+        '6', '7': { $linux = true }
+        default:  { $linux = false }
+      }
 
       # Package definition
       $packageCommon = 'yum'
@@ -25,7 +28,7 @@ class yum::params {
       $configYumConfDirectory = '/etc/yum.conf.d'
       $configYumConfTemplate  = 'yum/etc/yum.conf.erb'
     }
-    default  : {
+    default: {
       $linux = false
     }
   }
@@ -52,10 +55,10 @@ class yum::params {
     $elPuppetlabsDevel             = 'baseurl=http://yum.puppetlabs.com/el/6/devel/$basearch/'
     $elPuppetlabsDevelSource       = 'baseurl=http://yum.puppetlabs.com/el/6/devel/SRPMS/'
     $elIcinga                      = 'baseurl=http://packages.icinga.org/epel/$releasever/release/'
-    $elForeman                     = 'baseurl=http://yum.theforeman.org/releases/1.4/el6/$basearch/'
-    $elForemanSource               = 'baseurl=http://yum.theforeman.org/releases/1.4/el6/source/'
-    $elForemanPlugins              = 'baseurl=http://yum.theforeman.org/plugins/1.4/el6/$basearch/'
-    $elForemanPluginsSource        = 'baseurl=http://yum.theforeman.org/plugins/1.4/el6/source/'
+    $elForeman                     = 'baseurl=http://yum.theforeman.org/releases/1.6/el6/$basearch/'
+    $elForemanSource               = 'baseurl=http://yum.theforeman.org/releases/1.6/el6/source/'
+    $elForemanPlugins              = 'baseurl=http://yum.theforeman.org/plugins/1.6/el6/$basearch/'
+    $elForemanPluginsSource        = 'baseurl=http://yum.theforeman.org/plugins/1.6/el6/source/'
     $elPassenger                   = 'baseurl=http://passenger.stealthymonkeys.com/rhel/6rolling/$basearch/'
     $elPassengerTesting            = 'baseurl=http://passenger.stealthymonkeys.com/rhel/6rolling/$basearch/testing/'
   }
