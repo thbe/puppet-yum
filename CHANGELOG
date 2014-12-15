@@ -48,3 +48,8 @@
 0.4.8 2014-12-15 thbe <project@bendler-net.de>
  * Fix license tag
 
+0.4.9 2014-12-15 thbe <project@bendler-net.de>
+ * Add proxy parameter
+
+0.4.10 2014-12-15 thbe <project@bendler-net.de>
+ * Add auto update

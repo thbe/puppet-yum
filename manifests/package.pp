@@ -12,4 +12,7 @@
 #
 class yum::package {
   package { $yum::params::packageCommon: ensure => installed; }
+  if $yum::autoUpdate == 'yes' {
+    package { $yum::params::packageAutoUpdate: ensure => installed; }
+  }
 }

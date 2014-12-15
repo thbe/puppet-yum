@@ -28,7 +28,11 @@
 #
 class yum (
   $manage                      = 'yes',
+  $autoUpdate                  = 'no',
   $yumExclude                  = 'no',
+  $yumProxy                    = 'no',
+  $yumProxyUser                = 'no',
+  $yumProxyPassword            = 'no',
   $repoSoftwarecollections     = 'yes',
   $repoEpel                    = 'yes',
   $repoPuppetlabs              = 'yes',

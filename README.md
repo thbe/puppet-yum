@@ -78,6 +78,31 @@ class { '::yum':
 
 The following parameters are available in the yum module
 
+####`manage`
+
+Define if yum repositories are managed by module
+
+####`autoUpdate`
+
+Define if yum should automatically update the system every night
+
+####`yumExclude`
+
+List of RPMs that are exclude during yum run
+
+####`yumProxy`
+
+Should yum proxy be used and if yes, define URL,
+i.e. http://mycache.mydomain.com:3128
+
+####`yumProxyUser`
+
+Use defined user to connect to proxy server
+
+####`yumProxyPassword`
+
+Use defined password to connect to proxy server
+
 ####`repoSl`
 
 Enable SL and SLx repository.

@@ -23,4 +23,13 @@ class yum::service {
     path        => '/bin:/sbin:/usr/bin:/usr/sbin',
     refreshonly => true,
   }
+
+  if $yum::autoUpdate == 'yes' {
+    service {
+      $yum::params::serviceAutoUpdate:
+      ensure  => 'running',
+      enable  => true,
+      require => Package[$yum::params::packageAutoUpdate];
+    }
+  }
 }
