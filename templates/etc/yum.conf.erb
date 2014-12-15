@@ -23,3 +23,6 @@ installonly_limit=3
 # in /etc/yum.repos.d
 #
 # exclude=kernel*
+<% if @yumExclude != 'no' %>
+exclude=<%= @yumExclude %>
+<% end %>

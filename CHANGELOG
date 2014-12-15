@@ -40,3 +40,7 @@
 
 0.4.6 2014-09-17 thbe <project@bendler-net.de>
  * Restrict module to major version 6+, lower versions are not supported
+
+0.4.7 2014-12-15 thbe <project@bendler-net.de>
+ * Update Foreman repository to 1.7
+ * Add custom exclude
