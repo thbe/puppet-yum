@@ -44,3 +44,7 @@
 0.4.7 2014-12-15 thbe <project@bendler-net.de>
  * Update Foreman repository to 1.7
  * Add custom exclude
+
+0.4.8 2014-12-15 thbe <project@bendler-net.de>
+ * Fix license tag
+
