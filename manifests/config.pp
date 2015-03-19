@@ -22,7 +22,7 @@ class yum::config {
   }
 
   # manage /etc/yum.repos.d if defined
-  if $yum::manage == 'yes' {
+  if $yum::manage {
     file { $yum::params::configYumConfDirectory:
       ensure => directory,
       mode   => '0755',
@@ -51,6 +51,10 @@ class yum::config {
   }
 
   # yum repository configuration
+  if $yum::tmpfs {
+    include yum::config::tmpfs
+  }
+
   if $::operatingsystem == 'Scientific' {
     include yum::config::sl
   }
@@ -59,35 +63,35 @@ class yum::config {
     include yum::config::centos
   }
 
-  if $yum::repoSoftwarecollections == 'yes' {
+  if $yum::repoSoftwarecollections {
     include yum::config::softwarecollections
   }
 
-  if $yum::repoEpel == 'yes' {
+  if $yum::repoEpel {
     include yum::config::epel
   }
 
-  if $yum::repoPuppetlabs == 'yes' {
+  if $yum::repoPuppetlabs {
     include yum::config::puppetlabs
   }
 
-  if $yum::repoForeman == 'yes' {
+  if $yum::repoForeman {
     include yum::config::foreman
   }
 
-  if $yum::repoPassenger == 'yes' {
+  if $yum::repoPassenger {
     include yum::config::passenger
   }
 
-  if $yum::repoOvirt == 'yes' {
+  if $yum::repoOvirt {
     include yum::config::ovirt
   }
 
-  if $yum::repoIcinga == 'yes' {
+  if $yum::repoIcinga {
     include yum::config::icinga
   }
 
-  if $yum::repoCustom == 'yes' {
+  if $yum::repoCustom {
     include yum::config::custom
   }
 }

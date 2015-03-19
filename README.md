@@ -82,6 +82,10 @@ The following parameters are available in the yum module
 
 Define if yum repositories are managed by module
 
+####`tmpfs`
+
+Define if yum repositories should be stored on tmpfs instead of harddisk
+
 ####`autoUpdate`
 
 Define if yum should automatically update the system every night

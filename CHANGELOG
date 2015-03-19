@@ -1,15 +1,45 @@
-0.1.0 2013-04-11 thbe <project@bendler-net.de>
- * Initial release
+0.5.0 2015-03-19 thbe <project@bendler-net.de>
+ * Add upgrade tool for EL6
+ * Add tmpfs support
+ * Switch parameter to boolean
+ * Enhance documentation
 
-0.2.0 2013-08-16 thbe <project@bendler-net.de>
- * Prepare for forge
- * Documentation according to NTP module from puppetlabs
+0.4.10 2014-12-15 thbe <project@bendler-net.de>
+ * Add auto update
 
-0.2.1 2013-12-09 thbe <project@bendler-net.de>
- * Lower version for dependency puppetlabs/stdlib
+0.4.9 2014-12-15 thbe <project@bendler-net.de>
+ * Add proxy parameter
 
-0.2.2 2013-12-16 thbe <project@bendler-net.de>
- * Fixed issue #2
+0.4.8 2014-12-15 thbe <project@bendler-net.de>
+ * Fix license tag
+
+0.4.7 2014-12-15 thbe <project@bendler-net.de>
+ * Update Foreman repository to 1.7
+ * Add custom exclude
+
+0.4.6 2014-09-17 thbe <project@bendler-net.de>
+ * Restrict module to major version 6+, lower versions are not supported
+
+0.4.5 2014-09-17 thbe <project@bendler-net.de>
+ * Update Foreman repository to 1.6
+
+0.4.4 2014-09-08 thbe <project@bendler-net.de>
+ * Bugfix release
+
+0.4.3 2014-08-23 thbe <project@bendler-net.de>
+ * Bugfix release
+
+0.4.2 2014-08-23 thbe <project@bendler-net.de>
+ * Add Icinga support
+
+0.4.0 2014-07-15 thbe <project@bendler-net.de>
+ * Add EL7 support
+
+0.3.2 2014-07-14 thbe <project@bendler-net.de>
+ * Changed foreman key
+
+0.3.1 2014-06-04 thbe <project@bendler-net.de>
+ * Add ovirt repository
 
 0.3.0 2014-06-03 thbe <project@bendler-net.de>
  * Switched to contain and removed stdlib dependency
@@ -17,39 +47,15 @@
  * Add RPM GPG key import
  * Support for RHEL 6 or clones only
 
-0.3.1 2014-06-04 thbe <project@bendler-net.de>
- * Add ovirt repository
+0.2.2 2013-12-16 thbe <project@bendler-net.de>
+ * Fixed issue #2
 
-0.3.2 2014-07-14 thbe <project@bendler-net.de>
- * Changed foreman key
+0.2.1 2013-12-09 thbe <project@bendler-net.de>
+ * Lower version for dependency puppetlabs/stdlib
 
-0.4.0 2014-07-15 thbe <project@bendler-net.de>
- * Add EL7 support
+0.2.0 2013-08-16 thbe <project@bendler-net.de>
+ * Prepare for forge
+ * Documentation according to NTP module from puppetlabs
 
-0.4.2 2014-08-23 thbe <project@bendler-net.de>
- * Add Icinga support
-
-0.4.3 2014-08-23 thbe <project@bendler-net.de>
- * Bugfix release
-
-0.4.4 2014-09-08 thbe <project@bendler-net.de>
- * Bugfix release
-
-0.4.5 2014-09-17 thbe <project@bendler-net.de>
- * Update Foreman repository to 1.6
-
-0.4.6 2014-09-17 thbe <project@bendler-net.de>
- * Restrict module to major version 6+, lower versions are not supported
-
-0.4.7 2014-12-15 thbe <project@bendler-net.de>
- * Update Foreman repository to 1.7
- * Add custom exclude
-
-0.4.8 2014-12-15 thbe <project@bendler-net.de>
- * Fix license tag
-
-0.4.9 2014-12-15 thbe <project@bendler-net.de>
- * Add proxy parameter
-
-0.4.10 2014-12-15 thbe <project@bendler-net.de>
- * Add auto update
+0.1.0 2013-04-11 thbe <project@bendler-net.de>
+ * Initial release

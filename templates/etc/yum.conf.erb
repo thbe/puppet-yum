@@ -9,18 +9,18 @@ gpgcheck=1
 plugins=1
 installonly_limit=3
 
-# Exclude rpms from update
-<% if @yumExclude != 'no' %>
+# Exclude rpms from update if needed
+<% if @yumExclude != 'not set' %>
 exclude=<%= @yumExclude %>
 <% end %>
 
-# Set proxy for internet access
-<% if @yumProxy != 'no' %>
+# Set proxy for internet access if needed
+<% if @yumProxy != 'not set' %>
 proxy=<%= @yumProxy %>
 <% end %>
-<% if @yumProxyUser != 'no' %>
+<% if @yumProxyUser != 'not set' %>
 proxy_username=<%= @yumProxyUser %>
 <% end %>
-<% if @yumProxyPassword != 'no' %>
+<% if @yumProxyPassword != 'not set' %>
 proxy_password=<%= @yumProxyPassword %>
 <% end %>

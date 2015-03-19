@@ -5,17 +5,78 @@
 #
 # === Parameters
 #
-# The yum class has several parameters to control the repositories
-# that will be installed. The default configuration install the
-# software collections, EPEL and the Puppetlabs repository. Additional
-# repositories could be added and activated.
+# Here is the list of parameters used by this module.
+#
+# [*manage*]
+#   Specify if module should manage yum
+#   Default value is true
+#
+# [*tmpfs*]
+#   Specify if yum should use tmpfs instead of harddrive for downloaded RPMs
+#   Default value is false
+#
+# [*autoUpdate*]
+#   Specify if yum should use automatic update
+#   Default value is false
+#
+# [*yumExclude*]
+#   Specify if yum should not update certain packages
+#   Default value is not set
+#
+# [*yumProxy*]
+#   Specify proxy server that yum should use
+#   Default value is not set
+#
+# [*yumProxyUser*]
+#   Specify user for proxy server that yum should use
+#   Default value is not set
+#
+# [*yumProxyPassword*]
+#   Specify password for proxy server that yum should use
+#   Default value is not set
+#
+# [*repoSoftwarecollections*]
+#   Specify if Software Collections should be enabled
+#   Default value is true
+#
+# [*repoEpel*]
+#   Specify if EPEL should be enabled
+#   Default value is true
+#
+# [*repoPuppetlabs*]
+#   Specify if Puppetlabs should be enabled
+#   Default value is true
+#
+# [*repoForeman*]
+#   Specify if Foreman should be enabled
+#   Default value is false
+#
+# [*repoPassenger*]
+#   Specify if Passenger should be enabled
+#   Default value is false
+#
+# [*repoOvirt*]
+#   Specify if Ovirt should be enabled
+#   Default value is false
+#
+# [*repoIcinga*]
+#   Specify if Icinga should be enabled
+#   Default value is false
+#
+# [*repoCustom*]
+#   Specify if Custom should be enabled
+#   Default value is false
 #
 # === Variables
+#
+# No additonal variables are required for this module
 #
 # === Examples
 #
 #  class { yum:
-#    repoForeman => 'yes',
+#    manage      => true,
+#    tmpfs       => true,
+#    repoForeman => true,
 #  }
 #
 # === Authors
@@ -24,23 +85,24 @@
 #
 # === Copyright
 #
-# Copyright 2014 Thomas Bendler, unless otherwise noted.
+# Copyright 2015 Thomas Bendler, unless otherwise noted.
 #
 class yum (
-  $manage                      = 'yes',
-  $autoUpdate                  = 'no',
-  $yumExclude                  = 'no',
-  $yumProxy                    = 'no',
-  $yumProxyUser                = 'no',
-  $yumProxyPassword            = 'no',
-  $repoSoftwarecollections     = 'yes',
-  $repoEpel                    = 'yes',
-  $repoPuppetlabs              = 'yes',
-  $repoForeman                 = 'no',
-  $repoPassenger               = 'no',
-  $repoOvirt                   = 'no',
-  $repoIcinga                  = 'no',
-  $repoCustom                  = 'no',
+  $manage                      = true,
+  $tmpfs                       = false,
+  $autoUpdate                  = false,
+  $yumExclude                  = 'not set',
+  $yumProxy                    = 'not set',
+  $yumProxyUser                = 'not set',
+  $yumProxyPassword            = 'not set',
+  $repoSoftwarecollections     = true,
+  $repoEpel                    = true,
+  $repoPuppetlabs              = true,
+  $repoForeman                 = false,
+  $repoPassenger               = false,
+  $repoOvirt                   = false,
+  $repoIcinga                  = false,
+  $repoCustom                  = false,
   $elSl                        = $yum::params::elSl,
   $elSlSecurity                = $yum::params::elSlSecurity,
   $elSlSource                  = $yum::params::elSlSource,

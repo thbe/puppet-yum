@@ -28,6 +28,7 @@ class yum::params {
       $configYumConf          = '/etc/yum.conf'
       $configYumConfDirectory = '/etc/yum.conf.d'
       $configYumConfTemplate  = 'yum/etc/yum.conf.erb'
+      $configYumRepoDirectory = '/var/lib/yum/repos'
     }
     default: {
       $linux = false
@@ -44,6 +45,7 @@ class yum::params {
     $elSlx                       = 'mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-base-6x.txt'
     $elSlxSecurity               = 'mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-security-6x.txt'
     $elSlxFastbugs               = 'mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-fastbugs-6x.txt'
+    $elCentosUpg                 = 'baseurl=http://dev.centos.org/centos/6/upg/x86_64/'
     $elSoftwarecollections       = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/$basearch/'
     $elSoftwarecollectionsSource = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/SRPMS/'
     $elEpelTesting               = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel6&arch=$basearch'
@@ -77,6 +79,7 @@ class yum::params {
   # File definitions
   if $::operatingsystemmajrelease == '6' {
     $elSlxFile                   = '/etc/yum.repos.d/sl6x.repo'
+    $elCentosUpgFile             = '/etc/yum.repos.d/upgradetool.repo'
   }
   $elSlFile                      = '/etc/yum.repos.d/sl.repo'
   $elCentosFile                  = '/etc/yum.repos.d/CentOS-Base.repo'
@@ -96,6 +99,7 @@ class yum::params {
     $elSlxTemplate                 = 'yum/etc/yum.repos.d/el6/sl6x.repo.erb'
     $elSlTemplate                  = 'yum/etc/yum.repos.d/el6/sl.repo.erb'
     $elCentosTemplate              = 'yum/etc/yum.repos.d/el6/CentOS-Base.repo.erb'
+    $elCentosUpgTemplate           = 'yum/etc/yum.repos.d/el6/upgradetool.repo.erb'
     $elSoftwarecollectionsTemplate = 'yum/etc/yum.repos.d/el6/softwarecollections.repo.erb'
     $elEpelTemplate                = 'yum/etc/yum.repos.d/el6/epel.repo.erb'
     $elEpelTestingTemplate         = 'yum/etc/yum.repos.d/el6/epel-testing.repo.erb'
