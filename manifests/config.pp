@@ -63,6 +63,10 @@ class yum::config {
     include yum::config::centos
   }
 
+  if $yum::repoUpgradetool {
+    include yum::config::upgradetool
+  }
+
   if $yum::repoSoftwarecollections {
     include yum::config::softwarecollections
   }
