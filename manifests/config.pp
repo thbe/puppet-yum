@@ -63,12 +63,16 @@ class yum::config {
     include yum::config::centos
   }
 
-  if $yum::repoUpgradetool {
-    include yum::config::upgradetool
+  if $::operatingsystemmajrelease == '6' {
+    if $yum::repoUpgradetool {
+      include yum::config::upgradetool
+    }
   }
 
-  if $yum::repoSoftwarecollections {
-    include yum::config::softwarecollections
+  if $::operatingsystemmajrelease == '6' {
+    if $yum::repoSoftwarecollections {
+      include yum::config::softwarecollections
+    }
   }
 
   if $yum::repoEpel {

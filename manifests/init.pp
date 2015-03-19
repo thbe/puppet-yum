@@ -35,9 +35,13 @@
 #   Specify password for proxy server that yum should use
 #   Default value is not set
 #
+# [*repoUpgradetool*]
+#   Specify if Upgradetool should be enabled
+#   Default value is true if major version 6
+#
 # [*repoSoftwarecollections*]
 #   Specify if Software Collections should be enabled
-#   Default value is true
+#   Default value is true if major version 6
 #
 # [*repoEpel*]
 #   Specify if EPEL should be enabled
@@ -95,6 +99,7 @@ class yum (
   $yumProxy                    = 'not set',
   $yumProxyUser                = 'not set',
   $yumProxyPassword            = 'not set',
+  $repoUpgradetool             = true,
   $repoSoftwarecollections     = true,
   $repoEpel                    = true,
   $repoPuppetlabs              = true,
