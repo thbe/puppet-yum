@@ -12,9 +12,9 @@
 #
 class yum::config::tmpfs {
   exec { 'moveRepoDirectory':
-    path => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'],
+    path    => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'],
     command => "mv $yum::params::configYumRepoDirectory $yum::params::configYumRepoDirectory.orig",
-    onlyif => "test -d $yum::params::configYumRepoDirectory"
+    onlyif  => "test ! -L $yum::params::configYumRepoDirectory"
   }
 
   file { $yum::params::configYumRepoDirectory:

@@ -1,3 +1,6 @@
+0.5.1 2015-03-19 thbe <project@bendler-net.de>
+ * Fix tmpfs support, run only if not symlink
+
 0.5.0 2015-03-19 thbe <project@bendler-net.de>
  * Add upgrade tool for EL6
  * Add tmpfs support
