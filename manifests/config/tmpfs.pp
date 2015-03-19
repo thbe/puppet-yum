@@ -12,6 +12,7 @@
 #
 class yum::config::tmpfs {
   exec { 'moveRepoDirectory':
+    path => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'],
     command => "mv $yum::params::configYumRepoDirectory $yum::params::configYumRepoDirectory.orig",
     onlyif => "test -d $yum::params::configYumRepoDirectory"
   }
