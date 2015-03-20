@@ -1,3 +1,6 @@
+0.5.2 2015-03-20 thbe <project@bendler-net.de>
+ * Removed software collections from default install
+
 0.5.1 2015-03-19 thbe <project@bendler-net.de>
  * Fix tmpfs support, run only if not symlink
 
