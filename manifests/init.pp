@@ -100,7 +100,7 @@ class yum (
   $yumProxyUser                = 'not set',
   $yumProxyPassword            = 'not set',
   $repoUpgradetool             = true,
-  $repoSoftwarecollections     = true,
+  $repoSoftwarecollections     = false,
   $repoEpel                    = true,
   $repoPuppetlabs              = true,
   $repoForeman                 = false,
