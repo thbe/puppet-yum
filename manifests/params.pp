@@ -21,7 +21,7 @@ class yum::params {
       }
 
       # Package definition
-      $packageCommon = 'yum'
+      $packageCommon     = 'yum'
       $packageAutoUpdate = 'yum-cron'
 
       # Config definition
@@ -39,6 +39,20 @@ class yum::params {
   $keepcache = '1'
 
   # Repository definitions
+  $elCentosBase           = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os'
+  $elCentosUpdates        = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates'
+  $elCentosExtras         = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras'
+  $elCentosPlus           = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus'
+  $elCentosContrib        = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib'
+  $elSlSource             = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/$releasever/SRPMS/'
+  $elCustom               = 'baseurl=http://repo.intranet.local/rhel/$releasever/$basearch/'
+  $elEpel                 = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
+  $elEpelDebuginfo        = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
+  $elEpelSource           = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-$releasever&arch=$basearch'
+  $elEpelTesting          = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel$releasever&arch=$basearch'
+  $elEpelTestingDebuginfo = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel$releasever&arch=$basearch'
+  $elEpelTestingSource    = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel$releasever&arch=$basearch'
+  $elIcinga               = 'baseurl=http://packages.icinga.org/epel/$releasever/release/'
   if $::operatingsystemmajrelease == '6' {
     $elSl                        = 'mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-base-6.txt'
     $elSlSecurity                = 'mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-security-6.txt'
@@ -48,33 +62,31 @@ class yum::params {
     $elCentosUpg                 = 'baseurl=http://dev.centos.org/centos/6/upg/x86_64/'
     $elSoftwarecollections       = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/$basearch/'
     $elSoftwarecollectionsSource = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/SRPMS/'
-    $elEpelTesting               = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel6&arch=$basearch'
-    $elEpelTestingDebuginfo      = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel6&arch=$basearch'
-    $elEpelTestingSource         = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel6&arch=$basearch'
     $elPuppetlabsProducts        = 'baseurl=http://yum.puppetlabs.com/el/6/products/$basearch/'
     $elPuppetlabsProductsSource  = 'baseurl=http://yum.puppetlabs.com/el/6/products/SRPMS/'
     $elPuppetlabsDeps            = 'baseurl=http://yum.puppetlabs.com/el/6/dependencies/$basearch/'
     $elPuppetlabsDepsSource      = 'baseurl=http://yum.puppetlabs.com/el/6/dependencies/SRPMS/'
     $elPuppetlabsDevel           = 'baseurl=http://yum.puppetlabs.com/el/6/devel/$basearch/'
     $elPuppetlabsDevelSource     = 'baseurl=http://yum.puppetlabs.com/el/6/devel/SRPMS/'
-    $elIcinga                    = 'baseurl=http://packages.icinga.org/epel/$releasever/release/'
-    $elForeman                   = 'baseurl=http://yum.theforeman.org/releases/1.7/el6/$basearch/'
-    $elForemanSource             = 'baseurl=http://yum.theforeman.org/releases/1.7/el6/source/'
-    $elForemanPlugins            = 'baseurl=http://yum.theforeman.org/plugins/1.7/el6/$basearch/'
-    $elForemanPluginsSource      = 'baseurl=http://yum.theforeman.org/plugins/1.7/el6/source/'
+    $elForeman                   = 'baseurl=http://yum.theforeman.org/releases/1.8/el6/$basearch/'
+    $elForemanSource             = 'baseurl=http://yum.theforeman.org/releases/1.8/el6/source/'
+    $elForemanPlugins            = 'baseurl=http://yum.theforeman.org/plugins/1.8/el6/$basearch/'
+    $elForemanPluginsSource      = 'baseurl=http://yum.theforeman.org/plugins/1.8/el6/source/'
     $elPassenger                 = 'baseurl=http://passenger.stealthymonkeys.com/rhel/6rolling/$basearch/'
     $elPassengerTesting          = 'baseurl=http://passenger.stealthymonkeys.com/rhel/6rolling/$basearch/testing/'
   }
-  $elCentosBase                  = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os'
-  $elCentosUpdates               = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates'
-  $elCentosExtras                = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras'
-  $elCentosPlus                  = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus'
-  $elCentosContrib               = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib'
-  $elSlSource                    = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/$releasever/SRPMS/'
-  $elCustom                      = 'baseurl=http://repo.intranet.local/rhel/$releasever/$basearch/'
-  $elEpel                        = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
-  $elEpelDebuginfo               = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
-  $elEpelSource                  = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-$releasever&arch=$basearch'
+  if $::operatingsystemmajrelease == '7' {
+    $elPuppetlabsProducts        = 'baseurl=http://yum.puppetlabs.com/el/7/products/$basearch/'
+    $elPuppetlabsProductsSource  = 'baseurl=http://yum.puppetlabs.com/el/7/products/SRPMS/'
+    $elPuppetlabsDeps            = 'baseurl=http://yum.puppetlabs.com/el/7/dependencies/$basearch/'
+    $elPuppetlabsDepsSource      = 'baseurl=http://yum.puppetlabs.com/el/7/dependencies/SRPMS/'
+    $elPuppetlabsDevel           = 'baseurl=http://yum.puppetlabs.com/el/7/devel/$basearch/'
+    $elPuppetlabsDevelSource     = 'baseurl=http://yum.puppetlabs.com/el/7/devel/SRPMS/'
+    $elForeman                   = 'baseurl=http://yum.theforeman.org/releases/1.8/el7/$basearch/'
+    $elForemanSource             = 'baseurl=http://yum.theforeman.org/releases/1.8/el7/source/'
+    $elForemanPlugins            = 'baseurl=http://yum.theforeman.org/plugins/1.8/el7/$basearch/'
+    $elForemanPluginsSource      = 'baseurl=http://yum.theforeman.org/plugins/1.8/el7/source/'
+  }
 
   # File definitions
   if $::operatingsystemmajrelease == '6' {
@@ -117,6 +129,7 @@ class yum::params {
     $elEpelTemplate                = 'yum/etc/yum.repos.d/el7/epel.repo.erb'
     $elEpelTestingTemplate         = 'yum/etc/yum.repos.d/el7/epel-testing.repo.erb'
     $elPuppetlabsTemplate          = 'yum/etc/yum.repos.d/el7/puppetlabs.repo.erb'
+    $elIcingaTemplate              = 'yum/etc/yum.repos.d/el7/ICINGA-release.repo.erb'
     $elForemanTemplate             = 'yum/etc/yum.repos.d/el7/foreman.repo.erb'
     $elForemanPluginTemplate       = 'yum/etc/yum.repos.d/el7/foreman-plugins.repo.erb'
     $elPassengerTemplate           = 'yum/etc/yum.repos.d/el7/passenger.repo.erb'

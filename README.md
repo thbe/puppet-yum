@@ -185,7 +185,7 @@ This module has been built on and tested against Puppet 3.6 and higher.
 
 The module has been tested on:
 
-* CentOS Linux 6
+* CentOS Linux 6, 7
 * Scientific Linux 6
 
 Testing on other platforms has been light and cannot be guaranteed.
