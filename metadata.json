@@ -1,6 +1,6 @@
 {
   "name": "thbe-yum",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": "thbe",
   "summary": "Yum management module",
   "license": "GPL-3.0",

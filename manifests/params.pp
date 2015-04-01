@@ -74,6 +74,7 @@ class yum::params {
     $elForemanPluginsSource      = 'baseurl=http://yum.theforeman.org/plugins/1.8/el6/source/'
     $elPassenger                 = 'baseurl=http://passenger.stealthymonkeys.com/rhel/6rolling/$basearch/'
     $elPassengerTesting          = 'baseurl=http://passenger.stealthymonkeys.com/rhel/6rolling/$basearch/testing/'
+    $elOwncloud                  = 'baseurl=http://download.opensuse.org/repositories/isv:/ownCloud:/community/CentOS_CentOS-6/'
   }
   if $::operatingsystemmajrelease == '7' {
     $elPuppetlabsProducts        = 'baseurl=http://yum.puppetlabs.com/el/7/products/$basearch/'
@@ -86,6 +87,7 @@ class yum::params {
     $elForemanSource             = 'baseurl=http://yum.theforeman.org/releases/1.8/el7/source/'
     $elForemanPlugins            = 'baseurl=http://yum.theforeman.org/plugins/1.8/el7/$basearch/'
     $elForemanPluginsSource      = 'baseurl=http://yum.theforeman.org/plugins/1.8/el7/source/'
+    $elOwncloud                  = 'baseurl=http://download.opensuse.org/repositories/isv:/ownCloud:/community/CentOS_CentOS-7/'
   }
 
   # File definitions
@@ -104,6 +106,7 @@ class yum::params {
   $elForemanPluginsFile          = '/etc/yum.repos.d/foreman-plugins.repo'
   $elPassengerFile               = '/etc/yum.repos.d/passenger.repo'
   $elOvirtFile                   = '/etc/yum.repos.d/ovirt.repo'
+  $elOwncloudFile                = '/etc/yum.repos.d/owncloud.repo'
   $elCustomFile                  = '/etc/yum.repos.d/custom.repo'
 
   # Template definitions
@@ -121,6 +124,7 @@ class yum::params {
     $elForemanPluginTemplate       = 'yum/etc/yum.repos.d/el6/foreman-plugins.repo.erb'
     $elPassengerTemplate           = 'yum/etc/yum.repos.d/el6/passenger.repo.erb'
     $elOvirtTemplate               = 'yum/etc/yum.repos.d/el6/ovirt.repo.erb'
+    $elOwncloudTemplate            = 'yum/etc/yum.repos.d/el6/owncloud.repo.erb'
     $elCustomTemplate              = 'yum/etc/yum.repos.d/el6/custom.repo.erb'
   }
   if $::operatingsystemmajrelease == '7' {
@@ -134,6 +138,7 @@ class yum::params {
     $elForemanPluginTemplate       = 'yum/etc/yum.repos.d/el7/foreman-plugins.repo.erb'
     $elPassengerTemplate           = 'yum/etc/yum.repos.d/el7/passenger.repo.erb'
     $elOvirtTemplate               = 'yum/etc/yum.repos.d/el7/ovirt.repo.erb'
+    $elOwncloudTemplate            = 'yum/etc/yum.repos.d/el7/owncloud.repo.erb'
     $elCustomTemplate              = 'yum/etc/yum.repos.d/el7/custom.repo.erb'
   }
 }

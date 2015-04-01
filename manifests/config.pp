@@ -88,6 +88,10 @@ class yum::config {
     include yum::config::ovirt
   }
 
+  if $yum::repoOwncloud {
+    include yum::config::owncloud
+  }
+
   if $yum::repoIcinga {
     include yum::config::icinga
   }

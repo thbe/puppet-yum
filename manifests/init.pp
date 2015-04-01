@@ -63,6 +63,10 @@
 #   Specify if Ovirt should be enabled
 #   Default value is false
 #
+# [*repoOwncloud*]
+#   Specify if Owncloud should be enabled
+#   Default value is false
+#
 # [*repoIcinga*]
 #   Specify if Icinga should be enabled
 #   Default value is false
@@ -106,6 +110,7 @@ class yum (
   $repoForeman                 = false,
   $repoPassenger               = false,
   $repoOvirt                   = false,
+  $repoOwncloud                = false,
   $repoIcinga                  = false,
   $repoCustom                  = false,
   $elSl                        = $yum::params::elSl,
