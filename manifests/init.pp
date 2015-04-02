@@ -140,6 +140,7 @@ class yum (
   $elPassenger                 = $yum::params::elPassenger,
   $elPassengerTesting          = $yum::params::elPassengerTesting,
   $elIcinga                    = $yum::params::elIcinga,
+  $elOwncloud                  = $yum::params::elOwncloud,
   $elCustom                    = $yum::params::elCustom) inherits yum::params {
   # Start workflow
   if $yum::params::linux {

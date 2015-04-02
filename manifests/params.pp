@@ -21,8 +21,9 @@ class yum::params {
       }
 
       # Package definition
-      $packageCommon     = 'yum'
-      $packageAutoUpdate = 'yum-cron'
+      $packageCommon      = 'yum'
+      $packageYumDeltarpm = 'deltarpm'
+      $packageAutoUpdate  = 'yum-cron'
 
       # Config definition
       $configYumConf          = '/etc/yum.conf'

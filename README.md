@@ -176,12 +176,13 @@ $elForemanPluginsSource      = $yum::params::elForemanPluginsSource
 $elPassenger                 = $yum::params::elPassenger
 $elPassengerTesting          = $yum::params::elPassengerTesting
 $elIcinga                    = $yum::params::elIcinga
+$elOwncloud                  = $yum::params::elOwncloud,
 $elCustom                    = $yum::params::elCustom
 ```
 
 ##Limitations
 
-This module has been built on and tested against Puppet 3.6 and higher.
+This module has been built on and tested against Puppet 3.7 and higher.
 
 The module has been tested on:
 

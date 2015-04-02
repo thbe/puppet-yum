@@ -12,6 +12,9 @@
 #
 class yum::package {
   package { $yum::params::packageCommon: ensure => installed; }
+
+  package { $yum::params::packageYumDeltarpm: ensure => installed; }
+
   if $yum::autoUpdate == 'yes' {
     package { $yum::params::packageAutoUpdate: ensure => installed; }
   }

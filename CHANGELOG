@@ -1,4 +1,7 @@
-0.6.0 2015-03-31 thbe <project@bendler-net.de>
+0.6.2 2015-04-02 thbe <project@bendler-net.de>
+ * Added deltarpm support
+
+0.6.1 2015-03-31 thbe <project@bendler-net.de>
  * Added Owncloud repository
 
 0.6.0 2015-03-31 thbe <project@bendler-net.de>
