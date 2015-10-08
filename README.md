@@ -40,7 +40,7 @@ then you can use:
 
 ```puppet
 class { '::yum':
-  repoForeman => true,
+  repo_foreman => true,
 }
 ```
 
@@ -61,7 +61,7 @@ include '::yum'
 
 ```puppet
 class { '::yum':
-  repoForeman => true,
+  repo_foreman => true,
 }
 ```
 
@@ -86,98 +86,102 @@ Define if yum repositories are managed by module
 
 Define if yum repositories should be stored on tmpfs instead of harddisk
 
-####`autoUpdate`
+####`auto_update`
 
 Define if yum should automatically update the system every night
 
-####`yumExclude`
+####`yum_exclude`
 
 List of RPMs that are exclude during yum run
 
-####`yumProxy`
+####`yum_proxy`
 
 Should yum proxy be used and if yes, define URL,
 i.e. http://mycache.mydomain.com:3128
 
-####`yumProxyUser`
+####`yum_proxy_user`
 
 Use defined user to connect to proxy server
 
-####`yumProxyPassword`
+####`yum_proxy_password`
 
 Use defined password to connect to proxy server
 
-####`repoSl`
+####`repo_sl`
 
 Enable SL and SLx repository.
 
-####`repoCentos`
+####`repo_centos`
 
 Enable CentOS repository.
 
-####`repoSoftwarecollections`
+####`repo_softwarecollections`
 
 Enable Software Collections repository.
 
-####`repoEpel`
+####`repo_epel`
 
 Enable EPEL repository.
 
-####`repoPuppetlabs`
+####`repo_puppetlabs`
 
 Enable Puppetlabs repository.
 
-####`repoForeman`
+####`repo_foreman`
 
 Enable Foreman repository.
 
-####`repoPassenger`
+####`repo_passenger`
 
 Enable Passenger repository.
 
-####`repoOvirt`
+####`repo_ovirt`
 
 Enable Ovirt repository.
 
-####`repoIcinga`
+####`repo_icinga`
 
 Enable Icinga repository.
 
-####`repoCustom`
+####`repo_custom`
 
 Enable custom repository.
 
+####`repo_upgradetool`
+
+Enable upgradetool repository.
+
 ####`Additional parameters`
 ```puppet
-$elSl                        = $yum::params::elSl
-$elSlSecurity                = $yum::params::elSlSecurity
-$elSlSource                  = $yum::params::elSlSource
-$elSlx                       = $yum::params::elSlx
-$elSlxSecurity               = $yum::params::elSlxSecurity
-$elSlxFastbugs               = $yum::params::elSlxFastbugs
-$elSoftwarecollections       = $yum::params::elSoftwarecollections
-$elSoftwarecollectionsSource = $yum::params::elSoftwarecollectionsSource
-$elEpel                      = $yum::params::elEpel
-$elEpelDebuginfo             = $yum::params::elEpelDebuginfo
-$elEpelSource                = $yum::params::elEpelSource
-$elEpelTesting               = $yum::params::elEpelTesting
-$elEpelTestingDebuginfo      = $yum::params::elEpelTestingDebuginfo
-$elEpelTestingSource         = $yum::params::elEpelTestingSource
-$elPuppetlabsProducts        = $yum::params::elPuppetlabsProducts
-$elPuppetlabsProductsSource  = $yum::params::elPuppetlabsProductsSource
-$elPuppetlabsDeps            = $yum::params::elPuppetlabsDeps
-$elPuppetlabsDepsSource      = $yum::params::elPuppetlabsDepsSource
-$elPuppetlabsDevel           = $yum::params::elPuppetlabsDevel
-$elPuppetlabsDevelSource     = $yum::params::elPuppetlabsDevelSource
-$elForeman                   = $yum::params::elForeman
-$elForemanSource             = $yum::params::elForemanSource
-$elForemanPlugins            = $yum::params::elForemanPlugins
-$elForemanPluginsSource      = $yum::params::elForemanPluginsSource
-$elPassenger                 = $yum::params::elPassenger
-$elPassengerTesting          = $yum::params::elPassengerTesting
-$elIcinga                    = $yum::params::elIcinga
-$elOwncloud                  = $yum::params::elOwncloud,
-$elCustom                    = $yum::params::elCustom
+$el_custom                      = $yum::params::el_custom,
+$el_epel                        = $yum::params::el_epel,
+$el_epel_debuginfo              = $yum::params::el_epel_debuginfo,
+$el_epel_source                 = $yum::params::el_epel_source,
+$el_epel_testing                = $yum::params::el_epel_testing,
+$el_epel_testing_debuginfo      = $yum::params::el_epel_testing_debuginfo,
+$el_epel_testing_source         = $yum::params::el_epel_testing_source,
+$el_foreman                     = $yum::params::el_foreman,
+$el_foreman_source              = $yum::params::el_foreman_source,
+$el_foreman_plugins             = $yum::params::el_foreman_plugins,
+$el_foreman_plugins_source      = $yum::params::el_foreman_plugins_source,
+$el_icinga                      = $yum::params::el_icinga,
+$el_owncloud                    = $yum::params::el_owncloud,
+$el_passenger                   = $yum::params::el_passenger,
+$el_passenger_testing           = $yum::params::el_passenger_testing,
+$el_puppetlabs_products         = $yum::params::el_puppetlabs_products,
+$el_puppetlabs_products_source  = $yum::params::el_puppetlabs_products_source,
+$el_puppetlabs_deps             = $yum::params::el_puppetlabs_deps,
+$el_puppetlabs_deps_source      = $yum::params::el_puppetlabs_deps_source,
+$el_puppetlabs_devel            = $yum::params::el_puppetlabs_devel,
+$el_puppetlabs_devel_source     = $yum::params::el_puppetlabs_devel_source,
+$el_sl                          = $yum::params::el_sl,
+$el_sl_security                 = $yum::params::el_sl_security,
+$el_sl_source                   = $yum::params::el_sl_source,
+$elx_sl                         = $yum::params::elx_sl,
+$elx_sl_security                = $yum::params::elx_sl_security,
+$elx_sl_fastbugs                = $yum::params::elx_sl_fastbugs,
+$el_softwarecollections         = $yum::params::el_softwarecollections,
+$el_softwarecollections_source  = $yum::params::el_softwarecollections_source
 ```
 
 ##Limitations

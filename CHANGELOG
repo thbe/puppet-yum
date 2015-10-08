@@ -1,4 +1,7 @@
-0.6.2 2015-04-02 thbe <project@bendler-net.de>
+0.6.6 2015-04-02 thbe <project@bendler-net.de>
+ * Updated documentation
+
+0.6.5 2015-04-02 thbe <project@bendler-net.de>
  * Added puppet 4.x support
  * Rewrite variables (puppet-lint)
 
