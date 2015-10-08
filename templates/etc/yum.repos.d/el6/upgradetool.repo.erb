@@ -6,7 +6,7 @@
 #
 [upgradetool]
 name=CentOS-$releasever - Upgrade Tool
-<%= @elCentosUpg %>
+<%= scope.lookupvar("yum::el_centos_upg") %>
 failovermethod=priority
 gpgcheck=1
 enabled=1

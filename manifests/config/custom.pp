@@ -11,13 +11,13 @@
 # Sample Usage:
 #
 class yum::config::custom {
-  file { $yum::params::elCustomFile:
+  file { $yum::params::el_custom_file:
     ensure  => present,
     mode    => '0644',
     owner   => root,
     group   => root,
-    path    => $yum::params::elCustomFile,
+    path    => $yum::params::el_custom_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-    content => template($yum::params::elCustomTemplate);
+    content => template($yum::params::el_custom_template);
   }
 }

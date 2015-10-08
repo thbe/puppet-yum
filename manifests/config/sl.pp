@@ -12,22 +12,22 @@
 #
 class yum::config::sl {
   file {
-    $yum::params::elSlFile:
+    $yum::params::el_sl_file:
       ensure  => present,
       mode    => '0644',
       owner   => root,
       group   => root,
-      path    => $yum::params::elSlFile,
+      path    => $yum::params::el_sl_file,
       notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-      content => template($yum::params::elSlTemplate);
+      content => template($yum::params::el_sl_template);
 
-    $yum::params::elSlxFile:
+    $yum::params::el_slx_file:
       ensure  => present,
       mode    => '0644',
       owner   => root,
       group   => root,
-      path    => $yum::params::elSlxFile,
+      path    => $yum::params::el_slx_file,
       notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-      content => template($yum::params::elSlxTemplate);
+      content => template($yum::params::el_slx_template);
   }
 }

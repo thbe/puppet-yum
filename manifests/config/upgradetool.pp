@@ -11,13 +11,13 @@
 # Sample Usage:
 #
 class yum::config::upgradetool {
-  file { $yum::params::elCentosUpgFile:
+  file { $yum::params::el_centos_upg_file:
     ensure  => present,
     mode    => '0644',
     owner   => root,
     group   => root,
-    path    => $yum::params::elCentosUpgFile,
+    path    => $yum::params::el_centos_upg_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-    content => template($yum::params::elCentosUpgTemplate);
+    content => template($yum::params::el_centos_upg_template);
   }
 }

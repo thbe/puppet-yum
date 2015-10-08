@@ -11,15 +11,15 @@
 # Sample Usage:
 #
 class yum::config::tmpfs {
-  exec { 'moveRepoDirectory':
+  exec { 'move_repo_directory':
     path    => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'],
-    command => "mv $yum::params::configYumRepoDirectory $yum::params::configYumRepoDirectory.orig",
-    onlyif  => "test ! -L $yum::params::configYumRepoDirectory"
+    command => "mv ${yum::params::config_yum_repo_directory} ${yum::params::config_yum_repo_directory}.orig",
+    onlyif  => "test ! -L ${yum::params::config_yum_repo_directory}"
   }
 
-  file { $yum::params::configYumRepoDirectory:
+  file { $yum::params::config_yum_repo_directory:
     ensure  => link,
     target  => '/dev/shm',
-    require => Exec['moveRepoDirectory']
+    require => Exec['move_repo_directory']
   }
 }

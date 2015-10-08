@@ -12,22 +12,22 @@
 #
 class yum::config::epel {
   file {
-    $yum::params::elEpelFile:
+    $yum::params::el_epel_file:
       ensure  => present,
       mode    => '0644',
       owner   => root,
       group   => root,
-      path    => $yum::params::elEpelFile,
+      path    => $yum::params::el_epel_file,
       notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-      content => template($yum::params::elEpelTemplate);
+      content => template($yum::params::el_epel_template);
 
-    $yum::params::elEpelTestingFile:
+    $yum::params::el_epel_testing_file:
       ensure  => present,
       mode    => '0644',
       owner   => root,
       group   => root,
-      path    => $yum::params::elEpelTestingFile,
+      path    => $yum::params::el_epel_testing_file,
       notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-      content => template($yum::params::elEpelTestingTemplate);
+      content => template($yum::params::el_epel_testing_template);
   }
 }

@@ -6,7 +6,7 @@
 #
 [icinga-stable-release]
 name=ICINGA stable release for epel - $basearch
-<%= @elIcinga %>
+<%= scope.lookupvar("yum::el_icinga") %>
 enabled=1
 gpgcheck=1
 gpgkey=http://packages.icinga.org/icinga.key

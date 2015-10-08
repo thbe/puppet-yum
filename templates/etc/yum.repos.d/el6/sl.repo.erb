@@ -6,14 +6,14 @@
 #
 [sl]
 name=Scientific Linux $releasever - $basearch
-<%= @elSl %>
+<%= scope.lookupvar("yum::el_sl") %>
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
 
 [sl-security]
 name=Scientific Linux $releasever - $basearch - security updates
-<%= @elSlSecurity %>
+<%= scope.lookupvar("yum::el_sl_security") %>
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
@@ -21,7 +21,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KE
 
 [sl-source]
 name=Scientific Linux $releasever - Source
-<%= @elSlSource %>
+<%= scope.lookupvar("yum::el_sl_source") %>
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern

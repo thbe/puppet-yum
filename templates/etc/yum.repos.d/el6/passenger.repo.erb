@@ -6,14 +6,14 @@
 #
 [passenger]
 name = Red Hat Enterprise $releasever - Phusion Passenger
-<%= @elPassenger %>
+<%= scope.lookupvar("yum::el_passenger") %>
 enabled = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-passenger
 gpgcheck = 1
 
 [passenger-testing]
 name = Red Hat Enterprise $releasever - Phusion Passenger - TEST
-<%= @elPassengerTesting %>
+<%= scope.lookupvar("yum::el_passenger_testing") %>
 enabled = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-passenger
 gpgcheck = 0

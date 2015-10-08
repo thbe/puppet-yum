@@ -12,18 +12,18 @@
 #
 class yum::config {
   # yum configuration
-  file { $yum::params::configYumConf:
+  file { $yum::params::config_yum_conf:
     ensure  => present,
     mode    => '0644',
     owner   => root,
     group   => root,
-    path    => $yum::params::configYumConf,
-    content => template($yum::params::configYumConfTemplate);
+    path    => $yum::params::config_yum_conf,
+    content => template($yum::params::config_yum_conf_template);
   }
 
   # manage /etc/yum.repos.d if defined
   if $yum::manage {
-    file { $yum::params::configYumConfDirectory:
+    file { $yum::params::config_yum_conf_directory:
       ensure => directory,
       mode   => '0755',
       owner  => root,
@@ -57,46 +57,46 @@ class yum::config {
   }
 
   if $::operatingsystemmajrelease == '6' {
-    if $yum::repoUpgradetool {
+    if $yum::repo_upgradetool {
       include yum::config::upgradetool
     }
   }
 
   if $::operatingsystemmajrelease == '6' {
-    if $yum::repoSoftwarecollections {
+    if $yum::repo_softwarecollections {
       include yum::config::softwarecollections
     }
   }
 
-  if $yum::repoEpel {
+  if $yum::repo_epel {
     include yum::config::epel
   }
 
-  if $yum::repoPuppetlabs {
+  if $yum::repo_puppetlabs {
     include yum::config::puppetlabs
   }
 
-  if $yum::repoForeman {
+  if $yum::repo_foreman {
     include yum::config::foreman
   }
 
-  if $yum::repoPassenger {
+  if $yum::repo_passenger {
     include yum::config::passenger
   }
 
-  if $yum::repoOvirt {
+  if $yum::repo_ovirt {
     include yum::config::ovirt
   }
 
-  if $yum::repoOwncloud {
+  if $yum::repo_owncloud {
     include yum::config::owncloud
   }
 
-  if $yum::repoIcinga {
+  if $yum::repo_icinga {
     include yum::config::icinga
   }
 
-  if $yum::repoCustom {
+  if $yum::repo_custom {
     include yum::config::custom
   }
 }

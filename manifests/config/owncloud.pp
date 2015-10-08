@@ -12,13 +12,13 @@
 #
 class yum::config::owncloud {
   file {
-    $yum::params::elOwncloudFile:
+    $yum::params::el_owncloud_file:
       ensure  => present,
       mode    => '0644',
       owner   => root,
       group   => root,
-      path    => $yum::params::elOwncloudFile,
+      path    => $yum::params::el_owncloud_file,
       notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-      content => template($yum::params::elOwncloudTemplate);
+      content => template($yum::params::el_owncloud_template);
   }
 }

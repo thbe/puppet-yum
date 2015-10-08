@@ -11,13 +11,13 @@
 # Sample Usage:
 #
 class yum::config::ovirt {
-  file { $yum::params::elOvirtFile:
+  file { $yum::params::el_ovirt_file:
     ensure  => present,
     mode    => '0644',
     owner   => root,
     group   => root,
-    path    => $yum::params::elOvirtFile,
+    path    => $yum::params::el_ovirt_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-    content => template($yum::params::elOvirtTemplate);
+    content => template($yum::params::el_ovirt_template);
   }
 }

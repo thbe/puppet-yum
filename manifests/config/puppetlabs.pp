@@ -11,13 +11,13 @@
 # Sample Usage:
 #
 class yum::config::puppetlabs {
-  file { $yum::params::elPuppetlabsFile:
+  file { $yum::params::el_puppetlabs_file:
     ensure  => present,
     mode    => '0644',
     owner   => root,
     group   => root,
-    path    => $yum::params::elPuppetlabsFile,
+    path    => $yum::params::el_puppetlabs_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-    content => template($yum::params::elPuppetlabsTemplate);
+    content => template($yum::params::el_puppetlabs_template);
   }
 }

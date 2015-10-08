@@ -11,13 +11,13 @@
 # Sample Usage:
 #
 class yum::config::passenger {
-  file { $yum::params::elPassengerFile:
+  file { $yum::params::el_passenger_file:
     ensure  => present,
     mode    => '0644',
     owner   => root,
     group   => root,
-    path    => $yum::params::elPassengerFile,
+    path    => $yum::params::el_passenger_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-    content => template($yum::params::elPassengerTemplate);
+    content => template($yum::params::el_passenger_template);
   }
 }
