@@ -1,27 +1,27 @@
 [puppetlabs-products]
 name=Puppet Labs Products El 7 - $basearch
-baseurl=http://yum.puppetlabs.com/el/7/products/$basearch
+<%= scope.lookupvar("yum::el_puppetlabs_products") %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=1
 gpgcheck=1
 
 [puppetlabs-deps]
 name=Puppet Labs Dependencies El 7 - $basearch
-baseurl=http://yum.puppetlabs.com/el/7/dependencies/$basearch
+<%= scope.lookupvar("yum::el_puppetlabs_deps") %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=1
 gpgcheck=1
 
 [puppetlabs-devel]
 name=Puppet Labs Devel El 7 - $basearch
-baseurl=http://yum.puppetlabs.com/el/7/devel/$basearch
+<%= scope.lookupvar("yum::el_puppetlabs_devel") %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=0
 gpgcheck=1
 
 [puppetlabs-products-source]
 name=Puppet Labs Products El 7 - $basearch - Source
-baseurl=http://yum.puppetlabs.com/el/7/products/SRPMS
+<%= scope.lookupvar("yum::el_puppetlabs_products_source") %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 failovermethod=priority
 enabled=0
@@ -29,14 +29,14 @@ gpgcheck=1
 
 [puppetlabs-deps-source]
 name=Puppet Labs Source Dependencies El 7 - $basearch - Source
-baseurl=http://yum.puppetlabs.com/el/7/dependencies/SRPMS
+<%= scope.lookupvar("yum::el_puppetlabs_deps_source") %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=0
 gpgcheck=1
 
 [puppetlabs-devel-source]
 name=Puppet Labs Devel El 7 - $basearch - Source
-baseurl=http://yum.puppetlabs.com/el/7/devel/SRPMS
+<%= scope.lookupvar("yum::el_puppetlabs_devel_source") %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=0
 gpgcheck=1

@@ -16,8 +16,20 @@ class yum::params {
   case $::osfamily {
     'RedHat' : {
       case $::operatingsystemmajrelease {
-        '6', '7': { $linux        = true }
-        default:  { $linux        = false }
+        '6': {
+          case $::operatingsystem {
+            'RedHat':     { $linux = true }
+            'CentOS':     { $linux = true }
+            'Scientific': { $linux = true }
+          }
+        }
+        '7': {
+          case $::operatingsystem {
+            'RedHat':     { $linux = true }
+            'CentOS':     { $linux = true }
+          }
+        }
+        default:  { $linux = false }
       }
 
       # Package definition
@@ -45,7 +57,10 @@ class yum::params {
   $el_centos_extras                = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras'
   $el_centos_plus                  = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus'
   $el_centos_contrib               = 'mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib'
-  $el_sl_source                    = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/$releasever/SRPMS/'
+  $el_centos_source_base           = 'baseurl=http://vault.centos.org/centos/$releasever/os/Source/'
+  $el_centos_source_updates        = 'baseurl=http://vault.centos.org/centos/$releasever/updates/Source/'
+  $el_centos_source_extras         = 'baseurl=http://vault.centos.org/centos/$releasever/extras/Source/'
+  $el_centos_source_plus           = 'baseurl=http://vault.centos.org/centos/$releasever/centosplus/Source/'
   $el_custom                       = 'baseurl=http://repo.intranet.local/rhel/$releasever/$basearch/'
   $el_epel                         = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
   $el_epel_debuginfo               = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
@@ -54,6 +69,7 @@ class yum::params {
   $el_epel_testing_debuginfo       = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel$releasever&arch=$basearch'
   $el_epel_testing_source          = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel$releasever&arch=$basearch'
   $el_icinga                       = 'baseurl=http://packages.icinga.org/epel/$releasever/release/'
+  $el_sl_source                    = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/$releasever/SRPMS/'
   if $::operatingsystemmajrelease == '6' {
     $el_sl                           = 'mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-base-6.txt'
     $el_sl_security                  = 'mirrorlist=http://ftp.scientificlinux.org/linux/scientific/mirrorlist/sl-security-6.txt'
@@ -66,7 +82,7 @@ class yum::params {
     $el_puppetlabs_products          = 'baseurl=http://yum.puppetlabs.com/el/6/products/$basearch/'
     $el_puppetlabs_products_source   = 'baseurl=http://yum.puppetlabs.com/el/6/products/SRPMS/'
     $el_puppetlabs_deps              = 'baseurl=http://yum.puppetlabs.com/el/6/dependencies/$basearch/'
-    $el_puppetlabs_depsSource        = 'baseurl=http://yum.puppetlabs.com/el/6/dependencies/SRPMS/'
+    $el_puppetlabs_deps_source       = 'baseurl=http://yum.puppetlabs.com/el/6/dependencies/SRPMS/'
     $el_puppetlabs_devel             = 'baseurl=http://yum.puppetlabs.com/el/6/devel/$basearch/'
     $el_puppetlabs_devel_source      = 'baseurl=http://yum.puppetlabs.com/el/6/devel/SRPMS/'
     $el_foreman                      = 'baseurl=http://yum.theforeman.org/releases/1.8/el6/$basearch/'
@@ -78,6 +94,7 @@ class yum::params {
     $el_owncloud                     = 'baseurl=http://download.opensuse.org/repositories/isv:/ownCloud:/community/CentOS_CentOS-6/'
   }
   if $::operatingsystemmajrelease == '7' {
+    $el_centos_debuginfo             = 'baseurl=http://debuginfo.centos.org/7/$basearch/'
     $el_puppetlabs_products          = 'baseurl=http://yum.puppetlabs.com/el/7/products/$basearch/'
     $el_puppetlabs_products_source   = 'baseurl=http://yum.puppetlabs.com/el/7/products/SRPMS/'
     $el_puppetlabs_deps              = 'baseurl=http://yum.puppetlabs.com/el/7/dependencies/$basearch/'
