@@ -15,21 +15,10 @@ class yum::params {
   # Operating system specific definitions
   case $::osfamily {
     'RedHat' : {
-      case $::operatingsystemmajrelease {
-        '6': {
-          case $::operatingsystem {
-            'RedHat':     { $linux = true }
-            'CentOS':     { $linux = true }
-            'Scientific': { $linux = true }
-          }
+      if $::operatingsystemmajrelease == '7' {
+        if $::operatingsystem == 'Scientific' {
+          $linux = false
         }
-        '7': {
-          case $::operatingsystem {
-            'RedHat':     { $linux = true }
-            'CentOS':     { $linux = true }
-          }
-        }
-        default:  { $linux = false }
       }
 
       # Package definition

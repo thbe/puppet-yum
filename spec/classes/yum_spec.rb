@@ -10,10 +10,6 @@ describe "yum" do
 
       it { is_expected.to compile.with_all_deps }
 
-      it { is_expected.to contain_class('yum::package') }
-      it { is_expected.to contain_class('yum::config') }
-      it { is_expected.to contain_class('yum::service') }
-
       case facts[:osfamily]
       when 'Debian'
       when 'RedHat'
