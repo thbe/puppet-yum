@@ -1,17 +1,46 @@
-dir = File.expand_path(File.dirname(__FILE__))
-$LOAD_PATH.unshift File.join(dir, 'lib')
+require 'coveralls'
+Coveralls.wear!
 
-require 'mocha'
-require 'puppet'
-require 'rspec'
-require 'spec/autorun'
+require 'puppetlabs_spec_helper/module_spec_helper'
 
-Spec::Runner.configure do |config|
-    config.mock_with :mocha
+require 'rspec-puppet'
+require 'rspec-puppet-facts'
+include RspecPuppetFacts
+
+require 'simplecov'
+require 'simplecov-console'
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+  add_filter '/spec'
+  add_filter '/vendor'
+  add_filter 'app/secrets'
 end
 
-# We need this because the RAL uses 'should' as a method.  This
-# allows us the same behaviour but with a different method name.
-class Object
-    alias :must :should
+fixture_path = File.expand_path(File.join(__FILE__, '..', 'fixtures'))
+
+RSpec.configure do |c|
+  c.before :each do
+    # Ensure that we don't accidentally cache facts and environment
+    # between test cases.
+    Facter::Util::Loader.any_instance.stubs(:load_all)
+    Facter.clear
+    Facter.clear_messages
+
+    # Store any environment variables away to be restored later
+    @old_env = {}
+    ENV.each_key {|k| @old_env[k] = ENV[k]}
+
+    if ENV['STRICT_VARIABLES'] == 'yes'
+      Puppet.settings[:strict_variables]=true
+    end
+  end
+
+  c.module_path = File.join(fixture_path, 'modules')
+  c.manifest_dir = File.join(fixture_path, 'manifests')
+  c.environmentpath = File.join(Dir.pwd, 'spec')
+
+  c.after :each do
+    PuppetlabsSpec::Files.cleanup
+  end
 end

@@ -1,5 +1,14 @@
 # Puppet
-pkg/
+/pkg
+/.rspec_system
+/.bundle
+/vendor
+/Gemfile.lock
+/junit
+/log
+.yardoc
+coverage
+TODO
 
 # Node.js with Express and Stlyus
 public/css/*.css
@@ -43,3 +52,59 @@ Icon?
 
 # ZSH Cake plugin cache
 /.cake_task_cache
+
+# Vagrant
+.vagrant/
+centos6/local/puppet/
+!centos6/local/puppet/.gitkeep
+centos6/local/repository/
+!centos6/local/repository/.gitkeep
+centos6/local/storage/
+!centos6/local/storage/.gitkeep
+centos6/local/tmp/
+!centos6/local/tmp/.gitkeep
+
+centos7/local/puppet/
+!centos7/local/puppet/.gitkeep
+centos7/local/repository/
+!centos7/local/repository/.gitkeep
+centos7/local/storage/
+!centos7/local/storage/.gitkeep
+centos7/local/tmp/
+!centos7/local/tmp/.gitkeep
+
+sl6/local/puppet/
+!sl6/local/puppet/.gitkeep
+sl6/local/repository/
+!sl6/local/repository/.gitkeep
+sl6/local/storage/
+!sl6/local/storage/.gitkeep
+sl6/local/tmp/
+!sl6/local/tmp/.gitkeep
+
+ubuntu-14.04/local/puppet/
+!ubuntu-14.04/local/puppet/.gitkeep
+ubuntu-14.04/local/repository/
+!ubuntu-14.04/local/repository/.gitkeep
+ubuntu-14.04/local/storage/
+!ubuntu-14.04/local/storage/.gitkeep
+ubuntu-14.04/local/tmp/
+!ubuntu-14.04/local/tmp/.gitkeep
+
+# Packer
+*.box
+packer_cache
+
+# Kodi
+cache/
+kodi-content.html
+videodb.xml
+
+# rpmbuild
+BUILD/
+BUILDROOT/
+RPMS/noarch/*.rpm
+RPMS/x86_64/*.rpm
+SRPMS/*.src.rpm
+SOURCES/*.tar.gz
+tmp/

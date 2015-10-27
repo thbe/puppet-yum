@@ -1,3 +1,7 @@
+1.0.1 2015-10-15 thbe <project@bendler-net.de>
+ * Upgrade ovirt
+ * Relocate rpm-gpg keys
+
 0.6.6 2015-04-02 thbe <project@bendler-net.de>
  * Updated documentation
 

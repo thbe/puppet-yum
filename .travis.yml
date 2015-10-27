@@ -1,0 +1,15 @@
+---
+language: ruby
+bundler_args: --without system_tests --jobs 3 --retry 3
+script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'"
+sudo: false
+matrix:
+  fast_finish: true
+  include:
+  - rvm: 2.0.0
+    env: PUPPET_GEM_VERSION="~> 3.0" STRICT_VARIABLES="yes" ORDERING="random"
+  - rvm: 2.1.6
+    env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES="yes" ORDERING="random"
+notifications:
+  email:
+    - project@bendler-net.de

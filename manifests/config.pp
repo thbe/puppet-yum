@@ -40,7 +40,7 @@ class yum::config {
     owner   => root,
     group   => root,
     notify  => Exec['yum-rpm-key-import'],
-    source  => 'puppet:///modules/yum/pki';
+    source  => 'puppet:///modules/yum/etc/pki/rpm-gpg';
   }
 
   # yum repository configuration
