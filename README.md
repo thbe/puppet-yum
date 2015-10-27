@@ -1,5 +1,8 @@
 #yum
 
+[![Build Status](https://travis-ci.org/thbe/puppet-yum.png?branch=master)](https://travis-ci.org/thbe/puppet-yum)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/thbe/yum.svg)](https://forge.puppetlabs.com/thbe/yum)
+
 ####Table of Contents
 
 1. [Overview](#overview)
