@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/thbe/puppet-yum.png?branch=master)](https://travis-ci.org/thbe/puppet-yum)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/thbe/yum.svg)](https://forge.puppetlabs.com/thbe/yum)
+[![Coverage Status](https://coveralls.io/repos/thbe/puppet-yum/badge.svg?branch=master&service=github)](https://coveralls.io/github/thbe/puppet-yum?branch=master)
 
 ####Table of Contents
 
