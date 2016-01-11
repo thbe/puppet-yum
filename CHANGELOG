@@ -1,3 +1,6 @@
+1.0.2 2016-01-11 thbe <project@bendler-net.de>
+ * Upgrade foreman
+
 1.0.1 2015-10-15 thbe <project@bendler-net.de>
  * Upgrade ovirt
  * Relocate rpm-gpg keys
