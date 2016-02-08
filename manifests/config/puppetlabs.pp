@@ -12,11 +12,8 @@
 #
 class yum::config::puppetlabs {
   file { $yum::params::el_puppetlabs_file:
-    ensure  => present,
+    ensure  => file,
     mode    => '0644',
-    owner   => root,
-    group   => root,
-    path    => $yum::params::el_puppetlabs_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
     content => template($yum::params::el_puppetlabs_template);
   }

@@ -1,3 +1,7 @@
+1.1.0 2016-02-05 thbe <project@bendler-net.de>
+ * Add OEL 7 support
+ * Enhance test suite
+
 1.0.2 2016-01-11 thbe <project@bendler-net.de>
  * Upgrade foreman
 

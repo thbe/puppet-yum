@@ -13,20 +13,14 @@
 class yum::config::foreman {
   file {
     $yum::params::el_foreman_file:
-      ensure  => present,
+      ensure  => file,
       mode    => '0644',
-      owner   => root,
-      group   => root,
-      path    => $yum::params::el_foreman_file,
       notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::el_foreman_template);
 
     $yum::params::el_foreman_plugins_file:
-      ensure  => present,
+      ensure  => file,
       mode    => '0644',
-      owner   => root,
-      group   => root,
-      path    => $yum::params::el_foreman_plugins_file,
       notify  => Exec['yum-cache', 'yum-rpm-key-import'],
       content => template($yum::params::el_foreman_plugins_template);
   }

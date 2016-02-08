@@ -11,14 +11,10 @@
 # Sample Usage:
 #
 class yum::config::icinga {
-  file {
-    $yum::params::el_icinga_file:
-      ensure  => present,
-      mode    => '0644',
-      owner   => root,
-      group   => root,
-      path    => $yum::params::el_icinga_file,
-      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-      content => template($yum::params::el_icinga_template);
+  file { $yum::params::el_icinga_file:
+    ensure  => file,
+    mode    => '0644',
+    notify  => Exec['yum-cache', 'yum-rpm-key-import'],
+    content => template($yum::params::el_icinga_template);
   }
 }

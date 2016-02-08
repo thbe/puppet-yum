@@ -1,6 +1,6 @@
-# Class: yum::config::custom
+# Class: yum::config::oel
 #
-# This module contain the configuration for yum custom repository
+# This module contain the configuration for yum OEL repository
 #
 # Parameters:   This module has no parameters
 #
@@ -10,11 +10,11 @@
 #
 # Sample Usage:
 #
-class yum::config::custom {
-  file { $yum::params::el_custom_file:
+class yum::config::oel {
+  file { $yum::params::el_oel_file:
     ensure  => file,
     mode    => '0644',
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-    content => template($yum::params::el_custom_template);
+    content => template($yum::params::el_oel_template);
   }
 }

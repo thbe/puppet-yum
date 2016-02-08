@@ -9,6 +9,7 @@
   "issues_url": "https://github.com/thbe/puppet-yum/issues",
   "operatingsystem_support": [
     { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
+    { "operatingsystem": "OracleLinux", "operatingsystemrelease": [ "7.0" ] },
     { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0" ] }
   ],
   "dependencies": [ ]

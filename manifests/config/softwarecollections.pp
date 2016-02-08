@@ -12,11 +12,8 @@
 #
 class yum::config::softwarecollections {
   file { $yum::params::el_softwarecollections_file:
-    ensure  => present,
+    ensure  => file,
     mode    => '0644',
-    owner   => root,
-    group   => root,
-    path    => $yum::params::el_softwarecollections_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
     content => template($yum::params::el_softwarecollections_template);
   }

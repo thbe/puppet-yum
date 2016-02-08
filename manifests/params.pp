@@ -15,6 +15,8 @@ class yum::params {
   # Operating system specific definitions
   case $::osfamily {
     'RedHat' : {
+      $linux = true
+
       if $::operatingsystemmajrelease == '7' {
         if $::operatingsystem == 'Scientific' {
           $linux = false
@@ -84,6 +86,17 @@ class yum::params {
   }
   if $::operatingsystemmajrelease == '7' {
     $el_centos_debuginfo             = 'baseurl=http://debuginfo.centos.org/7/$basearch/'
+    $el_ol7_latest                   = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/latest/$basearch/'
+    $el_ol7_u0_base                  = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/0/base/$basearch/'
+    $el_ol7_u1_base                  = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/1/base/$basearch/'
+    $el_ol7_u2_base                  = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/2/base/$basearch/'
+    $el_ol7_UEKR3                    = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/UEKR3/$basearch/'
+    $el_ol7_optional_latest          = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/optional/latest/$basearch/'
+    $el_ol7_addons                   = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/'
+    $el_ol7_UEKR3_OFED20             = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/UEKR3_OFED20/$basearch/'
+    $el_ol7_MySQL56                  = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/MySQL56/$basearch/'
+    $el_ol7_MySQL55                  = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/MySQL55/$basearch/'
+    $el_ol7_spacewalk22_client       = 'http://public-yum.oracle.com/repo/OracleLinux/OL7/spacewalk22/client/$basearch/'
     $el_puppetlabs_products          = 'baseurl=http://yum.puppetlabs.com/el/7/products/$basearch/'
     $el_puppetlabs_products_source   = 'baseurl=http://yum.puppetlabs.com/el/7/products/SRPMS/'
     $el_puppetlabs_deps              = 'baseurl=http://yum.puppetlabs.com/el/7/dependencies/$basearch/'
@@ -107,12 +120,14 @@ class yum::params {
   $el_softwarecollections_file     = '/etc/yum.repos.d/softwarecollections.repo'
   $el_epel_file                    = '/etc/yum.repos.d/epel.repo'
   $el_epel_testing_file            = '/etc/yum.repos.d/epel-testing.repo'
+  $el_oel_file                     = '/etc/yum.repos.d/public-yum-ol7.repo'
   $el_puppetlabs_file              = '/etc/yum.repos.d/puppetlabs.repo'
   $el_icinga_file                  = '/etc/yum.repos.d/ICINGA-release.repo'
   $el_foreman_file                 = '/etc/yum.repos.d/foreman.repo'
   $el_foreman_plugins_file         = '/etc/yum.repos.d/foreman-plugins.repo'
   $el_passenger_file               = '/etc/yum.repos.d/passenger.repo'
-  $el_ovirt_file                   = '/etc/yum.repos.d/ovirt.repo'
+  $el_ovirt_file                   = '/etc/yum.repos.d/ovirt-3.6.repo'
+  $el_ovirt_dependencies_file      = '/etc/yum.repos.d/ovirt-3.6-dependencies.repo'
   $el_owncloud_file                = '/etc/yum.repos.d/owncloud.repo'
   $el_custom_file                  = '/etc/yum.repos.d/custom.repo'
 
@@ -130,7 +145,8 @@ class yum::params {
     $el_foreman_template             = 'yum/etc/yum.repos.d/el6/foreman.repo.erb'
     $el_foreman_plugins_template     = 'yum/etc/yum.repos.d/el6/foreman-plugins.repo.erb'
     $el_passenger_template           = 'yum/etc/yum.repos.d/el6/passenger.repo.erb'
-    $el_ovirt_template               = 'yum/etc/yum.repos.d/el6/ovirt.repo.erb'
+    $el_ovirt_template               = 'yum/etc/yum.repos.d/el6/ovirt-3.6.repo.erb'
+    $el_ovirt_dependencies_template  = 'yum/etc/yum.repos.d/el6/ovirt-3.6-dependencies.repo.erb'
     $el_owncloud_template            = 'yum/etc/yum.repos.d/el6/owncloud.repo.erb'
     $el_custom_template              = 'yum/etc/yum.repos.d/el6/custom.repo.erb'
   }
@@ -139,12 +155,14 @@ class yum::params {
     $el_softwarecollections_template = 'yum/etc/yum.repos.d/el7/softwarecollections.repo.erb'
     $el_epel_template                = 'yum/etc/yum.repos.d/el7/epel.repo.erb'
     $el_epel_testing_template        = 'yum/etc/yum.repos.d/el7/epel-testing.repo.erb'
+    $el_oel_template                 = 'yum/etc/yum.repos.d/el7/public-yum-ol7.repo.erb'
     $el_puppetlabs_template          = 'yum/etc/yum.repos.d/el7/puppetlabs.repo.erb'
     $el_icinga_template              = 'yum/etc/yum.repos.d/el7/ICINGA-release.repo.erb'
     $el_foreman_template             = 'yum/etc/yum.repos.d/el7/foreman.repo.erb'
     $el_foreman_plugins_template     = 'yum/etc/yum.repos.d/el7/foreman-plugins.repo.erb'
     $el_passenger_template           = 'yum/etc/yum.repos.d/el7/passenger.repo.erb'
-    $el_ovirt_template               = 'yum/etc/yum.repos.d/el7/ovirt.repo.erb'
+    $el_ovirt_template               = 'yum/etc/yum.repos.d/el7/ovirt-3.6.repo.erb'
+    $el_ovirt_dependencies_template  = 'yum/etc/yum.repos.d/el7/ovirt-3.6-dependencies.repo.erb'
     $el_owncloud_template            = 'yum/etc/yum.repos.d/el7/owncloud.repo.erb'
     $el_custom_template              = 'yum/etc/yum.repos.d/el7/custom.repo.erb'
   }

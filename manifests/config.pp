@@ -13,11 +13,8 @@
 class yum::config {
   # yum configuration
   file { $yum::params::config_yum_conf:
-    ensure  => present,
+    ensure  => file,
     mode    => '0644',
-    owner   => root,
-    group   => root,
-    path    => $yum::params::config_yum_conf,
     content => template($yum::params::config_yum_conf_template);
   }
 
@@ -26,8 +23,6 @@ class yum::config {
     file { $yum::params::config_yum_conf_directory:
       ensure => directory,
       mode   => '0755',
-      owner  => root,
-      group  => root,
       purge  => true;
     }
   }
@@ -37,8 +32,6 @@ class yum::config {
     ensure  => directory,
     recurse => true,
     force   => true,
-    owner   => root,
-    group   => root,
     notify  => Exec['yum-rpm-key-import'],
     source  => 'puppet:///modules/yum/etc/pki/rpm-gpg';
   }
@@ -54,6 +47,10 @@ class yum::config {
 
   if $::operatingsystem == 'CentOS' {
     include yum::config::centos
+  }
+
+  if $::operatingsystem == 'OracleLinux' {
+    include yum::config::oel
   }
 
   if $::operatingsystemmajrelease == '6' {
@@ -80,8 +77,10 @@ class yum::config {
     include yum::config::foreman
   }
 
-  if $yum::repo_passenger {
-    include yum::config::passenger
+  if $::operatingsystemmajrelease == '6' {
+    if $yum::repo_passenger {
+      include yum::config::passenger
+    }
   }
 
   if $yum::repo_ovirt {

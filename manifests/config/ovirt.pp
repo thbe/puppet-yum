@@ -12,12 +12,16 @@
 #
 class yum::config::ovirt {
   file { $yum::params::el_ovirt_file:
-    ensure  => present,
+    ensure  => file,
     mode    => '0644',
-    owner   => root,
-    group   => root,
-    path    => $yum::params::el_ovirt_file,
     notify  => Exec['yum-cache', 'yum-rpm-key-import'],
     content => template($yum::params::el_ovirt_template);
+  }
+
+  file { $yum::params::el_ovirt_dependencies_file:
+    ensure  => file,
+    mode    => '0644',
+    notify  => Exec['yum-cache', 'yum-rpm-key-import'],
+    content => template($yum::params::el_ovirt_dependencies_template);
   }
 }
