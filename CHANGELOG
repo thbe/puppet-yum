@@ -1,3 +1,6 @@
+1.1.1 2016-02-08 thbe <project@bendler-net.de>
+ * Fixed EPEL 7.x support
+
 1.1.0 2016-02-05 thbe <project@bendler-net.de>
  * Add OEL 7 support
  * Enhance test suite

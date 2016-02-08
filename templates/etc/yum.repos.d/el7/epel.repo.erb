@@ -1,13 +1,15 @@
 [epel]
 name=Extra Packages for Enterprise Linux 7 - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch
 <%= scope.lookupvar("yum::el_epel") %>
 failovermethod=priority
 enabled=1
-gpgcheck=0
+gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch/debug
 <%= scope.lookupvar("yum::el_epel_debuginfo") %>
 failovermethod=priority
 enabled=0
@@ -16,6 +18,7 @@ gpgcheck=1
 
 [epel-source]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/7/SRPMS
 <%= scope.lookupvar("yum::el_epel_source") %>
 failovermethod=priority
 enabled=0
