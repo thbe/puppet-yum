@@ -1,3 +1,9 @@
+### public-yum-ol7.repo
+#
+# Oracle Enterprise Linux 7 repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
 [ol7_latest]
 name=Oracle Linux $releasever Latest ($basearch)
 baseurl=<%= scope.lookupvar("yum::el_ol7_latest") %>

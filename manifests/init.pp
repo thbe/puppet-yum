@@ -93,7 +93,7 @@
 #
 # === Copyright
 #
-# Copyright 2015 Thomas Bendler, unless otherwise noted.
+# Copyright 2016 Thomas Bendler, unless otherwise noted.
 #
 class yum (
   $manage                         = true,
@@ -110,9 +110,9 @@ class yum (
   $repo_ovirt                     = false,
   $repo_owncloud                  = false,
   $repo_passenger                 = false,
-  $repo_puppetlabs                = true,
+  $repo_puppetlabs                = false,
   $repo_softwarecollections       = false,
-  $repo_upgradetool               = true,
+  $repo_upgradetool               = false,
   $el_centos_base                 = $yum::params::el_centos_base,
   $el_centos_updates              = $yum::params::el_centos_updates,
   $el_centos_extras               = $yum::params::el_centos_extras,
@@ -148,12 +148,8 @@ class yum (
   $el_owncloud                    = $yum::params::el_owncloud,
   $el_passenger                   = $yum::params::el_passenger,
   $el_passenger_testing           = $yum::params::el_passenger_testing,
-  $el_puppetlabs_products         = $yum::params::el_puppetlabs_products,
-  $el_puppetlabs_products_source  = $yum::params::el_puppetlabs_products_source,
-  $el_puppetlabs_deps             = $yum::params::el_puppetlabs_deps,
-  $el_puppetlabs_deps_source      = $yum::params::el_puppetlabs_deps_source,
-  $el_puppetlabs_devel            = $yum::params::el_puppetlabs_devel,
-  $el_puppetlabs_devel_source     = $yum::params::el_puppetlabs_devel_source,
+  $el_puppetlabs_pc1              = $yum::params::el_puppetlabs_pc1,
+  $el_puppetlabs_pc1_source       = $yum::params::el_puppetlabs_pc1_source,
   $el_sl                          = $yum::params::el_sl,
   $el_sl_security                 = $yum::params::el_sl_security,
   $el_sl_source                   = $yum::params::el_sl_source,

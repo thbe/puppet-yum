@@ -1,0 +1,20 @@
+### puppetlabs-pc1.repo
+#
+# Puppetlabs repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
+[puppetlabs-pc1]
+name=Puppet Labs PC1 Repository el 7 - $basearch
+<%= scope.lookupvar("yum::el_puppetlabs_pc1") %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
+enabled=1
+gpgcheck=1
+
+[puppetlabs-pc1-source]
+name=Puppet Labs PC1 Repository el 7 - Source
+<%= scope.lookupvar("yum::el_puppetlabs_pc1_source") %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
+failovermethod=priority
+enabled=0
+gpgcheck=1

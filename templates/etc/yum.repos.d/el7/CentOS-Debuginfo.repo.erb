@@ -1,17 +1,9 @@
-# CentOS-Debug.repo
+### CentOS-Debuginfo.repo
 #
-# The mirror system uses the connecting IP address of the client and the
-# update status of each mirror to pick mirrors that are updated to and
-# geographically close to the client.  You should use this for CentOS updates
-# unless you are manually picking other mirrors.
+# CentOS bebug info repository file
 #
-
-# All debug packages from all the various CentOS-7 releases
-# are merged into a single repo, split by BaseArch
+# managed by Puppet, local changes will be overwritten
 #
-# Note: packages in the debuginfo repo are currently not signed
-#
-
 [debug]
 name=CentOS-7 - Debuginfo
 <%= scope.lookupvar("yum::el_centos_debuginfo") %>

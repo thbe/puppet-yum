@@ -1,15 +1,9 @@
-# CentOS-Base.repo
+### CentOS-Base.repo
 #
-# The mirror system uses the connecting IP address of the client and the
-# update status of each mirror to pick mirrors that are updated to and
-# geographically close to the client.  You should use this for CentOS updates
-# unless you are manually picking other mirrors.
+# CentOS base repository file
 #
-# If the mirrorlist= does not work for you, as a fall back you can try the
-# remarked out baseurl= line instead.
+# managed by Puppet, local changes will be overwritten
 #
-#
-
 [base]
 name=CentOS-$releasever - Base
 <%= scope.lookupvar("yum::el_centos_base") %>

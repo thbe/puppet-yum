@@ -1,15 +1,9 @@
-# CentOS-Sources.repo
+#### CentOS-Source.repo
 #
-# The mirror system uses the connecting IP address of the client and the
-# update status of each mirror to pick mirrors that are updated to and
-# geographically close to the client.  You should use this for CentOS updates
-# unless you are manually picking other mirrors.
+# CentOS source repository file
 #
-# If the mirrorlist= does not work for you, as a fall back you can try the
-# remarked out baseurl= line instead.
+# managed by Puppet, local changes will be overwritten
 #
-#
-
 [base-source]
 name=CentOS-$releasever - Base Sources
 <%= scope.lookupvar("yum::el_centos_source_base") %>

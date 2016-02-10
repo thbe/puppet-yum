@@ -48,6 +48,17 @@ describe 'yum', :type => :class do
       it { is_expected.to contain_file('/etc/yum.conf').with_ensure('file') }
       it { is_expected.to contain_file('/var/lib/yum/repos').with_ensure('link') }
 
+      it { is_expected.to contain_file('/etc/yum.repos.d/custom.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/epel.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/epel-testing.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/foreman.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/foreman-plugins.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/ICINGA-release.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/ovirt-3.6.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/ovirt-3.6-dependencies.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/owncloud.repo').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/yum.repos.d/puppetlabs-pc1.repo').with_ensure('file') }
+
       it 'should generate valid content for yum.conf - generic part' do
         content = catalogue.resource('file', '/etc/yum.conf').send(:parameters)[:content]
         expect(content).to match('exclude=kernel*')
@@ -61,6 +72,8 @@ describe 'yum', :type => :class do
         it { is_expected.to contain_file('/etc/yum.repos.d/CentOS-Base.repo').with_ensure('file') }
       when 'OracleLinux'
         it { is_expected.to contain_file('/etc/yum.repos.d/public-yum-ol7.repo').with_ensure('file') }
+      when 'Scientific'
+        it { is_expected.to contain_file('/etc/yum.repos.d/sl6x.repo').with_ensure('file') }
       else
         it { is_expected.to contain_warning('The current operating system is not supported!') }
       end

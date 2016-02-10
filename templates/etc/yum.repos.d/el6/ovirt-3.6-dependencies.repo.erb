@@ -1,7 +1,13 @@
+### ovirt-3.6-dependencies.repo
+#
+# oVirt repository file
+#
+# managed by Puppet, local changes will be overwritten
+#
 [ovirt-3.6-epel]
-name=Extra Packages for Enterprise Linux 7 - $basearch
-#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch
-mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
+name=Extra Packages for Enterprise Linux 6 - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
 failovermethod=priority
 enabled=1
 includepkgs=epel-release,python-uinput,puppet,python-lockfile,python-cpopen,python-ordereddict,python-pthreading,python-inotify,python-argparse,novnc,python-ply,python-kitchen,python-daemon,python-websockify,livecd-tools,spice-html5,mom,python-IPy,python-ioprocess,ioprocess,safelease,python-paramiko,python-crypto,python-cheetah,python-ecdsa,python-markdown,rubygem-rgen,ovirt-guest-agent*,userspace-rcu,protobuf-java
@@ -26,7 +32,7 @@ gpgkey=https://download.gluster.org/pub/gluster/glusterfs/LATEST/pub.key
 
 [ovirt-3.6-patternfly1-noarch-epel]
 name=Copr repo for patternfly1 owned by patternfly
-baseurl=http://copr-be.cloud.fedoraproject.org/results/patternfly/patternfly1/epel-7-$basearch/
+baseurl=http://copr-be.cloud.fedoraproject.org/results/patternfly/patternfly1/epel-6-$basearch/
 enabled=1
 skip_if_unavailable=1
 gpgcheck=0
