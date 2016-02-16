@@ -17,6 +17,10 @@ class yum::params {
     'RedHat' : {
       $linux = true
 
+      # Disable unsupported versions
+      if $::operatingsystemmajrelease == '5' {
+        $linux = false
+      }
       if $::operatingsystemmajrelease == '7' {
         if $::operatingsystem == 'Scientific' {
           $linux = false

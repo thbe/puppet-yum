@@ -15,13 +15,13 @@ class yum::service {
   exec { 'yum-cache':
     command     => 'yum clean all && yum makecache',
     path        => '/bin:/sbin:/usr/bin:/usr/sbin',
-    refreshonly => true,
+    refreshonly => true
   }
 
   exec { 'yum-rpm-key-import':
     command     => 'rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-*',
     path        => '/bin:/sbin:/usr/bin:/usr/sbin',
-    refreshonly => true,
+    refreshonly => true
   }
 
   if $yum::autoUpdate == 'yes' {

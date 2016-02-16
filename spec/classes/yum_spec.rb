@@ -37,13 +37,25 @@ describe 'yum', :type => :class do
 
       it { is_expected.to compile.with_all_deps }
 
+      it { is_expected.to contain_class('yum::params') }
       it { is_expected.to contain_class('yum::package') }
       it { is_expected.to contain_class('yum::config') }
+      it { is_expected.to contain_class('yum::config::custom') }
+      it { is_expected.to contain_class('yum::config::epel') }
+      it { is_expected.to contain_class('yum::config::foreman') }
+      it { is_expected.to contain_class('yum::config::icinga') }
+      it { is_expected.to contain_class('yum::config::ovirt') }
+      it { is_expected.to contain_class('yum::config::owncloud') }
+      it { is_expected.to contain_class('yum::config::puppetlabs') }
+      it { is_expected.to contain_class('yum::config::tmpfs') }
       it { is_expected.to contain_class('yum::service') }
 
       it { is_expected.to contain_package('yum').with_ensure('installed') }
       it { is_expected.to contain_package('deltarpm').with_ensure('installed') }
       it { is_expected.to contain_package('yum-cron').with_ensure('installed') }
+
+      it { is_expected.to contain_file('/etc/pki/rpm-gpg').with_ensure('directory') }
+      it { is_expected.to contain_file('/etc/yum.conf.d').with_ensure('directory') }
 
       it { is_expected.to contain_file('/etc/yum.conf').with_ensure('file') }
       it { is_expected.to contain_file('/var/lib/yum/repos').with_ensure('link') }
@@ -67,12 +79,36 @@ describe 'yum', :type => :class do
         expect(content).to match('proxy_password=Secret1')
       end
 
+      it { is_expected.to contain_exec('move_repo_directory').with(
+        'path'    => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'],
+        'command' => "mv /var/lib/yum/repos /var/lib/yum/repos.orig",
+        'onlyif'  => "test ! -L /var/lib/yum/repos"
+        )
+      }
+
+      it { is_expected.to contain_exec('yum-cache').with(
+        'command'     => 'yum clean all && yum makecache',
+        'path'        => '/bin:/sbin:/usr/bin:/usr/sbin',
+        'refreshonly' => 'true'
+        )
+      }
+
+      it { is_expected.to contain_exec('yum-rpm-key-import').with(
+        'command'     => 'rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-*',
+        'path'        => '/bin:/sbin:/usr/bin:/usr/sbin',
+        'refreshonly' => 'true'
+        )
+      }
+
       case facts[:operatingsystem]
       when 'CentOS'
+        it { is_expected.to contain_class('yum::config::centos') }
         it { is_expected.to contain_file('/etc/yum.repos.d/CentOS-Base.repo').with_ensure('file') }
       when 'OracleLinux'
+        it { is_expected.to contain_class('yum::config::oel') }
         it { is_expected.to contain_file('/etc/yum.repos.d/public-yum-ol7.repo').with_ensure('file') }
       when 'Scientific'
+        it { is_expected.to contain_class('yum::config::sl') }
         it { is_expected.to contain_file('/etc/yum.repos.d/sl6x.repo').with_ensure('file') }
       else
         it { is_expected.to contain_warning('The current operating system is not supported!') }
