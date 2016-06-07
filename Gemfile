@@ -10,7 +10,7 @@ group :development, :test do
   gem 'metadata-json-lint',           :require => false
   gem 'serverspec',                   :require => false
   gem 'rspec-core',                   :require => false
-  gem 'rspec-puppet',                 :require => false
+  gem 'rspec-puppet', '2.3.2',        :require => false
   gem 'rspec-puppet-facts',           :require => false
   gem 'rspec-system',                 :require => false
   gem 'rspec-system-puppet',          :require => false

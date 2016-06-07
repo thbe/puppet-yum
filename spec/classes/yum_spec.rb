@@ -48,6 +48,7 @@ describe 'yum', :type => :class do
       it { is_expected.to contain_class('yum::config::owncloud') }
       it { is_expected.to contain_class('yum::config::puppetlabs') }
       it { is_expected.to contain_class('yum::config::tmpfs') }
+      it { is_expected.to contain_class('yum::config::yum') }
       it { is_expected.to contain_class('yum::service') }
 
       it { is_expected.to contain_package('yum').with_ensure('installed') }

@@ -1,3 +1,6 @@
+1.2.3 2016-06-07 thbe <project@bendler-net.de>
+ * Change proxy logic (https://github.com/thbe/puppet-yum/pull/1)
+
 1.2.2 2016-02-16 thbe <project@bendler-net.de>
  * Prevent execution on 5.x
  * Increase coverage to 100%

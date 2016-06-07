@@ -11,13 +11,6 @@
 # Sample Usage:
 #
 class yum::config {
-  # yum configuration
-  file { $yum::params::config_yum_conf:
-    ensure  => file,
-    mode    => '0644',
-    content => template($yum::params::config_yum_conf_template);
-  }
-
   # manage /etc/yum.repos.d if defined
   if $yum::manage {
     file { $yum::params::config_yum_conf_directory:
