@@ -164,9 +164,9 @@ class yum (
     contain yum::package
     contain yum::config
     contain yum::service
-
-    Class['yum::package'] ->
+    
     Class['yum::config'] ->
+    Class['yum::package'] ->
     Class['yum::service']
   }
 }
