@@ -7,7 +7,7 @@
 [isv_ownCloud_community]
 name=Latest stable community release of ownCloud (CentOS_CentOS-7)
 type=rpm-md
-<%= scope.lookupvar("yum::el_owncloud") %>
+<%= scope['yum::el_owncloud'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-owncloud-CentOS-7
 enabled=1

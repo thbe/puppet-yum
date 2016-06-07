@@ -6,14 +6,14 @@
 #
 [foreman-plugins]
 name=Foreman plugins 1.10
-<%= scope.lookupvar("yum::el_foreman_plugins") %>
+<%= scope['yum::el_foreman_plugins'] %>
 enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 [foreman-plugins-source]
 name=Foreman plugins 1.10 - source
-<%= scope.lookupvar("yum::el_foreman_plugins_source") %>
+<%= scope['yum::el_foreman_plugins_source'] %>
 enabled=0
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman

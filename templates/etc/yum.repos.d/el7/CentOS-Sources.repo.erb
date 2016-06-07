@@ -6,7 +6,7 @@
 #
 [base-source]
 name=CentOS-$releasever - Base Sources
-<%= scope.lookupvar("yum::el_centos_source_base") %>
+<%= scope['yum::el_centos_source_base'] %>
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
@@ -14,7 +14,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 #released updates
 [updates-source]
 name=CentOS-$releasever - Updates Sources
-<%= scope.lookupvar("yum::el_centos_source_updates") %>
+<%= scope['yum::el_centos_source_updates'] %>
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
@@ -22,7 +22,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 #additional packages that may be useful
 [extras-source]
 name=CentOS-$releasever - Extras Sources
-<%= scope.lookupvar("yum::el_centos_source_extras") %>
+<%= scope['yum::el_centos_source_extras'] %>
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
@@ -30,7 +30,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 #additional packages that extend functionality of existing packages
 [centosplus-source]
 name=CentOS-$releasever - Plus Sources
-<%= scope.lookupvar("yum::el_centos_source_plus") %>
+<%= scope['yum::el_centos_source_plus'] %>
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7

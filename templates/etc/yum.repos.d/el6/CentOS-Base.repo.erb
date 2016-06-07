@@ -6,28 +6,28 @@
 #
 [base]
 name=CentOS-$releasever - Base
-<%= scope.lookupvar("yum::el_centos_base") %>
+<%= scope['yum::el_centos_base'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 #released updates
 [updates]
 name=CentOS-$releasever - Updates
-<%= scope.lookupvar("yum::el_centos_updates") %>
+<%= scope['yum::el_centos_updates'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 #additional packages that may be useful
 [extras]
 name=CentOS-$releasever - Extras
-<%= scope.lookupvar("yum::el_centos_extras") %>
+<%= scope['yum::el_centos_extras'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 #additional packages that extend functionality of existing packages
 [centosplus]
 name=CentOS-$releasever - Plus
-<%= scope.lookupvar("yum::el_centos_plus") %>
+<%= scope['yum::el_centos_plus'] %>
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
@@ -35,7 +35,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 #contrib - packages by Centos Users
 [contrib]
 name=CentOS-$releasever - Contrib
-<%= scope.lookupvar("yum::el_centos_contrib") %>
+<%= scope['yum::el_centos_contrib'] %>
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6

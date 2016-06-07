@@ -1,3 +1,6 @@
+1.2.4 2016-06-07 thbe <project@bendler-net.de>
+ * Switch scope.lookupvar to new scope['variable'] style
+
 1.2.3 2016-06-07 thbe <project@bendler-net.de>
  * Change proxy logic (https://github.com/thbe/puppet-yum/pull/1)
 

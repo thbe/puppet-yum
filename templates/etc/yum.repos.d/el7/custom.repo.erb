@@ -6,7 +6,7 @@
 #
 [custom]
 name=Custom Packages for Enterprise Linux $releasever - $basearch
-<%= scope.lookupvar("yum::el_custom") %>
+<%= scope['yum::el_custom'] %>
 failovermethod=priority
 enabled=1
 gpgcheck=1

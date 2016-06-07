@@ -6,56 +6,56 @@
 #
 [ol7_latest]
 name=Oracle Linux $releasever Latest ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_latest") %>
+baseurl=<%= scope['yum::el_ol7_latest'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=1
 
 [ol7_u0_base]
 name=Oracle Linux $releasever GA installation media copy ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_u0_base") %>
+baseurl=<%= scope['yum::el_ol7_u0_base'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
 
 [ol7_u1_base]
 name=Oracle Linux $releasever Update 1 installation media copy ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_u1_base") %>
+baseurl=<%= scope['yum::el_ol7_u1_base'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
 
 [ol7_u2_base]
 name=Oracle Linux $releasever Update 2 installation media copy ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_u2_base") %>
+baseurl=<%= scope['yum::el_ol7_u2_base'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
 
 [ol7_UEKR3]
 name=Latest Unbreakable Enterprise Kernel Release 3 for Oracle Linux $releasever ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_UEKR3") %>
+baseurl=<%= scope['yum::el_ol7_UEKR3'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=1
 
 [ol7_optional_latest]
 name=Oracle Linux $releasever Optional Latest ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_optional_latest") %>
+baseurl=<%= scope['yum::el_ol7_optional_latest'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
 
 [ol7_addons]
 name=Oracle Linux $releasever Add ons ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_addons") %>
+baseurl=<%= scope['yum::el_ol7_addons'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
 
 [ol7_UEKR3_OFED20]
 name=OFED supporting tool packages for Unbreakable Enterprise Kernel on Oracle Linux 7 ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_UEKR3_OFED20") %>
+baseurl=<%= scope['yum::el_ol7_UEKR3_OFED20'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
@@ -63,14 +63,14 @@ priority=20
 
 [ol7_MySQL56]
 name=MySQL 5.6 for Oracle Linux 7 ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_MySQL56") %>
+baseurl=<%= scope['yum::el_ol7_MySQL56'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
 
 [ol7_MySQL55]
 name=MySQL 5.5 for Oracle Linux 7 ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_MySQL55") %>
+baseurl=<%= scope['yum::el_ol7_MySQL55'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
@@ -78,7 +78,7 @@ enabled=0
 
 [ol7_spacewalk22_client]
 name=Spacewalk Client 2.2 for Oracle Linux 7 ($basearch)
-baseurl=<%= scope.lookupvar("yum::el_ol7_spacewalk22_client") %>
+baseurl=<%= scope['yum::el_ol7_spacewalk22_client'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
