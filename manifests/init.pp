@@ -157,7 +157,8 @@ class yum (
   $elx_sl_security                = $yum::params::elx_sl_security,
   $elx_sl_fastbugs                = $yum::params::elx_sl_fastbugs,
   $el_softwarecollections         = $yum::params::el_softwarecollections,
-  $el_softwarecollections_source  = $yum::params::el_softwarecollections_source) inherits yum::params {
+  $el_softwarecollections_source  = $yum::params::el_softwarecollections_source
+  ) inherits yum::params {
   # Start workflow
   if $yum::params::linux {
     # Containment

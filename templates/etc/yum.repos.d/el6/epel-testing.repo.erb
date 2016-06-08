@@ -6,7 +6,7 @@
 #
 [epel-testing]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch
-<%= scope['yum::el_epel_testing'] %>
+<%= scope['::yum::el_epel_testing'] %>
 failovermethod=priority
 enabled=0
 gpgcheck=1
@@ -14,7 +14,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
 
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Debug
-<%= scope['yum::el_epel_testing_debuginfo'] %>
+<%= scope['::yum::el_epel_testing_debuginfo'] %>
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
@@ -22,7 +22,7 @@ gpgcheck=1
 
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Source
-<%= scope['yum::el_epel_testing_source'] %>
+<%= scope['::yum::el_epel_testing_source'] %>
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6

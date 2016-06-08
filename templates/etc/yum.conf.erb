@@ -10,17 +10,17 @@ plugins=1
 installonly_limit=3
 
 # Exclude rpms from update if needed
-<%- if scope['yum::yum_exclude'] != "unset" -%>
-exclude=<%= scope['yum::yum_exclude'] %>
+<%- if scope['::yum::yum_exclude'] != "unset" -%>
+exclude=<%= scope['::yum::yum_exclude'] %>
 <%- end -%>
 
 # Set proxy for internet access if needed
-<%- if scope['yum::yum_proxy'] != "unset" -%>
-proxy=<%= scope['yum::yum_proxy'] %>
+<%- if scope['::yum::yum_proxy'] != "unset" -%>
+proxy=<%= scope['::yum::yum_proxy'] %>
 <%- end -%>
-<%- if scope['yum::yum_proxy_user'] != "unset" -%>
-proxy_username=<%= scope['yum::yum_proxy_user'] %>
+<%- if scope['::yum::yum_proxy_user'] != "unset" -%>
+proxy_username=<%= scope['::yum::yum_proxy_user'] %>
 <%- end -%>
-<%- if scope['yum::yum_proxy_password'] != "unset" -%>
-proxy_password=<%= scope['yum::yum_proxy_password'] %>
+<%- if scope['::yum::yum_proxy_password'] != "unset" -%>
+proxy_password=<%= scope['::yum::yum_proxy_password'] %>
 <%- end -%>

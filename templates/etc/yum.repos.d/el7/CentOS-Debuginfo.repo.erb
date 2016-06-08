@@ -6,7 +6,7 @@
 #
 [debug]
 name=CentOS-7 - Debuginfo
-<%= scope['yum::el_centos_debuginfo'] %>
+<%= scope['::yum::el_centos_debuginfo'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-Debug-7
 enabled=0

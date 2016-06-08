@@ -6,14 +6,14 @@
 #
 [puppetlabs-pc1]
 name=Puppet Labs PC1 Repository el 6 - $basearch
-<%= scope['yum::el_puppetlabs_pc1'] %>
+<%= scope['::yum::el_puppetlabs_pc1'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
 enabled=1
 gpgcheck=1
 
 [puppetlabs-pc1-source]
 name=Puppet Labs PC1 Repository el 6 - Source
-<%= scope['yum::el_puppetlabs_pc1_source'] %>
+<%= scope['::yum::el_puppetlabs_pc1_source'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
 failovermethod=priority
 enabled=0

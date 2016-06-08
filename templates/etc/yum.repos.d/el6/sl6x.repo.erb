@@ -6,21 +6,21 @@
 #
 [sl6x]
 name=Scientific Linux 6x - $basearch
-<%= scope['yum::el_slx'] %>
+<%= scope['::yum::el_slx'] %>
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
 
 [sl6x-security]
 name=Scientific Linux 6x - $basearch - security updates
-<%= scope['yum::el_slx_security'] %>
+<%= scope['::yum::el_slx_security'] %>
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern
 
 [sl6x-fastbugs]
 name=Scientific Linux 6x - $basearch - fastbug updates
-<%= scope['yum::el_slx_fastbugs'] %>
+<%= scope['::yum::el_slx_fastbugs'] %>
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl file:///etc/pki/rpm-gpg/RPM-GPG-KEY-sl6 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern

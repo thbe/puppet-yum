@@ -6,21 +6,21 @@
 #
 [base]
 name=CentOS-$releasever - Base
-<%= scope['yum::el_centos_base'] %>
+<%= scope['::yum::el_centos_base'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 #released updates
 [updates]
 name=CentOS-$releasever - Updates
-<%= scope['yum::el_centos_updates'] %>
+<%= scope['::yum::el_centos_updates'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 #additional packages that may be useful
 [extras]
 name=CentOS-$releasever - Extras
-<%= scope['yum::el_centos_extras'] %>
+<%= scope['::yum::el_centos_extras'] %>
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 

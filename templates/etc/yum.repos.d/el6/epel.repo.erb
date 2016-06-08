@@ -6,7 +6,7 @@
 #
 [epel]
 name=Extra Packages for Enterprise Linux $releasever - $basearch
-<%= scope['yum::el_epel'] %>
+<%= scope['::yum::el_epel'] %>
 failovermethod=priority
 enabled=1
 gpgcheck=1
@@ -15,7 +15,7 @@ priority=15
 
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
-<%= scope['yum::el_epel_debuginfo'] %>
+<%= scope['::yum::el_epel_debuginfo'] %>
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
@@ -24,7 +24,7 @@ priority=15
 
 [epel-source]
 name=Extra Packages for Enterprise Linux $releasever - $basearch - Source
-<%= scope['yum::el_epel_source'] %>
+<%= scope['::yum::el_epel_source'] %>
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL

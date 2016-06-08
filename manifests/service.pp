@@ -24,12 +24,12 @@ class yum::service {
     refreshonly => true
   }
 
-  if $yum::auto_update == 'yes' {
-    # service {
-    #   $yum::params::service_auto_update:
-    #   ensure  => 'running',
-    #   enable  => true,
-    #   require => Package[$yum::params::package_auto_update];
-    # }
-  }
+  # if $yum::auto_update == 'yes' {
+  #   service {
+  #     $yum::params::service_auto_update:
+  #     ensure  => 'running',
+  #     enable  => true,
+  #     require => Package[$yum::params::package_auto_update];
+  #   }
+  # }
 }
