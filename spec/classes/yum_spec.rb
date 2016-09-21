@@ -38,7 +38,7 @@ describe 'yum', :type => :class do
       it { is_expected.to compile.with_all_deps }
 
       it { is_expected.to contain_class('yum::params') }
-      it { is_expected.to contain_class('yum::package') }
+      it { is_expected.to contain_class('yum::install') }
       it { is_expected.to contain_class('yum::config') }
       it { is_expected.to contain_class('yum::config::custom') }
       it { is_expected.to contain_class('yum::config::epel') }

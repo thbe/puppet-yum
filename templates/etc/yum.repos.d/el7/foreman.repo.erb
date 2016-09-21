@@ -5,14 +5,14 @@
 # managed by Puppet, local changes will be overwritten
 #
 [foreman]
-name=Foreman 1.10
+name=Foreman 1.12
 <%= scope['::yum::el_foreman'] %>
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 [foreman-source]
-name=Foreman 1.10 - source
+name=Foreman 1.12 - source
 <%= scope['::yum::el_foreman_source'] %>
 enabled=0
 gpgcheck=1

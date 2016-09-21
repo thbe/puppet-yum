@@ -158,18 +158,80 @@ class yum (
   $elx_sl_fastbugs                = $yum::params::elx_sl_fastbugs,
   $el_softwarecollections         = $yum::params::el_softwarecollections,
   $el_softwarecollections_source  = $yum::params::el_softwarecollections_source
-  ) inherits yum::params {
+) inherits yum::params {
+
+  # Validate parameters
+  validate_bool($yum::manage)
+  validate_bool($yum::tmpfs)
+  validate_bool($yum::auto_update)
+  validate_string($yum::yum_exclude)
+  validate_string($yum::yum_proxy)
+  validate_string($yum::yum_proxy_user)
+  validate_string($yum::yum_proxy_password)
+  validate_bool($yum::repo_custom)
+  validate_bool($yum::repo_epel)
+  validate_bool($yum::repo_foreman)
+  validate_bool($yum::repo_icinga)
+  validate_bool($yum::repo_ovirt)
+  validate_bool($yum::repo_owncloud)
+  validate_bool($yum::repo_passenger)
+  validate_bool($yum::repo_puppetlabs)
+  validate_bool($yum::repo_softwarecollections)
+  validate_bool($yum::repo_upgradetool)
+  validate_string($yum::el_centos_base)
+  validate_string($yum::el_centos_updates)
+  validate_string($yum::el_centos_extras)
+  validate_string($yum::el_centos_plus)
+  validate_string($yum::el_centos_contrib)
+  validate_string($yum::el_centos_source_base)
+  validate_string($yum::el_centos_source_updates)
+  validate_string($yum::el_centos_source_extras)
+  validate_string($yum::el_centos_source_plus)
+  validate_string($yum::el_custom)
+  validate_string($yum::el_epel)
+  validate_string($yum::el_epel_debuginfo)
+  validate_string($yum::el_epel_source)
+  validate_string($yum::el_epel_testing)
+  validate_string($yum::el_epel_testing_debuginfo)
+  validate_string($yum::el_epel_testing_source)
+  validate_string($yum::el_foreman)
+  validate_string($yum::el_foreman_source)
+  validate_string($yum::el_foreman_plugins)
+  validate_string($yum::el_foreman_plugins_source)
+  validate_string($yum::el_icinga)
+  validate_string($yum::el_ol7_latest)
+  validate_string($yum::el_ol7_u0_base)
+  validate_string($yum::el_ol7_u1_base)
+  validate_string($yum::el_ol7_u2_base)
+  validate_string($yum::el_ol7_UEKR3)
+  validate_string($yum::el_ol7_optional_latest)
+  validate_string($yum::el_ol7_addons)
+  validate_string($yum::el_ol7_UEKR3_OFED20)
+  validate_string($yum::el_ol7_MySQL56)
+  validate_string($yum::el_ol7_MySQL55)
+  validate_string($yum::el_ol7_spacewalk22_client)
+  validate_string($yum::el_owncloud)
+  validate_string($yum::el_passenger)
+  validate_string($yum::el_passenger_testing)
+  validate_string($yum::el_puppetlabs_pc1)
+  validate_string($yum::el_puppetlabs_pc1_source)
+  validate_string($yum::el_sl)
+  validate_string($yum::el_sl_security)
+  validate_string($yum::el_sl_source)
+  validate_string($yum::elx_sl)
+  validate_string($yum::elx_sl_security)
+  validate_string($yum::elx_sl_fastbugs)
+  validate_string($yum::el_softwarecollections)
+  validate_string($yum::el_softwarecollections_source)
+
   # Start workflow
   if $yum::params::linux {
-    # Containment
-    contain yum::config::yum
-    contain yum::package
-    contain yum::config
-    contain yum::service
-
-    Class['yum::config::yum'] ->
-    Class['yum::package'] ->
-    Class['yum::config'] ->
-    Class['yum::service']
+    class{'yum::install': } ->
+    class{'yum::config': } ~>
+    class{'yum::service': } ->
+    Class['yum']
+  }
+  else {
+    warning('The current operating system is not supported!')
   }
 }
