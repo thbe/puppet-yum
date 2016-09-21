@@ -34,7 +34,7 @@ enabled=0
 
 [ol7_UEKR3]
 name=Latest Unbreakable Enterprise Kernel Release 3 for Oracle Linux $releasever ($basearch)
-baseurl=<%= scope['::yum::el_ol7_UEKR3'] %>
+baseurl=<%= scope['::yum::el_ol7_uekr3'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=1
@@ -55,7 +55,7 @@ enabled=0
 
 [ol7_UEKR3_OFED20]
 name=OFED supporting tool packages for Unbreakable Enterprise Kernel on Oracle Linux 7 ($basearch)
-baseurl=<%= scope['::yum::el_ol7_UEKR3_OFED20'] %>
+baseurl=<%= scope['::yum::el_ol7_uekr3_ofed20'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
@@ -63,14 +63,14 @@ priority=20
 
 [ol7_MySQL56]
 name=MySQL 5.6 for Oracle Linux 7 ($basearch)
-baseurl=<%= scope['::yum::el_ol7_MySQL56'] %>
+baseurl=<%= scope['::yum::el_ol7_mysql56'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0
 
 [ol7_MySQL55]
 name=MySQL 5.5 for Oracle Linux 7 ($basearch)
-baseurl=<%= scope['::yum::el_ol7_MySQL55'] %>
+baseurl=<%= scope['::yum::el_ol7_mysql55'] %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
 enabled=0

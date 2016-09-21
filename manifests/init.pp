@@ -138,12 +138,12 @@ class yum (
   $el_ol7_u0_base                 = $yum::params::el_ol7_u0_base,
   $el_ol7_u1_base                 = $yum::params::el_ol7_u1_base,
   $el_ol7_u2_base                 = $yum::params::el_ol7_u2_base,
-  $el_ol7_UEKR3                   = $yum::params::el_ol7_UEKR3,
+  $el_ol7_uekr3                   = $yum::params::el_ol7_uekr3,
   $el_ol7_optional_latest         = $yum::params::el_ol7_optional_latest,
   $el_ol7_addons                  = $yum::params::el_ol7_addons,
-  $el_ol7_UEKR3_OFED20            = $yum::params::el_ol7_UEKR3_OFED20,
-  $el_ol7_MySQL56                 = $yum::params::el_ol7_MySQL56,
-  $el_ol7_MySQL55                 = $yum::params::el_ol7_MySQL55,
+  $el_ol7_uekr3_ofed20            = $yum::params::el_ol7_uekr3_ofed20,
+  $el_ol7_mysql55                 = $yum::params::el_ol7_mysql55,
+  $el_ol7_mysql56                 = $yum::params::el_ol7_mysql56,
   $el_ol7_spacewalk22_client      = $yum::params::el_ol7_spacewalk22_client,
   $el_owncloud                    = $yum::params::el_owncloud,
   $el_passenger                   = $yum::params::el_passenger,
@@ -203,12 +203,12 @@ class yum (
   validate_string($yum::el_ol7_u0_base)
   validate_string($yum::el_ol7_u1_base)
   validate_string($yum::el_ol7_u2_base)
-  validate_string($yum::el_ol7_UEKR3)
+  validate_string($yum::el_ol7_uekr3)
   validate_string($yum::el_ol7_optional_latest)
   validate_string($yum::el_ol7_addons)
-  validate_string($yum::el_ol7_UEKR3_OFED20)
-  validate_string($yum::el_ol7_MySQL56)
-  validate_string($yum::el_ol7_MySQL55)
+  validate_string($yum::el_ol7_uekr3_ofed20)
+  validate_string($yum::el_ol7_mysql55)
+  validate_string($yum::el_ol7_mysql56)
   validate_string($yum::el_ol7_spacewalk22_client)
   validate_string($yum::el_owncloud)
   validate_string($yum::el_passenger)
