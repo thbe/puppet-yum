@@ -48,6 +48,7 @@ describe 'yum', :type => :class do
       it { is_expected.to contain_class('yum::config::owncloud') }
       it { is_expected.to contain_class('yum::config::puppetlabs') }
       it { is_expected.to contain_class('yum::config::tmpfs') }
+      it { is_expected.to contain_class('yum::config::softwarecollections') }
       it { is_expected.to contain_class('yum::config::yum') }
       it { is_expected.to contain_class('yum::service') }
 
@@ -105,12 +106,15 @@ describe 'yum', :type => :class do
       when 'CentOS'
         it { is_expected.to contain_class('yum::config::centos') }
         it { is_expected.to contain_file('/etc/yum.repos.d/CentOS-Base.repo').with_ensure('file') }
+        it { is_expected.to contain_file('/etc/yum.repos.d/CentOS-SCLo-scl.repo').with_ensure('file') }
+        it { is_expected.to contain_file('/etc/yum.repos.d/CentOS-SCLo-scl-rh.repo').with_ensure('file') }
       when 'OracleLinux'
         it { is_expected.to contain_class('yum::config::oel') }
         it { is_expected.to contain_file('/etc/yum.repos.d/public-yum-ol7.repo').with_ensure('file') }
       when 'Scientific'
         it { is_expected.to contain_class('yum::config::sl') }
         it { is_expected.to contain_file('/etc/yum.repos.d/sl6x.repo').with_ensure('file') }
+        it { is_expected.to contain_file('/etc/yum.repos.d/softwarecollections.repo').with_ensure('file') }
       else
         it { is_expected.to contain_warning('The current operating system is not supported!') }
       end

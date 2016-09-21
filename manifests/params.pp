@@ -119,6 +119,8 @@ class yum::params {
   }
   $el_sl_file                      = '/etc/yum.repos.d/sl.repo'
   $el_centos_file                  = '/etc/yum.repos.d/CentOS-Base.repo'
+  $el_sclo_file                    = '/etc/yum.repos.d/CentOS-SCLo-scl.repo'
+  $el_sclo_rh_file                 = '/etc/yum.repos.d/CentOS-SCLo-scl-rh.repo'
   $el_softwarecollections_file     = '/etc/yum.repos.d/softwarecollections.repo'
   $el_epel_file                    = '/etc/yum.repos.d/epel.repo'
   $el_epel_testing_file            = '/etc/yum.repos.d/epel-testing.repo'
@@ -139,6 +141,8 @@ class yum::params {
     $el_sl_template                  = 'yum/etc/yum.repos.d/el6/sl.repo.erb'
     $el_centos_template              = 'yum/etc/yum.repos.d/el6/CentOS-Base.repo.erb'
     $el_centos_upg_template          = 'yum/etc/yum.repos.d/el6/upgradetool.repo.erb'
+    $el_sclo_template                = 'yum/etc/yum.repos.d/el6/CentOS-SCLo-scl.repo.erb'
+    $el_sclo_rh_template             = 'yum/etc/yum.repos.d/el6/CentOS-SCLo-scl-rh.repo.erb'
     $el_softwarecollections_template = 'yum/etc/yum.repos.d/el6/softwarecollections.repo.erb'
     $el_epel_template                = 'yum/etc/yum.repos.d/el6/epel.repo.erb'
     $el_epel_testing_template        = 'yum/etc/yum.repos.d/el6/epel-testing.repo.erb'
@@ -154,6 +158,8 @@ class yum::params {
   }
   if $::operatingsystemmajrelease == '7' {
     $el_centos_template              = 'yum/etc/yum.repos.d/el7/CentOS-Base.repo.erb'
+    $el_sclo_template                = 'yum/etc/yum.repos.d/el7/CentOS-SCLo-scl.repo.erb'
+    $el_sclo_rh_template             = 'yum/etc/yum.repos.d/el7/CentOS-SCLo-scl-rh.repo.erb'
     $el_softwarecollections_template = 'yum/etc/yum.repos.d/el7/softwarecollections.repo.erb'
     $el_epel_template                = 'yum/etc/yum.repos.d/el7/epel.repo.erb'
     $el_epel_testing_template        = 'yum/etc/yum.repos.d/el7/epel-testing.repo.erb'

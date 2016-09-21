@@ -55,10 +55,8 @@ class yum::config {
     }
   }
 
-  if $::operatingsystemmajrelease == '6' {
-    if $yum::repo_softwarecollections {
-      include yum::config::softwarecollections
-    }
+  if $yum::repo_softwarecollections {
+    include yum::config::softwarecollections
   }
 
   if $yum::repo_epel {

@@ -11,10 +11,28 @@
 # Sample Usage:
 #
 class yum::config::softwarecollections {
-  file { $yum::params::el_softwarecollections_file:
-    ensure  => file,
-    mode    => '0644',
-    notify  => Exec['yum-cache', 'yum-rpm-key-import'],
-    content => template($yum::params::el_softwarecollections_template);
+  if $::operatingsystem == 'Scientific' {
+    file { $yum::params::el_softwarecollections_file:
+      ensure  => file,
+      mode    => '0644',
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
+      content => template($yum::params::el_softwarecollections_template);
+    }
+  }
+
+  if $::operatingsystem == 'CentOS' {
+    file { $yum::params::el_sclo_file:
+      ensure  => file,
+      mode    => '0644',
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
+      content => template($yum::params::el_sclo_template);
+    }
+
+    file { $yum::params::el_sclo_rh_file:
+      ensure  => file,
+      mode    => '0644',
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
+      content => template($yum::params::el_sclo_rh_template);
+    }
   }
 }
