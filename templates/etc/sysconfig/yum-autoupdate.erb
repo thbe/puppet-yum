@@ -1,0 +1,86 @@
+# This file controls the configuration of yum-autoupdate
+# For it to work as expected it should be /etc/sysconfig/yum-autoupdate
+
+# ENABLED
+#     true - Run yum-autoupdate
+#     false - Do not run yum-autoupdate (default)
+#   + anything other than true defaults to false
+ENABLED="true"
+
+# SENDEMAIL
+#     true - Send emails when there is something to report (default)
+#     false - Do not send any emails
+#   + anything other than false defaults to true
+SENDEMAIL="true"
+
+# SENDONLYERRORS
+#     true - Only emails when there is an error
+#     false - Send email when there is an update and/or an error (default)
+#   + anything other than true defaults to false
+SENDONLYERRORS="false"
+
+# MAILLIST
+#   This is a comma deliminated list
+#   Example:  MAILLIST="root,me@mydomain.com,you@yourdomain.org"
+MAILLIST="root"
+
+# MAXWAITTIME
+#   yum-autoupdate waits for a random time before starting
+#   This setting sets the maximum time in minutes.
+#   Set to 0 for no waiting
+MAXWAITTIME=180
+
+# CONFIGFILE
+#   Change this if you want to use a different yum.conf file.
+CONFIGFILE="/etc/yum.conf"
+
+# EXCLUDE
+#   This is a space deliminated list
+#   Example:  EXCLUDE="kernel* openafs* *-kmdl-* kmod-* *firmware*"
+EXCLUDE="kernel* openafs* *-kmdl-* kmod-* *firmware*"
+
+# PRERUN
+#   A binary or set of commands to run prior to updating (but after sleep)
+PRERUN=""
+
+# ADDONRUN
+#   A binary or set of commands to run prior to updating (but after sleep)
+ADDONRUN=""
+
+# POSTRUN
+#   A binary or set of commands to run after updating (but before mailing)
+POSTRUN=""
+
+# SKIP_BROKEN
+#     true - use yum --skip-broken
+#     false - Do not use yum --skip-broken (default)
+#   + anything other than true defaults to false
+SKIP_BROKEN="false"
+
+# USE_YUMSEC
+#   This switches from using yum update to using yum-plugin-security
+#     true  - run 'yum --security' update rather than 'yum update'
+#     false - defaults to traditional behavior running 'yum update' (default)
+#   + anything other than true defaults to false
+USE_YUMSEC="false"
+
+# CHECK_ONLY
+#   Rather than applying the updates, yum merely runs a 'check-update'
+#     true  - run 'yum check-update' instead of 'yum update'
+#     false - automatically apply updates
+#   + anything other than true defaults to false
+CHECK_ONLY="false"
+
+# UNSTICK_STUCK_YUM
+#   If an existing 'yum' process has been running for over a day, kill it
+#     true  - Kill a yum process running for over a day
+#     false - do nothing to existing yum processes
+#   + anything other than true defaults to false
+UNSTICK_STUCK_YUM="true"
+
+# DEBUG
+#     true - turn on debug mode - be more verbose
+#     false - Do not run in debug mode (default)
+#   + anything other than true defaults to false
+DEBUG="false"
+

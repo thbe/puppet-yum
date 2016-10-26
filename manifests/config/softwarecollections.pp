@@ -35,4 +35,20 @@ class yum::config::softwarecollections {
       content => template($yum::params::el_sclo_rh_template);
     }
   }
+
+  if $::operatingsystem == 'RedHat' {
+    file { $yum::params::el_sclo_file:
+      ensure  => file,
+      mode    => '0644',
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
+      content => template($yum::params::el_sclo_template);
+    }
+
+    file { $yum::params::el_sclo_rh_file:
+      ensure  => file,
+      mode    => '0644',
+      notify  => Exec['yum-cache', 'yum-rpm-key-import'],
+      content => template($yum::params::el_sclo_rh_template);
+    }
+  }
 }

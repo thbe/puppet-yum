@@ -1,4 +1,7 @@
 1.2.5 2016-09-21 thbe <project@bendler-net.de>
+ * Quick fix for RHEL
+
+1.2.5 2016-09-21 thbe <project@bendler-net.de>
  * Switch to install, config, service pattern
  * Switch to current foreman
  * Fix variable names
