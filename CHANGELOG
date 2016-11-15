@@ -1,3 +1,7 @@
+1.3.0 2016-10-26 thbe <project@bendler-net.de>
+ * Fix typo for SLx
+ * Add full auto update
+
 1.2.5 2016-09-21 thbe <project@bendler-net.de>
  * Quick fix for RHEL
 

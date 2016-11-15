@@ -16,7 +16,12 @@
 #   Default value is false
 #
 # [*auto_update*]
-#   Specify if yum should use automatic update
+#   Specify if yum should use automatic update for security updates
+#   Default value is false
+#
+# [*auto_update_complete*]
+#   Specify if yum should use automatic update for all available updates
+#   auto_update need to be set to true, otherwise this function won't work
 #   Default value is false
 #
 # [*yum_exclude*]
@@ -99,6 +104,7 @@ class yum (
   $manage                         = true,
   $tmpfs                          = false,
   $auto_update                    = false,
+  $auto_update_complete           = false,
   $yum_exclude                    = 'unset',
   $yum_proxy                      = 'unset',
   $yum_proxy_user                 = 'unset',
@@ -153,9 +159,9 @@ class yum (
   $el_sl                          = $yum::params::el_sl,
   $el_sl_security                 = $yum::params::el_sl_security,
   $el_sl_source                   = $yum::params::el_sl_source,
-  $elx_sl                         = $yum::params::elx_sl,
-  $elx_sl_security                = $yum::params::elx_sl_security,
-  $elx_sl_fastbugs                = $yum::params::elx_sl_fastbugs,
+  $el_slx                         = $yum::params::el_slx,
+  $el_slx_security                = $yum::params::el_slx_security,
+  $el_slx_fastbugs                = $yum::params::el_slx_fastbugs,
   $el_softwarecollections         = $yum::params::el_softwarecollections,
   $el_softwarecollections_source  = $yum::params::el_softwarecollections_source
 ) inherits yum::params {
@@ -218,9 +224,9 @@ class yum (
   validate_string($yum::el_sl)
   validate_string($yum::el_sl_security)
   validate_string($yum::el_sl_source)
-  validate_string($yum::elx_sl)
-  validate_string($yum::elx_sl_security)
-  validate_string($yum::elx_sl_fastbugs)
+  validate_string($yum::el_slx)
+  validate_string($yum::el_slx_security)
+  validate_string($yum::el_slx_fastbugs)
   validate_string($yum::el_softwarecollections)
   validate_string($yum::el_softwarecollections_source)
 

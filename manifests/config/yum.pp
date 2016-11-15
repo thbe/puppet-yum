@@ -17,4 +17,15 @@ class yum::config::yum {
     mode    => '0644',
     content => template($yum::params::config_yum_conf_template);
   }
+  
+  if $yum::auto_update {
+    file { $yum::params::config_yum_conf:
+      ensure  => file,
+      mode    => '0644',
+      content => template($yum::params::config_yum_conf_template);
+    }
+    if $yum::auto_update_complete {
+      file {}
+    }
+  }
 }
