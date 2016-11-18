@@ -1,58 +1,98 @@
-# Puppet
-/pkg
-/.rspec_system
-/.bundle
-/vendor
-/Gemfile.lock
-/junit
-/log
-.yardoc
-coverage
-TODO
+### .gitignore
+#
+# Generic gitignore for my projects
+#
 
-# Node.js with Express and Stlyus
-public/css/*.css
-public/css/main/*.css
-public/css/admin/*.css
-/.monitor
-
-# Eclipse
-/.project
-/.settings
-/.buildpath
-
-# Sublime
-*.sublime-project
-*.sublime-workspace
-
-# Windows
-Thumbs.db
-
-# Ignore this in Clock Harness projects because it is created by the build system.
-/Config/vhost.conf
-
-# Vim
-.*.sw[a-z]
-*.un~i
-tags
-
-# OsX
+### Operating systems ###
+# macos
 .DS_Store
 Icon?
 ._*
 .Spotlight-V100
 .Trashes
 
+# Windows
+Thumbs.db
+
+### Editors ###
+# Vim
+.*.sw[a-z]
+*.un~i
+tags
+
+# Eclipse
+.project
+.settings
+.buildpath
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+### Programming languages ###
+# Ruby
+*.gem
+*.rbc
+.bundle
+.config
+InstalledFiles
+lib/bundler/man
+rdoc/
+spec/reports
+test/tmp
+test/version_tmp
+tmp/
+
+# Puppet
+Gemfile.lock
+.rspec_system
+coverage/
+.bundle
+spec/fixtures/modules/
+spec/fixtures/manifests/
+pkg/
+TODO
+
+### Tools ###
+# YARD
+.yardoc/
+_yardoc/
+
+# Node.js
+public/css/*.css
+public/css/main/*.css
+public/css/admin/*.css
+.monitor
+
 # nodejs npm modules
-/node_modules
+node_modules
 
 # node-cluster
-/pids
+pids
 *.sock
 
-# ZSH Cake plugin cache
-/.cake_task_cache
+# Packer
+*.box
+packer_cache
 
+# Kodi
+cache/
+kodi-content.html
+videodb.xml
+
+# rpmbuild
+BUILD/
+BUILDROOT/
+RPMS/noarch/*.rpm
+RPMS/x86_64/*.rpm
+SRPMS/*.src.rpm
+SOURCES/*.tar.gz
+tmp/
+
+# ZSH Cake plugin cache
+.cake_task_cache
+
+### Virtualization ###
 # Vagrant
 .vagrant/
 centos6/local/puppet/
@@ -90,21 +130,3 @@ ubuntu-14.04/local/storage/
 !ubuntu-14.04/local/storage/.gitkeep
 ubuntu-14.04/local/tmp/
 !ubuntu-14.04/local/tmp/.gitkeep
-
-# Packer
-*.box
-packer_cache
-
-# Kodi
-cache/
-kodi-content.html
-videodb.xml
-
-# rpmbuild
-BUILD/
-BUILDROOT/
-RPMS/noarch/*.rpm
-RPMS/x86_64/*.rpm
-SRPMS/*.src.rpm
-SOURCES/*.tar.gz
-tmp/

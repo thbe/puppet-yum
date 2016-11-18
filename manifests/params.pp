@@ -31,21 +31,21 @@ class yum::params {
   }
 
   # Package definition
-  $package_yum                   = 'yum'
-  $package_yum_deltarpm          = 'deltarpm'
-  $package_auto_update           = 'yum-cron'
+  $package_yum                        = 'yum'
+  $package_yum_deltarpm               = 'deltarpm'
+  $package_auto_update                = 'yum-cron'
 
   # Config definition
-  $config_yum_conf_directory     = '/etc/yum.conf.d'
-  $config_yum_conf               = '/etc/yum.conf'
-  $config_yum_conf_template      = 'yum/etc/yum.conf.erb'
-  $config_yum_conf_cron          = '/etc/yum/yum-cron.conf'
-  $config_yum_conf_cron_template = 'yum/etc/yum/yum-cron.conf.erb'
-  $config_yum_sysconfig_yum_autoupdate          = '/etc/sysconfig/yum-autoupdate'
-  $config_yum_sysconfig_yum_autoupdate_template = 'yum/etc/sysconfig/yum-autoupdate.erb'
-  $config_yum_sysconfig_yum_cron = '/etc/sysconfig/yum-cron'
-  $config_yum_sysconfig_yum_cron_template       = 'yum/etc/sysconfig/yum-cron.erb'
-  $config_yum_repo_directory     = '/var/lib/yum/repos'
+  $config_yum_conf_directory          = '/etc/yum.conf.d'
+  $config_yum_conf                    = '/etc/yum.conf'
+  $config_yum_conf_template           = 'yum/etc/yum.conf.erb'
+  $config_yum_conf_cron               = '/etc/yum/yum-cron.conf'
+  $config_yum_conf_cron_template      = 'yum/etc/yum/yum-cron.conf.erb'
+  $config_yum_autoupdate              = '/etc/sysconfig/yum-autoupdate'
+  $config_yum_autoupdate_template     = 'yum/etc/sysconfig/yum-autoupdate.erb'
+  $config_yum_sysconfig_cron          = '/etc/sysconfig/yum-cron'
+  $config_yum_sysconfig_cron_template = 'yum/etc/sysconfig/yum-cron.erb'
+  $config_yum_repo_directory          = '/var/lib/yum/repos'
 
   # Yum definitions
   $keepcache                     = '1'
