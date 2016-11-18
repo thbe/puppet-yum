@@ -62,6 +62,9 @@ describe 'yum', :type => :class do
       it { is_expected.to contain_file('/etc/yum.conf').with_ensure('file') }
       it { is_expected.to contain_file('/var/lib/yum/repos').with_ensure('link') }
 
+      it { is_expected.to contain_file('/etc/sysconfig/yum-autoupdate').with_ensure('file') }
+      it { is_expected.to contain_file('/etc/sysconfig/yum-cron').with_ensure('file') }
+
       it { is_expected.to contain_file('/etc/yum.repos.d/custom.repo').with_ensure('file') }
       it { is_expected.to contain_file('/etc/yum.repos.d/epel.repo').with_ensure('file') }
       it { is_expected.to contain_file('/etc/yum.repos.d/epel-testing.repo').with_ensure('file') }
