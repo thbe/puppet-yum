@@ -52,7 +52,7 @@ class yum::params {
 
   # Repository definitions
   case $::operatingsystemmajrelease {
-    6       : {
+    '6': {
       $el_centos_upg      = 'baseurl=http://dev.centos.org/centos/6/upg/x86_64/'
       $el_epel            = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
       $el_epel_debuginfo  = 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-$releasever&arch=$basearch'
@@ -77,7 +77,7 @@ class yum::params {
       $el_softwarecollections        = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/$basearch/'
       $el_softwarecollections_source = 'baseurl=http://ftp.scientificlinux.org/linux/scientific/6x/external_products/softwarecollections/SRPMS/'
     }
-    7       : {
+    '7': {
       $el_centos_debuginfo       = 'baseurl=http://debuginfo.centos.org/7/$basearch/'
       $el_epel                   = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch'
       $el_epel_debuginfo         = 'mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=$basearch'
@@ -122,7 +122,7 @@ class yum::params {
 
   # File definitions
   case $::operatingsystemmajrelease {
-    6       : {
+    '6': {
       $el_slx_file        = '/etc/yum.repos.d/sl6x.repo'
       $el_centos_upg_file = '/etc/yum.repos.d/upgradetool.repo'
     }
@@ -149,7 +149,7 @@ class yum::params {
 
   # Template definitions
   case $::operatingsystemmajrelease {
-    6       : {
+    '6': {
       $el_slx_template                 = 'yum/etc/yum.repos.d/el6/sl6x.repo.erb'
       $el_sl_template                  = 'yum/etc/yum.repos.d/el6/sl.repo.erb'
       $el_centos_template              = 'yum/etc/yum.repos.d/el6/CentOS-Base.repo.erb'
@@ -169,7 +169,7 @@ class yum::params {
       $el_owncloud_template            = 'yum/etc/yum.repos.d/el6/owncloud.repo.erb'
       $el_custom_template              = 'yum/etc/yum.repos.d/el6/custom.repo.erb'
     }
-    7       : {
+    '7': {
       $el_centos_template              = 'yum/etc/yum.repos.d/el7/CentOS-Base.repo.erb'
       $el_sclo_template                = 'yum/etc/yum.repos.d/el7/CentOS-SCLo-scl.repo.erb'
       $el_sclo_rh_template             = 'yum/etc/yum.repos.d/el7/CentOS-SCLo-scl-rh.repo.erb'
