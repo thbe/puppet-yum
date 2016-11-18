@@ -19,11 +19,6 @@
 #   Specify if yum should use automatic update for security updates
 #   Default value is false
 #
-# [*auto_update_complete*]
-#   Specify if yum should use automatic update for all available updates
-#   auto_update need to be set to true, otherwise this function won't work
-#   Default value is false
-#
 # [*yum_exclude*]
 #   Specify if yum should not update certain packages
 #   Default value is not set
@@ -104,7 +99,6 @@ class yum (
   $manage                         = true,
   $tmpfs                          = false,
   $auto_update                    = false,
-  $auto_update_complete           = false,
   $yum_exclude                    = 'unset',
   $yum_proxy                      = 'unset',
   $yum_proxy_user                 = 'unset',

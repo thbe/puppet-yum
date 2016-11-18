@@ -19,22 +19,15 @@ class yum::config::yum {
   }
 
   if $yum::auto_update {
-    file { $yum::params::config_yum_conf:
+    file { $yum::params::config_yum_autoupdate:
       ensure  => file,
       mode    => '0644',
-      content => template($yum::params::config_yum_conf_template);
+      content => template($yum::params::config_yum_autoupdate_template);
     }
-    if $yum::auto_update_complete {
-      file { $yum::params::config_yum_autoupdate:
-        ensure  => file,
-        mode    => '0644',
-        content => template($yum::params::config_yum_autoupdate_template);
-      }
-      file { $yum::params::config_yum_sysconfig_cron:
-        ensure  => file,
-        mode    => '0644',
-        content => template($yum::params::config_yum_sysconfig_cron_template);
-      }
+    file { $yum::params::config_yum_sysconfig_cron:
+      ensure  => file,
+      mode    => '0644',
+      content => template($yum::params::config_yum_sysconfig_cron_template);
     }
   }
 }
