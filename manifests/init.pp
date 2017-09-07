@@ -226,8 +226,8 @@ class yum (
 
   # Start workflow
   if $yum::params::linux {
-    class{'yum::install': } ->
     class{'yum::config': } ~>
+    class{'yum::install': } ->
     class{'yum::service': } ->
     Class['yum']
   }
