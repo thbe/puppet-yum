@@ -1,14 +1,49 @@
----
+sudo: required
+dist: trusty
+services: docker
 language: ruby
-bundler_args: --without system_tests --jobs 3 --retry 3
-before_install: rm Gemfile.lock || true
-sudo: false
-script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec"
+cache: bundler
+bundler_args: "--without system_tests"
+before_install:
+- rm Gemfile.lock || true
+- gem update --system
+- gem update bundler
+- gem --version
+- bundle --version
+stages:
+- test
+- deploy
+script:
+- bundle exec rake $CHECK
 matrix:
   fast_finish: true
   include:
-  - rvm: 2.1.6
-    env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES=yes ORDERING=random
+  - rvm: 2.1.9
+    env: PUPPET_VERSION="~> 4.0" CHECK=test
+    stage: test
+  - rvm: 2.3.1
+    env: PUPPET_VERSION="~> 4.0" CHECK=test
+    stage: test
+  - rvm: default
+    env: PUPPET_VERSION="~> 5.0" CHECK=test
+    stage: test
+  - rvm: default
+    bundler_args: ''
+    env: BEAKER_set=centos-7-x64 BEAKER_debug=1 PUPPET_INSTALL_TYPE=agent CHECK=beaker DEPLOY_TO_FORGE=yes
+    stage: deploy
+branches:
+  only:
+  - master
+  - "/^v\\d/"
 notifications:
   email:
-    - project@bendler-net.de
+  - project@bendler-net.de
+deploy:
+  provider: puppetforge
+  user: thbe
+  password:
+    secure: WONtn1pZBfuz8q1XJjKw9I/QlrOr3epKUGzf5f74IGkJXTBlFH7THOVcVQMmF6BkbEVKw+vtGv8x0Hy+rPyXaVMmiJ/Ek2VzRPwdOTgclLSTCalxlJkW3AzT6O5rxY2oeEYpAoM9EL05MWd1LeKIa8Ph3/UC9JSqj6bJGnt+S21VRqyurh8IiMlswk4W76vu+BT480KTBDRbz06QIT1WV2h8VzqR+HGikBofavrTaJM1Pu1DqtCkLLMJX2PPqYFAi+zZbiXvNQc9AZFN/iSuUHYj5uHZkGZq7uk7wbo1QORgClWpikSAhmBVAJIHz65S6pZSvpvwGa8BaE91HpFasOpsnbL/NpXj9JYMhGCPu5zTMTW67yssLe6rGIojJUUZ6yk+7FLVQ5KCvHeYE30VHHAJYuW8/PF0MT+LFZk9QtvTiPlkecKuH2+kF56fF/rOQx7OZ8mUAc3tRgefAs6M52EPNbTSVR0DJvRJ5t4s4DzEHNQ8WX+u8FWj7Ke4yGZG+HCzDckxNzfoQYAumyYioWQB7ypQdg+f9ccTATCtncZi6381nq11VE4lYsyuvN3wKWRj1lrLm/cku0nBTzgBb9btr11GS6IyNizWlgnQ+8xERsbzpbO/fHThDXubnBWOgx0nnw7iZCuK/T9GycFA5uS76zoH/k+9kIWQZhhlFAA=
+  on:
+    tags: true
+    all_branches: true
+    condition: "$DEPLOY_TO_FORGE = yes"
