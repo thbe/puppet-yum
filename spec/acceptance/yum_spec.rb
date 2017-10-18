@@ -8,7 +8,7 @@ class { 'yum':
   tmpfs                    => true,
   auto_update              => true,
   yum_exclude              => 'kernel*',
-  repo_custom              => true,
+  repo_custom              => false,
   repo_epel                => true,
   repo_foreman             => true,
   repo_icinga              => true,
