@@ -30,66 +30,66 @@ class yum::config {
   }
 
   # Add yum configuration
-  include yum::config::yum
+  include ::yum::config::yum
 
   # yum repository configuration
   if $yum::tmpfs {
-    include yum::config::tmpfs
+    include ::yum::config::tmpfs
   }
 
   if $::operatingsystem == 'Scientific' {
-    include yum::config::sl
+    include ::yum::config::sl
   }
 
   if $::operatingsystem == 'CentOS' {
-    include yum::config::centos
+    include ::yum::config::centos
   }
 
   if $::operatingsystem == 'OracleLinux' {
-    include yum::config::oel
+    include ::yum::config::oel
   }
 
   if $::operatingsystemmajrelease == '6' {
     if $yum::repo_upgradetool {
-      include yum::config::upgradetool
+      include ::yum::config::upgradetool
     }
   }
 
   if $yum::repo_softwarecollections {
-    include yum::config::softwarecollections
+    include ::yum::config::softwarecollections
   }
 
   if $yum::repo_epel {
-    include yum::config::epel
+    include ::yum::config::epel
   }
 
   if $yum::repo_puppetlabs {
-    include yum::config::puppetlabs
+    include ::yum::config::puppetlabs
   }
 
   if $yum::repo_foreman {
-    include yum::config::foreman
+    include ::yum::config::foreman
   }
 
   if $::operatingsystemmajrelease == '6' {
     if $yum::repo_passenger {
-      include yum::config::passenger
+      include ::yum::config::passenger
     }
   }
 
   if $yum::repo_ovirt {
-    include yum::config::ovirt
+    include ::yum::config::ovirt
   }
 
   if $yum::repo_owncloud {
-    include yum::config::owncloud
+    include ::yum::config::owncloud
   }
 
   if $yum::repo_icinga {
-    include yum::config::icinga
+    include ::yum::config::icinga
   }
 
   if $yum::repo_custom {
-    include yum::config::custom
+    include ::yum::config::custom
   }
 }

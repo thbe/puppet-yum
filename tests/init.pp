@@ -9,8 +9,5 @@
 # Learn more about module testing here:
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
-class { '::yum':
-  repo_softwarecollections => 'yes',
-  repo_epel                => 'yes',
-  repo_puppetlabs          => 'yes',
-}
+include ::stdlib
+class { '::yum': }

@@ -15,9 +15,9 @@ RSpec.configure do |c|
   # Configure all nodes in nodeset
   c.before :suite do
     # Install module and dependencies
-    puppet_module_install(:source => proj_root, :module_name => 'bareos')
+    puppet_module_install(:source => proj_root, :module_name => 'yum')
     hosts.each do |host|
-      [ 'puppetlabs-stdlib', 'puppetlabs-mysql', 'puppetlabs-concat', 'puppetlabs-apt' ].each do |mod|
+      [ 'puppetlabs-stdlib' ].each do |mod|
         on host, puppet('module', 'install', mod), { :acceptable_exit_codes => [0,1] }
       end
     end

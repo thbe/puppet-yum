@@ -14,12 +14,12 @@ class yum::config::tmpfs {
   exec { 'move_repo_directory':
     path    => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'],
     command => "mv ${yum::params::config_yum_repo_directory} ${yum::params::config_yum_repo_directory}.orig",
-    onlyif  => "test ! -L ${yum::params::config_yum_repo_directory}"
+    onlyif  => "test ! -L ${yum::params::config_yum_repo_directory}",
   }
 
   file { $yum::params::config_yum_repo_directory:
     ensure  => link,
     target  => '/dev/shm',
-    require => Exec['move_repo_directory']
+    require => Exec['move_repo_directory'],
   }
 }
