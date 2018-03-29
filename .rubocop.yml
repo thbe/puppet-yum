@@ -9,7 +9,7 @@ AllCops:
     # Ignore packages
     - 'pkg/**/*'
 
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Enabled: true
 
 Lint/ElseLayout:
@@ -27,9 +27,6 @@ Lint/EnsureReturn:
 Lint/HandleExceptions:
   Enabled: true
 
-Lint/LiteralInCondition:
-  Enabled: true
-
 Lint/ShadowingOuterLocalVariable:
   Enabled: true
 
@@ -45,11 +42,11 @@ Lint/AmbiguousOperator:
 Lint/AssignmentInCondition:
   Enabled: true
 
-Layout/SpaceBeforeComment:
-  Enabled: true
-
 # DISABLED - not useful
 Style/HashSyntax:
+  Enabled: false
+
+Style/MixinUsage:
   Enabled: false
 
 # USES: as shortcut for non nil&valid checking a = x() and a.empty?
@@ -78,15 +75,15 @@ Security/Eval:
   Enabled: false
 
 # DISABLED
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   Enabled: false
 
 # DISABLED
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   Enabled: false
 
 # DISABLED
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: false
 
 # DISABLED
@@ -199,9 +196,6 @@ Layout/TrailingBlankLines:
   Enabled: false
 
 Layout/SpaceInsideBlockBraces:
-  Enabled: false
-
-Layout/SpaceInsideBrackets:
   Enabled: false
 
 Layout/SpaceInsideHashLiteralBraces:
@@ -325,7 +319,10 @@ Layout/TrailingWhitespace:
 Style/StringLiterals:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
   Enabled: false
 
 Style/TrailingCommaInArguments:
@@ -467,9 +464,6 @@ Metrics/ParameterLists:
   Enabled: false
 
 Lint/RequireParentheses:
-  Enabled: false
-
-Layout/SpaceBeforeFirstArg:
   Enabled: false
 
 Style/ModuleFunction:
