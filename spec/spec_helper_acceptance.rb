@@ -17,7 +17,7 @@ RSpec.configure do |c|
     # Install module and dependencies
     puppet_module_install(:source => proj_root, :module_name => 'yum')
     hosts.each do |host|
-      [ 'puppetlabs-stdlib' ].each do |mod|
+      ['puppetlabs-stdlib'].each do |mod|
         on host, puppet('module', 'install', mod), { :acceptable_exit_codes => [0,1] }
       end
     end
