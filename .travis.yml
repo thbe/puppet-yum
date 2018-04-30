@@ -27,14 +27,6 @@ matrix:
     stage: test
   - rvm: default
     bundler_args: ''
-    env: BEAKER_set=debian-7-x64 BEAKER_debug=1 PUPPET_INSTALL_TYPE=agent CHECK=beaker
-    stage: acceptance
-  - rvm: default
-    bundler_args: ''
-    env: BEAKER_set=debian-8-x64 BEAKER_debug=1 PUPPET_INSTALL_TYPE=agent CHECK=beaker
-    stage: acceptance
-  - rvm: default
-    bundler_args: ''
     env: BEAKER_set=centos-7-x64 BEAKER_debug=1 PUPPET_INSTALL_TYPE=agent CHECK=beaker
     stage: acceptance
   - rvm: default
