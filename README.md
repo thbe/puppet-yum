@@ -1,10 +1,10 @@
-#yum
+# yum
 
 [![Build Status](https://travis-ci.org/thbe/puppet-yum.png?branch=master)](https://travis-ci.org/thbe/puppet-yum)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/thbe/yum.svg)](https://forge.puppetlabs.com/thbe/yum)
 [![Coverage Status](https://coveralls.io/repos/thbe/puppet-yum/badge.svg?branch=master&service=github)](https://coveralls.io/github/thbe/puppet-yum?branch=master)
 
-####Table of Contents
+#### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
@@ -18,25 +18,25 @@
 6. [Development - Guide for contributing to the module](#development)
 
 
-##Overview
+## Overview
 
 The yum module provides several repositories available for RPM based RHEL 6 clones like
 CentOS or Scientific Linux.
 
-##Module Description
+## Module Description
 
 The yum module provides several repositories available for RPM based RHEL 6 clones like
 CentOS or Scientific Linux.
 
-##Setup
+## Setup
 
-###What yum affects
+### What yum affects
 
 * yum package.
 * yum configuration file.
 * yum repository configuration.
 
-###Beginning with yum
+### Beginning with yum
 
 include '::yum' is enough to get you up and running if the parameters point to
 proper values.  If you wish to pass in parameters like which repositories to use
@@ -48,20 +48,20 @@ class { '::yum':
 }
 ```
 
-##Usage
+## Usage
 
 All interaction with the yum module can do be done through the main yum class.
 This means you can simply toggle the options in the yum class to get at the full
 functionality. You also have the possibility to include classes in the order you
 need.
 
-###I just want yum, what's the minimum I need?
+### I just want yum, what's the minimum I need?
 
 ```puppet
 include '::yum'
 ```
 
-###I just want to add CoreOS, EPEL, SC and Puppet plus Foreman
+### I just want to add CoreOS, EPEL, SC and Puppet plus Foreman
 
 ```puppet
 class { '::yum':
@@ -70,92 +70,92 @@ class { '::yum':
 ```
 
 
-##Reference
+## Reference
 
-###Classes
+### Classes
 
 * yum: Main class, includes all the rest.
 * yum::install: Handles the packages.
 * yum::config: Handles the configuration file.
 
-###Parameters
+### Parameters
 
 The following parameters are available in the yum module
 
-####`manage`
+#### `manage`
 
 Define if yum repositories are managed by module
 
-####`tmpfs`
+#### `tmpfs`
 
 Define if yum repositories should be stored on tmpfs instead of harddisk
 
-####`auto_update`
+#### `auto_update`
 
 Define if yum should automatically update the system every night
 
-####`yum_exclude`
+#### `yum_exclude`
 
 List of RPMs that are exclude during yum run
 
-####`yum_proxy`
+#### `yum_proxy`
 
 Should yum proxy be used and if yes, define URL,
 i.e. http://mycache.mydomain.com:3128
 
-####`yum_proxy_user`
+#### `yum_proxy_user`
 
 Use defined user to connect to proxy server
 
-####`yum_proxy_password`
+#### `yum_proxy_password`
 
 Use defined password to connect to proxy server
 
-####`repo_sl`
+#### `repo_sl`
 
 Enable SL and SLx repository.
 
-####`repo_centos`
+#### `repo_centos`
 
 Enable CentOS repository.
 
-####`repo_softwarecollections`
+#### `repo_softwarecollections`
 
 Enable Software Collections repository.
 
-####`repo_epel`
+#### `repo_epel`
 
 Enable EPEL repository.
 
-####`repo_puppetlabs`
+#### `repo_puppetlabs`
 
 Enable Puppetlabs repository.
 
-####`repo_foreman`
+#### `repo_foreman`
 
 Enable Foreman repository.
 
-####`repo_passenger`
+#### `repo_passenger`
 
 Enable Passenger repository.
 
-####`repo_ovirt`
+#### `repo_ovirt`
 
 Enable Ovirt repository.
 
-####`repo_icinga`
+#### `repo_icinga`
 
 Enable Icinga repository.
 
-####`repo_custom`
+#### `repo_custom`
 
 Enable custom repository.
 
-####`repo_upgradetool`
+#### `repo_upgradetool`
 
 Enable upgradetool repository.
 
-####`Additional parameters`
+#### `Additional parameters`
 ```puppet
 $el_custom                      = $yum::params::el_custom,
 $el_epel                        = $yum::params::el_epel,
@@ -188,7 +188,7 @@ $el_softwarecollections         = $yum::params::el_softwarecollections,
 $el_softwarecollections_source  = $yum::params::el_softwarecollections_source
 ```
 
-##Limitations
+## Limitations
 
 This module has been built on and tested against Puppet 3.7 and higher.
 
@@ -206,7 +206,7 @@ can be implemented, i.e., activating or disabling repositories and features is c
 only possible inside the template. That should be implemented as parameters in the
 future.
 
-##Development
+## Development
 
 If you like to add or improve this module, feel free to fork the module and send
 me a merge request with the modification.
