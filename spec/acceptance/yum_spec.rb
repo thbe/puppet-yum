@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'yum' do
   let(:manifest) {
-    <<-CLASSPARAMETER
+<<-CLASSPARAMETER
 class { 'yum':
   manage                   => true,
   tmpfs                    => true,
