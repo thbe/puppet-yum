@@ -226,10 +226,10 @@ class yum (
 
   # Start workflow
   if $yum::params::linux {
-    class{'yum::config': } ~>
-    class{'yum::install': } ->
-    class{'yum::service': } ->
-    Class['yum']
+    class{'::yum::config': }
+    -> class{'::yum::install': }
+    ~> class{'::yum::run': }
+    -> Class['yum']
   }
   else {
     warning('The current operating system is not supported!')

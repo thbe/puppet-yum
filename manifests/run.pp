@@ -1,4 +1,4 @@
-# Class: yum::service
+# Class: yum::run
 #
 # This module contain the service configuration for yum
 #
@@ -10,17 +10,17 @@
 #
 # Sample Usage:
 #
-class yum::service {
+class yum::run {
   # yum service configuration
   exec { 'yum-cache':
     command     => 'yum clean all && yum makecache',
     path        => '/bin:/sbin:/usr/bin:/usr/sbin',
-    refreshonly => true
+    refreshonly => true,
   }
 
   exec { 'yum-rpm-key-import':
     command     => 'rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-*',
     path        => '/bin:/sbin:/usr/bin:/usr/sbin',
-    refreshonly => true
+    refreshonly => true,
   }
 }

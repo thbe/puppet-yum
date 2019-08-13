@@ -1,14 +1,52 @@
----
+sudo: required
+dist: trusty
+services: docker
 language: ruby
-bundler_args: --without system_tests --jobs 3 --retry 3
-before_install: rm Gemfile.lock || true
-sudo: false
-script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec"
+cache: bundler
+bundler_args: "--without system_tests"
+before_install:
+- rm Gemfile.lock || true
+- gem update --system
+- gem update bundler
+- gem --version
+- bundle --version
+stages:
+- test
+- acceptance
+- deploy
+script:
+- bundle exec rake $CHECK
+rvm:
+- 2.4.4
+env:
+  global:
+  - BEAKER_PUPPET_COLLECTION=puppet5 PUPPET_GEM_VERSION="~> 5.0"
 matrix:
   fast_finish: true
   include:
-  - rvm: 2.1.6
-    env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES=yes ORDERING=random
+  - rvm: 2.4.4
+    env: PUPPET_VERSION="~> 5.0" CHECK=test
+    stage: test
+  - rvm: 2.4.4
+    bundler_args: ''
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_PUPPET_COLLECTION=puppet5 BEAKER_set=docker/centos-7 BEAKER_TESTMODE=apply
+    stage: acceptance
+  - rvm: 2.4.4
+    env: PUPPET_VERSION="~> 5.0" DEPLOY_TO_FORGE=yes
+    stage: deploy
+branches:
+  only:
+  - master
+  - "/^v\\d/"
 notifications:
   email:
-    - project@bendler-net.de
+  - project@bendler-net.de
+deploy:
+  provider: puppetforge
+  user: thbe
+  password:
+    secure: bh0aMz3zu4GlpjQxDOR7kpOYoKKRFDgLHsJUFTiKmr+eRwENALGvTeciyu86D27P04vIbrutW9dQJmvfVBKXvl9xlrwhEzQ78jVwBtW9RbDPul5s54Z41mH+jeDPrVmh1WgMSKrHlfXHxOoyA6jwsET5NYV1dRTckPrVajXt7ArTVeZvMbd1hopptZRSWpfc2wNtLx9fZyhIF9NvIYgSrpmAX3aIgQBMqkkuE8n8luqRphuyYjXaSkYo+WjAffpLu+7qKBaNCSd3s0dzvGDQSycqSI3qwtIu+xao/lZSQ5Zic7vmHFNWXOBL7PxK4wtZEdx+ra8XIZYZ8ZAqME5Q4eKaxmRjKhwr5mfZ8GxzOqWbb9POt2VdzOel7UpBxBlqg74LmXlQIcj5rH3cggfVcQkHKu0GIXIe52BSMt5buwdygSI2SKQmo+78+80D+/W7lTIZQqh/wxinM952mDTl41SkhboHPttBH8bkP81FYcmvWaqmetrPibBfd/yM27obAMzUX/vg8dSctGHmvjlXPyMu6FjMwvkS6WLIAqWv3emiFls8I8/iexj2axIVdifSATVV27EldSPyGTUmnaFEAQB2LGrVdwoLiM63tU8n83rk/SglZjHyy/aBT4nvPEi8J+irNt7CHlqEbD5dUhGEYFPfAz2Uee0TrG+hcy8moqs=
+  on:
+    tags: true
+    all_branches: true
+    condition: "$DEPLOY_TO_FORGE = yes"

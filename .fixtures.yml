@@ -1,5 +1,5 @@
 fixtures:
-  forge_modules:
-    stdlib: "puppetlabs/stdlib"
+  repositories:
+    stdlib: "git://github.com/puppetlabs/puppetlabs-stdlib.git"
   symlinks:
     yum: "#{source_dir}"

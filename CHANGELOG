@@ -1,3 +1,11 @@
+1.3.2 2018-09-19 thbe <project@bendler-net.de>
+ * Fixed minor version number
+ * Fixed markdown
+ * Fixed alignment
+
+1.3.0 2017-10-18 thbe <project@bendler-net.de>
+ * Fully automated CI pipeline
+
 1.3.0 2016-10-26 thbe <project@bendler-net.de>
  * Fix typo for SLx
  * Add full auto update

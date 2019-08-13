@@ -1,39 +1,12 @@
 require 'spec_helper'
 
 describe 'yum', :type => :class do
-
-  context 'with defaults for all parameters' do
-    it { should contain_class('yum') }
-  end
-
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do
-        facts
+        facts.merge( { root_home: '/root', staging_http_get: 'curl' } )
       end
-
-      let(:params) {
-        {
-          :manage => true,
-          :tmpfs => true,
-          :auto_update => true,
-          :yum_exclude => 'kernel*',
-          :yum_proxy => 'http://proxy.domain.local:3128',
-          :yum_proxy_user => 'user1',
-          :yum_proxy_password => 'Secret1',
-          :repo_custom => true,
-          :repo_epel => true,
-          :repo_foreman => true,
-          :repo_icinga => true,
-          :repo_ovirt => true,
-          :repo_owncloud => true,
-          :repo_passenger => true,
-          :repo_puppetlabs => true,
-          :repo_softwarecollections => true,
-          :repo_upgradetool => true,
-          :el_custom => 'http://repository.domain.local/el/$releasever/$basearch/'
-        }
-      }
+      let(:params) { { :manage => true, :tmpfs => true, :auto_update => true, :yum_exclude => 'kernel*', :yum_proxy => 'http://proxy.domain.local:3128', :yum_proxy_user => 'user1', :yum_proxy_password => 'Secret1', :repo_custom => true, :repo_epel => true, :repo_foreman => true, :repo_icinga => true, :repo_ovirt => true, :repo_owncloud => true, :repo_passenger => true, :repo_puppetlabs => true, :repo_softwarecollections => true, :repo_upgradetool => true, :el_custom => 'http://repository.domain.local/el/$releasever/$basearch/' } }
 
       it { is_expected.to compile.with_all_deps }
 
@@ -84,26 +57,11 @@ describe 'yum', :type => :class do
         expect(content).to match('proxy_password=Secret1')
       end
 
-      it { is_expected.to contain_exec('move_repo_directory').with(
-        'path'    => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'],
-        'command' => "mv /var/lib/yum/repos /var/lib/yum/repos.orig",
-        'onlyif'  => "test ! -L /var/lib/yum/repos"
-        )
-      }
+      it { is_expected.to contain_exec('move_repo_directory').with('path' => ['/bin', '/usr/bin', '/sbin', '/usr/sbin'], 'command' => "mv /var/lib/yum/repos /var/lib/yum/repos.orig", 'onlyif' => "test ! -L /var/lib/yum/repos") }
 
-      it { is_expected.to contain_exec('yum-cache').with(
-        'command'     => 'yum clean all && yum makecache',
-        'path'        => '/bin:/sbin:/usr/bin:/usr/sbin',
-        'refreshonly' => 'true'
-        )
-      }
+      it { is_expected.to contain_exec('yum-cache').with('command' => 'yum clean all && yum makecache', 'path' => '/bin:/sbin:/usr/bin:/usr/sbin', 'refreshonly' => 'true') }
 
-      it { is_expected.to contain_exec('yum-rpm-key-import').with(
-        'command'     => 'rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-*',
-        'path'        => '/bin:/sbin:/usr/bin:/usr/sbin',
-        'refreshonly' => 'true'
-        )
-      }
+      it { is_expected.to contain_exec('yum-rpm-key-import').with('command' => 'rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-*', 'path' => '/bin:/sbin:/usr/bin:/usr/sbin', 'refreshonly' => 'true') }
 
       case facts[:operatingsystem]
       when 'CentOS'
